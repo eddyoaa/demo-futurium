@@ -1,0 +1,27 @@
+{
+  "button": {
+    "question": "Choose question",
+    "sort": "Sort By",
+    "latest": "Latest Answers"
+  },
+  "needHelpButton": "Need help?",
+  "legend": {
+    "answer": "Answer",
+    "question": "Question",
+    "topic": "Topic"
+  },
+  "inspector": {
+    "title": {
+      "facts": {
+        "facts": "Quick facts",
+        "topic": "The most popular topics:",
+        "answer": "The most answered question:",
+        "general": "- general"
+      },
+      "answer": {
+        "topic": "Associated Topics",
+        "answer": "{{contentDate}}  -  {{contentTime}}"
+      }
+    }
+  }
+}

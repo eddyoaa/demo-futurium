@@ -1,0 +1,27 @@
+{
+  "button": {
+    "question": "Fragen auswählen",
+    "sort": "Sortieren",
+    "latest": "Letzte Antworten"
+  },
+  "needHelpButton": "Hilfe?",
+  "legend": {
+    "answer": "Antwort",
+    "question": "Frage",
+    "topic": "Thema"
+  },
+  "inspector": {
+    "title": {
+      "facts": {
+        "facts": "Quick facts",
+        "topic": "Die beliebtesten Themen:",
+        "answer": "Meist beantwortete Fragen:",
+        "general": "- allgemein"
+      },
+      "answer": {
+        "topic": "Verknüpfte Themen",
+        "answer": "{{contentDate}}  -  {{contentTime}}"
+      }
+    }
+  }
+}
