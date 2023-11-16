@@ -324,18 +324,18 @@ const App = () => {
       className="touch-none select-none font-futurium w-screen h-screen overflow-hidden flex justify-center items-end bg-opacity-20 p-12 relative"
     >
       <div className="absolute flex h-full top-12 gap-1 left-12  flex-col justify-start items-start">
-        <div ref={buttonRef} className="flex justify-center items-start gap-4">
+        <div ref={buttonRef} className="flex justify-center 2xl:gap-8 items-start gap-4">
           <Button onClick={toggleQuestionMenu}>
-            <p className="text-lg font-bold ">{t("button.question")}</p>
-            <IoMdArrowDropdown className="w-6 h-6" />
+            <p>{t("button.question")}</p>
+            <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
           </Button>
           <Button onClick={toggleSortByMenu}>
-            <p className="text-lg font-bold ">{t("button.sort")}</p>
-            <IoMdArrowDropdown className="w-6 h-6" />
+            <p>{t("button.sort")}</p>
+            <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
           </Button>
           <Button onClick={toggleLatestAnswerMenu}>
-            <p className="text-lg font-bold">{t("button.latest")}</p>
-            <IoMdArrowDropdown className="w-6 h-6" />
+            <p>{t("button.latest")}</p>
+            <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
           </Button>
         </div>
         <MenuWrapper
@@ -417,14 +417,14 @@ const App = () => {
           Answer
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-14 right-32">
+      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-52">
         <div ref={needHelpRef}>
           <Button>
-            <p className="text-lg font-bold">{t("needHelpButton")}</p>
+            <p>{t("needHelpButton")}</p>
           </Button>
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-12 right-12">
+      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-14 right-12">
         <div ref={languageRef}>
           <LanguageButton
             currentLanguage={i18n.language.toUpperCase()}

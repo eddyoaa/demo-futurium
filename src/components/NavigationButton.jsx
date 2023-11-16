@@ -12,23 +12,26 @@ const NavigationButton = ({
   navigationState,
   ...props
 }) => {
-  const iconSize = 24;
+  let iconSize = 24;
+  if(window.innerWidth>2000){
+    iconSize=36
+  }
   return (
-    <div className="drop-shadow-3xl flex rounded-lg bg-white">
+    <div className="drop-shadow-3xl flex rounded-lg 2xl:rounded-2xl bg-white">
       <button
         onClick={onLeftClick}
         {...props}
         className={`${
-          type === "zoom" ? "p-3 active:bg-slate-200 " : "p-2"
-        }  rounded-lg flex items-center gap-2`}
+          type === "zoom" ? "p-3 2xl:p-8 active:bg-slate-200 " : "p-2 2xl:p-4"
+        }  rounded-lg 2xl:rounded-2xl flex items-center gap-2`}
       >
         {type === "zoom" ? (
           <AiOutlineMinus size={iconSize} />
         ) : (
           <div
-            className={`transition-all ${
+            className={`transition-all p-1 2xl:p-4 ${
               navigationState === "move"
-                ? "p-1 bg-black text-white rounded-lg"
+                ? "  bg-black text-white rounded-lg 2xl:rounded-2xl"
                 : ""
             }`}
           >
@@ -40,16 +43,16 @@ const NavigationButton = ({
         onClick={onRightClick}
         {...props}
         className={`${
-          type === "zoom" ? "p-3 active:bg-slate-200" : "p-2"
-        }  rounded-lg flex items-center gap-2`}
+          type === "zoom" ? "p-3 2xl:p-8 active:bg-slate-200" : "p-2 2xl:p-4"
+        }  rounded-lg 2xl:rounded-2xl flex items-center gap-2`}
       >
         {type === "zoom" ? (
           <AiOutlinePlus size={iconSize} />
         ) : (
           <div
-            className={`transition-all ${
+            className={`transition-all p-1 2xl:p-4  ${
               navigationState === "rotate"
-                ? "p-1 bg-black rounded-lg text-white"
+                ? "bg-black rounded-lg 2xl:rounded-2xl text-white "
                 : ""
             }`}
           >
