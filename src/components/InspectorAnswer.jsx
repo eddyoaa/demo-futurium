@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
+import ElementStyle from "./ElementStyle";
 
 const InspectorAnswer = ({ content }) => {
   const { i18n } = useTranslation();
@@ -22,23 +23,17 @@ const InspectorAnswer = ({ content }) => {
   return (
     <div
       className="
-      bg-gradient-to-r justify-start text-white items-end flex-col gap-4 max-h-[450px] flex from-slate-800/80 drop-shadow-none to-green-600/60 max-w-sm rounded-xl p-4"
+      bg-gradient-to-r justify-start text-white items-end flex-col gap-4 2xl:gap-8 max-h-[450px] 2xl:max-h-[1200px] flex from-slate-800/80 drop-shadow-none to-green-600/60 2xl:rounded-2xl 2xl:p-8 rounded-xl p-4"
     >
-      <h3 className="font-normal flex text-xs pr-2">
+      <h3 className="font-normal flex text-xs 2xl:text-xl pr-2 2xl:pr-6">
         <Trans i18nKey="inspector.title.answer.answer">
           {{ contentDate }} - {{ contentTime }}
         </Trans>
       </h3>
-      <div className="flex flex-col justify-start items-start scrollbar-custom h-full pr-4 gap-6 overflow-y-auto">
-        <div className="gap-4 flex items-center w-full">
-          <div className={`w-1 h-full rounded-xl bg-blue-400`}></div>
-          <div className="flex flex-col">{content.properties.questions}</div>
+      <div className="flex flex-col w-full items-start scrollbar-custom h-full pr-4 2xl:pr-6 gap-6 2xl:gap-12 overflow-y-auto">
+            <ElementStyle elementType={"question"}>{content.properties.questions}</ElementStyle>
+            <ElementStyle elementType={"answer"}>"{contentAnswer}"</ElementStyle>
         </div>
-        <div className="gap-4 flex items-center w-full">
-          <div className={`w-1 h-full rounded-xl bg-green-400`}></div>
-          <p className="w-full text-2xl">"{contentAnswer}"</p>
-        </div>
-      </div>
     </div>
   );
 };

@@ -36,7 +36,7 @@ let contentAnswer = {
       VertexID: 15,
       VertexType: 0,
       categories: [11],
-      de: "Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.",
+      de: "Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zse lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen.se lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauenu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.",
       en: "The government should solve the energy crisis issue. We should find a way to provide. Energy. Uh, in a more efficient way and without requiring to. Without requiring to dig coal.",
       keywords: [16, 17, 18, 19],
       lang: 1,
@@ -323,7 +323,7 @@ const App = () => {
       {...bind()}
       className="touch-none select-none font-futurium w-screen h-screen overflow-hidden flex justify-center items-end bg-opacity-20 p-12 relative"
     >
-      <div className="absolute flex h-full top-12 gap-1 left-12  flex-col justify-start items-start">
+      <div className="absolute flex h-full top-12 gap-1 2xl:gap-4 left-12  flex-col justify-start items-start">
         <div ref={buttonRef} className="flex justify-center 2xl:gap-8 items-start gap-4">
           <Button onClick={toggleQuestionMenu}>
             <p>{t("button.question")}</p>
@@ -352,7 +352,7 @@ const App = () => {
           />
         </MenuWrapper>
         <MenuWrapper
-          className="ml-52"
+          className={`${i18n.language==="de"? "ml-[435px]": "ml-[410px]"} -mt-4`}
           _ref={sortByMenuRef}
           showState={sortByMenu}
         >
@@ -364,7 +364,7 @@ const App = () => {
           />
         </MenuWrapper>
         <MenuWrapper
-          className="ml-80"
+          className={`${i18n.language==="de"? "ml-[730px]": "ml-[680px]"} -mt-4`}
           _ref={latestAnswerMenuRef}
           showState={latestAnswerMenu}
         >
@@ -388,7 +388,7 @@ const App = () => {
         leaveTo="opacity-0 translate-x-12"
         afterLeave={handleContentSwitch}
       >
-        <div className="flex flex-col max-w-sm justify-center items-end gap-2">
+        <div className="flex flex-col max-w-sm 2xl:max-w-4xl justify-center items-end gap-2">
           {choosenElement !== "none" && (
             <div onClick={handleCloseButton}>
               <CloseButton />
@@ -417,7 +417,7 @@ const App = () => {
           Answer
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-52">
+      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-48">
         <div ref={needHelpRef}>
           <Button>
             <p>{t("needHelpButton")}</p>

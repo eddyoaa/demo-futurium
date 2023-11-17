@@ -29,10 +29,10 @@ const NavigationButton = ({
           <AiOutlineMinus size={iconSize} />
         ) : (
           <div
-            className={`transition-all p-1 2xl:p-4 ${
+            className={`transition-all duration-300 p-1 2xl:p-4 ${
               navigationState === "move"
-                ? "  bg-black text-white rounded-lg 2xl:rounded-2xl"
-                : ""
+                ? "bg-black text-white rounded-lg 2xl:rounded-2xl"
+                : "bg-black/0"
             }`}
           >
             <PiArrowsOutCardinalLight size={iconSize} />
@@ -50,10 +50,10 @@ const NavigationButton = ({
           <AiOutlinePlus size={iconSize} />
         ) : (
           <div
-            className={`transition-all p-1 2xl:p-4  ${
+            className={`transition-all duration-300 p-1 2xl:p-4  ${
               navigationState === "rotate"
                 ? "bg-black rounded-lg 2xl:rounded-2xl text-white "
-                : ""
+                : "bg-black/0"
             }`}
           >
             <PiArrowsClockwiseLight size={iconSize} />
