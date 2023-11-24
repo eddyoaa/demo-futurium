@@ -14,6 +14,7 @@ import LanguageButton from "./components/LanguageButton";
 import Menu from "./components/Menu";
 import MenuWrapper from "./components/MenuWrapper";
 import NavigationButton from "./components/NavigationButton";
+import useGestureInterpreter from "./hooks/useGestureInterpreter";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
 
 const questions = [
@@ -123,6 +124,13 @@ const App = () => {
   const [sortByMenu, setSortByMenu] = useState(false);
   const [languageMenu, setLanguageMenu] = useState(false);
   const [latestAnswerMenu, setLatestAnswerMenu] = useState(false);
+  const [helpButton, setHelpButton] = useState(0);
+  const [zoomMinusButton, setZoomMinusButton] = useState(0);
+  const [zoomPlusButton, setZoomPlusButton] = useState(0);
+  const [homeButton, setHomeButton] = useState(0);
+  const [touchPosition, setTouchPosition] = useState([]);
+  const [touchState, setTouchState] = useState("");
+  const [touchTap, setTouchTap] = useState(0);
   const socketUrl = "ws://localhost:5002";
 
   const { sendMessage, lastMessage } = useWebSocket(socketUrl, {});
@@ -152,49 +160,6 @@ const App = () => {
     questionMenuRef,
   ];
 
-  const dragOptions = { filterTaps: true, tapsThreshold: 10, delay: 1000 };
-
-  const bind = useGesture(
-    {
-      onDrag: (e) => {
-        if (!e.pinching) {
-          let interfaceClick = false;
-          refs.forEach((element) => {
-            if (element.current && element.current.contains(e.target)) {
-              interfaceClick = true;
-              console.log("INTERFACE DRAG");
-            }
-          });
-          if (!interfaceClick) {
-            if (e.dragging) {
-              handleGesture(e, "drag");
-              console.log("VVVV DRAG");
-            } else if (e.tap) {
-              handleGesture(e, "tap");
-              console.log("VVVV TAP");
-            }
-          }
-        }
-      },
-      onPinch: (e) => {
-        let interfaceClick = false;
-        refs.forEach((element) => {
-          if (element.current && element.current.contains(e.target)) {
-            interfaceClick = true;
-            console.log("INTERFACE PINCH");
-          }
-        });
-        if (!interfaceClick) {
-          handleGesture(e, "pinch");
-          console.log(e);
-        }
-      },
-    },
-    {
-      drag: dragOptions,
-    }
-  );
-
   useEffect(() => {
     if (choosenElement === "answer") {
       setContent(contentArr[0]);
@@ -214,7 +179,6 @@ const App = () => {
   }, [window.screen]);
 
   const handleCloseButton = () => {
-    console.log("closeButton: true");
     setShowPanel(false);
   };
 
@@ -299,13 +263,15 @@ const App = () => {
   );
 
   const handleGesture = (e, type) => {
-    let message = JSON.stringify({
-      type: type,
-      movement: e.movement,
-    });
-    sendMessage(message);
-    console.log(message);
+    setTouchPosition(e.movement);
+    setTouchState(type);
+    if (type === "tap") {
+      setTouchTap((prev) => prev + 1);
+      setTouchPosition(e.initial);
+    }
   };
+
+  const bind = useGestureInterpreter(handleGesture, refs);
 
   useEffect(() => {
     let receivedValue;
@@ -318,13 +284,47 @@ const App = () => {
     }
   }, [lastMessage, sendMessage]);
 
+  useEffect(() => {
+    let message = JSON.stringify({
+      navigationState: navigationState,
+      selectedQuestions: selectedQuestions,
+      selectedSortBy: selectedSortBy,
+      selectedLatestAnswer: selectedLatestAnswer,
+      language: i18n.language,
+      helpButton: helpButton,
+      zoomMinusButton: zoomMinusButton,
+      zoomPlusButton: zoomPlusButton,
+      homeButton: homeButton,
+      touchPosition: touchPosition,
+      touchTap: touchTap,
+      touchState: touchState,
+    });
+    sendMessage(message);
+  }, [
+    navigationState,
+    selectedQuestions,
+    selectedSortBy,
+    selectedLatestAnswer,
+    i18n.language,
+    helpButton,
+    zoomMinusButton,
+    zoomPlusButton,
+    homeButton,
+    touchPosition,
+    touchTap,
+    touchState,
+  ]);
+
   return (
     <div
       {...bind()}
       className="touch-none select-none font-futurium w-screen h-screen overflow-hidden flex justify-center items-end bg-opacity-20 p-12 relative"
     >
       <div className="absolute flex h-full top-12 gap-1 2xl:gap-4 left-12  flex-col justify-start items-start">
-        <div ref={buttonRef} className="flex justify-center 2xl:gap-8 items-start gap-4">
+        <div
+          ref={buttonRef}
+          className="flex justify-center 2xl:gap-8 items-start gap-4"
+        >
           <Button onClick={toggleQuestionMenu}>
             <p>{t("button.question")}</p>
             <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
@@ -352,7 +352,9 @@ const App = () => {
           />
         </MenuWrapper>
         <MenuWrapper
-          className={`${i18n.language==="de"? "ml-[435px]": "ml-[410px]"} -mt-4`}
+          className={`${
+            i18n.language === "de" ? "ml-[435px]" : "ml-[410px]"
+          } -mt-4`}
           _ref={sortByMenuRef}
           showState={sortByMenu}
         >
@@ -364,7 +366,9 @@ const App = () => {
           />
         </MenuWrapper>
         <MenuWrapper
-          className={`${i18n.language==="de"? "ml-[730px]": "ml-[680px]"} -mt-4`}
+          className={`${
+            i18n.language === "de" ? "ml-[730px]" : "ml-[680px]"
+          } -mt-4`}
           _ref={latestAnswerMenuRef}
           showState={latestAnswerMenu}
         >
@@ -419,7 +423,11 @@ const App = () => {
       </div>
       <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-48">
         <div ref={needHelpRef}>
-          <Button>
+          <Button
+            onClick={() => {
+              setHelpButton((prev) => prev + 1);
+            }}
+          >
             <p>{t("needHelpButton")}</p>
           </Button>
         </div>
@@ -443,8 +451,20 @@ const App = () => {
           onRightClick={() => handleNavigationSwitch("rotate")}
           navigationState={navigationState}
         />
-        <HomeButton />
-        <NavigationButton type="zoom" />
+        <HomeButton
+          onClick={() => {
+            setHomeButton((prev) => prev + 1);
+          }}
+        />
+        <NavigationButton
+          type="zoom"
+          onLeftClick={() => {
+            setZoomMinusButton((prev) => prev + 1);
+          }}
+          onRightClick={() => {
+            setZoomPlusButton((prev) => prev + 1);
+          }}
+        />
       </div>
     </div>
   );

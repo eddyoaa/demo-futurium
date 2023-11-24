@@ -773,7 +773,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="SceneWindow" />
             </p:NodeReference>
-            <Pin Id="PGGHsUpRXcgOSyc1TW1OyY" Name="Bounds" Kind="InputPin" DefaultValue="0, 23, 1920, 1057" />
+            <Pin Id="PGGHsUpRXcgOSyc1TW1OyY" Name="Bounds" Kind="InputPin" DefaultValue="-1920, 23, 1920, 1057" />
             <Pin Id="FcFlRhinAHMN9YOiRYsN8N" Name="Input" Kind="InputPin" />
             <Pin Id="EwYDJKFUNgoMm5ft1JcDbJ" Name="Camera" Kind="InputPin" />
             <Pin Id="UTrJ8B26jPvOGnSRDvdgUw" Name="Enable Default Camera" Kind="InputPin" DefaultValue="False" />
@@ -1011,7 +1011,7 @@
             <Pin Id="Svezj7MpTGuPHSV8Fodgw4" Name="Right Pressed" Kind="OutputPin" />
             <Pin Id="MvDg0CpGkKkNmKlpmpBqx9" Name="Wheel State" Kind="OutputPin" />
           </Node>
-          <Pad Id="B5c2qb5JqJONDAP1mTHnHJ" Comment="RevceivedJSON" Bounds="1148,43,426,25" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="B5c2qb5JqJONDAP1mTHnHJ" Comment="RevceivedJSON" Bounds="1148,43,1296,23" ShowValueBox="true" isIOBox="true" />
           <Node Bounds="881,237,105,19" Id="MYTlUDWaMikMfzrewtkzsF">
             <p:NodeReference LastCategoryFullName="Graphics.Skia.Layers.Text" LastDependency="VL.Skia.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1042,7 +1042,7 @@
             <Pin Id="IUgC8i79rMwPBWPaERYtKc" Name="Value" Kind="OutputPin" />
             <Pin Id="Ujnsm4eJQH2QD6LD7sii2X" Name="Success" Kind="OutputPin" />
           </Node>
-          <Pad Id="PHFnqNDRsjcPD8IbXIxCOo" Comment="Path" Bounds="1022,92,35,15" ShowValueBox="true" isIOBox="true" Value="//type">
+          <Pad Id="PHFnqNDRsjcPD8IbXIxCOo" Comment="Path" Bounds="1022,92,35,15" ShowValueBox="true" isIOBox="true" Value="//touchState">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -1181,7 +1181,7 @@
               <Choice Kind="OperationCallFlag" Name="XPathGetValues" />
             </p:NodeReference>
             <Pin Id="HmODB2zveInM9LbOicx6CN" Name="Input" Kind="InputPin" />
-            <Pin Id="Nxdqqj4LwBCLz0CeagHxPf" Name="Path" Kind="InputPin" DefaultValue="//movement" />
+            <Pin Id="Nxdqqj4LwBCLz0CeagHxPf" Name="Path" Kind="InputPin" DefaultValue="//touchPosition" />
             <Pin Id="FT8MhjOhSBQPI2jKB3G5ui" Name="Values" Kind="OutputPin" />
             <Pin Id="EfeHwR8R1HoNrQjY0Xu0ks" Name="Success" Kind="OutputPin" />
           </Node>
