@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="SZEGEfRufU7LSQ9p7mKJjY" LanguageVersion="2023.5.2" Version="0.128">
-  <NugetDependency Id="Sp5yxMhwnFnQLLBBITQuQ9" Location="VL.CoreLib" Version="2023.5.2" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="SZEGEfRufU7LSQ9p7mKJjY" LanguageVersion="2023.5.0" Version="0.128">
+  <NugetDependency Id="Sp5yxMhwnFnQLLBBITQuQ9" Location="VL.CoreLib" Version="2023.5.0" />
   <Patch Id="NS1jjgfo4jAMwEPFAgst0q">
     <Canvas Id="Cv1J4a0oQ9CQNIQYkDAqsa" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -1563,12 +1563,12 @@
     </Node>
   </Patch>
   <NugetDependency Id="ChBmcgrifuHOxpd9Uqung2" Location="VL.IO.Websocket" Version="0.7.0-alpha" />
-  <NugetDependency Id="NtRhgjCfJDjOf28VR1C6Ab" Location="VL.Stride" Version="2023.5.2" />
-  <NugetDependency Id="A3BmXq1eTAVPse350hpKw8" Location="VL.Skia" Version="2023.5.2" />
+  <NugetDependency Id="NtRhgjCfJDjOf28VR1C6Ab" Location="VL.Stride" Version="2023.5.0" />
+  <NugetDependency Id="A3BmXq1eTAVPse350hpKw8" Location="VL.Skia" Version="2023.5.0" />
   <NugetDependency Id="BC4MKCvRbAtMzF2sRzVgpR" Location="VL.CEF" Version="0.5.1" />
   <NugetDependency Id="RkoXYeJvgD3PgJwnm379rf" Location="VL.CEF.Stride" Version="0.5.1" />
   <NugetDependency Id="JWYe7loCPnKO90FVfrQuCv" Location="VL.CEF.Skia" Version="0.5.1" />
-  <NugetDependency Id="IJFtBdnZpHqOGXmASwSQNx" Location="VL.ImGui.Skia" Version="2023.5.2" />
+  <NugetDependency Id="IJFtBdnZpHqOGXmASwSQNx" Location="VL.ImGui.Skia" Version="2023.5.0" />
   <PlatformDependency Id="HgWd6HF5JOdL52OkMnwNpi" Location="C:/Program Files/vvvv/vvvv_gamma_5.2/packs/VL.Stride.Runtime/src/bin/Debug/netstandard2.0/VL.Stride.Runtime.dll" />
   <PlatformDependency Id="UJPBysWVhKbLHcOh1LrUIS" Location="C:/Program Files/vvvv/vvvv_gamma_5.2/packs/VL.Stride.Runtime/src/bin/Debug/netstandard2.0/VL.Stride.Runtime.dll" />
   <PlatformDependency Id="FdIunroFWuXLHBasJ0pwjD" Location="C:/Program Files/vvvv/vvvv_gamma_5.2/packs/VL.Stride.Runtime/src/bin/Debug/netstandard2.0/VL.Stride.Runtime.dll" />

@@ -1,6 +1,7 @@
 {
   "button": {
-    "question": "Fragen auswählen",
+    "question": "Fragen",
+    "topic": "Themen",
     "sort": "Sortieren",
     "latest": "Letzte Antworten"
   },
@@ -23,5 +24,8 @@
         "answer": "{{contentDate}}  -  {{contentTime}}"
       }
     }
+  },
+  "menu": {
+    "selectAll": "Alle auswählen"
   }
 }

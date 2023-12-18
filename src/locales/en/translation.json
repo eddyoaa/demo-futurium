@@ -1,6 +1,7 @@
 {
   "button": {
-    "question": "Choose question",
+    "question": "Questions",
+    "topic": "Topics",
     "sort": "Sort By",
     "latest": "Latest Answers"
   },
@@ -23,5 +24,8 @@
         "answer": "{{contentDate}}  -  {{contentTime}}"
       }
     }
+  },
+  "menu": {
+    "selectAll": "Select all"
   }
 }

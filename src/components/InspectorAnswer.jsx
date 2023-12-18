@@ -6,7 +6,7 @@ const InspectorAnswer = ({ content }) => {
   const { i18n } = useTranslation();
   const [contentAnswer, setContentAnswer] = useState("");
   let contentTime = content.properties.CTime;
-  let contentDate = content.properties.CTime;
+  let contentDate = content.properties.CDate;
 
   const checkLanguage = () => {
     if (i18n.language === "en") {
@@ -31,9 +31,11 @@ const InspectorAnswer = ({ content }) => {
         </Trans>
       </h3>
       <div className="flex flex-col w-full items-start scrollbar-custom h-full pr-4 2xl:pr-6 gap-6 2xl:gap-12 overflow-y-auto">
-            <ElementStyle elementType={"question"}>{content.properties.questions}</ElementStyle>
-            <ElementStyle elementType={"answer"}>"{contentAnswer}"</ElementStyle>
-        </div>
+        <ElementStyle elementType={"question"}>
+          {content.properties.questions}
+        </ElementStyle>
+        <ElementStyle elementType={"answer"}>"{contentAnswer}"</ElementStyle>
+      </div>
     </div>
   );
 };

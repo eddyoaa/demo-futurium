@@ -18,20 +18,38 @@ import useGestureInterpreter from "./hooks/useGestureInterpreter";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
 
 const questions = [
-  "What do you think is the reason the sky is blue?",
-  "What do you think is the reason the sky is blue?",
-  "What do you think is the reason the sky is blue?",
-  "What do you think is the reason the sky is blue?",
-  "What do you think is the reason the sky is blue?",
-  "What do you think is the reason the sky is blue?",
-  "What do you think is the reason the sky is blue?",
+  "What would you want to use unused space in the city for?",
+  "What could your city do to promote a healthy lifestyle?",
+  "Which problems should the government solve in the next 10 years?",
+  "What are the biggest problems in your neighborhood?",
+  "What work do you do every day that you are not paid for?",
+  "Which jobs do you find important?",
+  "What would make you give up your car?",
+  "If you were free to create your perfect job, what would it be like?",
 ];
+
+const topics = [
+  "Environment",
+  "Education",
+  "Labor",
+  "Healthcare",
+  "Urbanity",
+  "Social structures",
+  "Politics",
+  "Economy",
+  "Technology & Science",
+  "Global",
+  "Art and culture",
+  "Recreation",
+];
+
 let contentAnswer = {
   n: {
     id: 7670,
     labels: ["Answer"],
     properties: {
-      CTime: "1678207834334",
+      CTime: "15:30 Uhr",
+      CDate: "12.12.23",
       SelfID: 0,
       SessionID: "b50a074ba9e34a8fbca61126b62a3ddd",
       VertexID: 15,
@@ -39,9 +57,11 @@ let contentAnswer = {
       categories: [11],
       de: "Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zse lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen.se lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauenu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.",
       en: "The government should solve the energy crisis issue. We should find a way to provide. Energy. Uh, in a more efficient way and without requiring to. Without requiring to dig coal.",
-      keywords: [16, 17, 18, 19],
+      keywords: ["Energie", "Regierung", "Energiekrise", "Umwelt"],
       lang: 1,
-      questions: [0],
+      questions: [
+        "Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?",
+      ],
     },
     type: "node",
   },
@@ -104,11 +124,25 @@ const App = () => {
       i18n.changeLanguage("en");
     }
   };
-  const [choosenElement, setChoosenElement] = useState("none");
+  const [choosenElement, setChoosenElement] = useState("answer");
   const [showPanel, setShowPanel] = useState(true);
   const [content, setContent] = useState(contentArr[1]);
   const [navigationState, setNavigationState] = useState("move");
   const [selectedQuestions, setSelectedQuestions] = useState([
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+  ]);
+  const [selectedTopics, setSelectedTopics] = useState([
+    true,
+    true,
+    true,
+    true,
     true,
     true,
     true,
@@ -123,6 +157,7 @@ const App = () => {
   const [questionMenu, setQuestionMenu] = useState(false);
   const [sortByMenu, setSortByMenu] = useState(false);
   const [languageMenu, setLanguageMenu] = useState(false);
+  const [topicsMenu, setTopicsMenu] = useState(false);
   const [latestAnswerMenu, setLatestAnswerMenu] = useState(false);
   const [helpButton, setHelpButton] = useState(0);
   const [zoomMinusButton, setZoomMinusButton] = useState(0);
@@ -144,6 +179,7 @@ const App = () => {
   const sortByMenuRef = useRef(null);
   const latestAnswerMenuRef = useRef(null);
   const questionMenuRef = useRef(null);
+  const topicsMenuRef = useRef(null);
   const navigationRef = useRef(null);
   const needHelpRef = useRef(null);
   const languageRef = useRef(null);
@@ -158,6 +194,7 @@ const App = () => {
     sortByMenuRef,
     latestAnswerMenuRef,
     questionMenuRef,
+    topicsMenuRef,
   ];
 
   useEffect(() => {
@@ -204,6 +241,17 @@ const App = () => {
     setSelectedQuestions(newSelectedQuestions);
   };
 
+  const handleTopicSelect = (i) => {
+    const newSelectedTopics = selectedTopics.map((topic, index) => {
+      if (i === index) {
+        return !topic;
+      } else {
+        return topic;
+      }
+    });
+    setSelectedTopics(newSelectedTopics);
+  };
+
   const handleSortBySelected = (i) => {
     setSelectedSortBy(i);
   };
@@ -218,9 +266,14 @@ const App = () => {
 
   const toggleQuestionMenu = () => {
     setQuestionMenu((prev) => !prev);
-    if (sortByMenu === true || latestAnswerMenu === true) {
+    if (
+      sortByMenu === true ||
+      latestAnswerMenu === true ||
+      topicsMenu === true
+    ) {
       setSortByMenu(false);
       setLatestAnswerMenu(false);
+      setTopicsMenu(false);
     }
   };
 
@@ -230,17 +283,36 @@ const App = () => {
 
   const toggleSortByMenu = () => {
     setSortByMenu((prev) => !prev);
-    if (questionMenu === true || latestAnswerMenu === true) {
+    if (
+      questionMenu === true ||
+      latestAnswerMenu === true ||
+      topicsMenu === true
+    ) {
       setQuestionMenu(false);
       setLatestAnswerMenu(false);
+      setTopicsMenu(false);
     }
   };
 
   const toggleLatestAnswerMenu = () => {
     setLatestAnswerMenu((prev) => !prev);
-    if (questionMenu === true || sortByMenu === true) {
+    if (questionMenu === true || sortByMenu === true || topicsMenu === true) {
       setQuestionMenu(false);
       setSortByMenu(false);
+      setTopicsMenu(false);
+    }
+  };
+
+  const toggleTopicsMenu = () => {
+    setTopicsMenu((prev) => !prev);
+    if (
+      questionMenu === true ||
+      sortByMenu === true ||
+      latestAnswerMenu === true
+    ) {
+      setQuestionMenu(false);
+      setSortByMenu(false);
+      setLatestAnswerMenu(false);
     }
   };
 
@@ -257,6 +329,7 @@ const App = () => {
       sortByMenuRef,
       latestAnswerMenuRef,
       questionMenuRef,
+      topicsMenuRef,
       languageRef,
     ],
     handleOutsideClick
@@ -329,6 +402,10 @@ const App = () => {
             <p>{t("button.question")}</p>
             <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
           </Button>
+          <Button onClick={toggleTopicsMenu}>
+            <p>{t("button.topic")}</p>
+            <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
+          </Button>
           <Button onClick={toggleSortByMenu}>
             <p>{t("button.sort")}</p>
             <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
@@ -352,8 +429,23 @@ const App = () => {
           />
         </MenuWrapper>
         <MenuWrapper
+          _ref={topicsMenuRef}
+          showState={topicsMenu}
           className={`${
-            i18n.language === "de" ? "ml-[435px]" : "ml-[410px]"
+            i18n.language === "de" ? "ml-[260px]" : "ml-[310px]"
+          } -mt-4`}
+        >
+          <Menu
+            type="topicPicker"
+            state={selectedTopics}
+            items={topics}
+            onClickFunction={handleTopicSelect}
+            setState={setSelectedTopics}
+          />
+        </MenuWrapper>
+        <MenuWrapper
+          className={`${
+            i18n.language === "de" ? "ml-[540px]" : "ml-[560px]"
           } -mt-4`}
           _ref={sortByMenuRef}
           showState={sortByMenu}
@@ -361,13 +453,17 @@ const App = () => {
           <Menu
             type="radioButton"
             state={selectedSortBy}
-            items={["Questions and Topics", "Questions", "Topics"]}
+            items={
+              i18n.language === "de"
+                ? ["Standard", "nach Fragen", "nach Themen"]
+                : ["Default", "Questions", "Topics"]
+            }
             onClickFunction={handleSortBySelected}
           />
         </MenuWrapper>
         <MenuWrapper
           className={`${
-            i18n.language === "de" ? "ml-[730px]" : "ml-[680px]"
+            i18n.language === "de" ? "ml-[830px]" : "ml-[830px]"
           } -mt-4`}
           _ref={latestAnswerMenuRef}
           showState={latestAnswerMenu}
@@ -375,7 +471,11 @@ const App = () => {
           <Menu
             type="radioButton"
             state={selectedLatestAnswer}
-            items={["All", "Last 10", "Last 100", "Last 1000"]}
+            items={
+              i18n.language === "de"
+                ? ["Alle", "Letzte 10", "Letzte 100", "Letzte 1000"]
+                : ["All", "Last 10", "Last 100", "Last 1000"]
+            }
             onClickFunction={handleLatestAnswerSelected}
           />
         </MenuWrapper>
@@ -413,14 +513,14 @@ const App = () => {
           </div>
         </div>
       </Transition>
-      <div className="flex justify-center items-center gap-4 absolute bottom-1/2">
+      {/* <div className="flex justify-center items-center gap-4 absolute bottom-1/2">
         <div
           onClick={handleCloseButton}
           className="flex bg-green-500 hover:bg-green-300"
         >
           Answer
         </div>
-      </div>
+      </div> */}
       <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-48">
         <div ref={needHelpRef}>
           <Button
