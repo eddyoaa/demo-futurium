@@ -5,10 +5,10 @@
     <Canvas Id="Cv1J4a0oQ9CQNIQYkDAqsa" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
 
-    ************************ WebSocketServer ************************
+    ************************ WebSocketServerInit ************************
 
 -->
-      <Node Name="WebSocketServer" Bounds="200,100" Id="Fg2JlrTew9eOnyPr80x9yT">
+      <Node Name="WebSocketServerInit" Bounds="200,100" Id="Fg2JlrTew9eOnyPr80x9yT">
         <p:NodeReference>
           <Choice Kind="ContainerDefinition" Name="Process" />
           <CategoryReference Kind="Category" Name="Primitive" />
@@ -726,7 +726,7 @@
           <Node Bounds="1042,-48,108,19" Id="F4zn1GbPoepMNd9k5ALCV4">
             <p:NodeReference LastCategoryFullName="Main" LastDependency="Demo_Futurium.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-              <Choice Kind="ProcessNode" Name="WebSocketServer" />
+              <Choice Kind="ProcessNode" Name="WebSocketServerInit" />
             </p:NodeReference>
             <Pin Id="BRLYXZtiJsdMi8rE0Lbhla" Name="Listener IP" Kind="InputPin" />
             <Pin Id="AYAdXIbj3OwLp6tbjyUbVl" Name="Port" Kind="InputPin" />
