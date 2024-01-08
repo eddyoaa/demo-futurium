@@ -5,6 +5,11 @@
     "sort": "Sortieren",
     "latest": "Letzte Antworten"
   },
+  "sortby": {
+    "0": "Fragen",
+    "1": "Standard",
+    "2": "Themen"
+  },
   "needHelpButton": "Hilfe?",
   "legend": {
     "answer": "Antwort",
@@ -26,6 +31,7 @@
     }
   },
   "menu": {
-    "selectAll": "Alle auswählen"
+    "selectAll": "Alle auswählen",
+    "deSelectAll": "Alle abwählen"
   }
 }

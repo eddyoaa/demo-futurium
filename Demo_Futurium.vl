@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" xmlns:r="reflection" Id="SZEGEfRufU7LSQ9p7mKJjY" LanguageVersion="2023.5.0" Version="0.128">
-  <NugetDependency Id="Sp5yxMhwnFnQLLBBITQuQ9" Location="VL.CoreLib" Version="2023.5.0" />
+<Document xmlns:p="property" xmlns:r="reflection" Id="SZEGEfRufU7LSQ9p7mKJjY" LanguageVersion="2023.5.2" Version="0.128">
+  <NugetDependency Id="Sp5yxMhwnFnQLLBBITQuQ9" Location="VL.CoreLib" Version="2023.5.2" />
   <Patch Id="NS1jjgfo4jAMwEPFAgst0q">
     <Canvas Id="Cv1J4a0oQ9CQNIQYkDAqsa" DefaultCategory="Main" CanvasType="FullCategory">
       <!--
@@ -773,7 +773,7 @@
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="SceneWindow" />
             </p:NodeReference>
-            <Pin Id="PGGHsUpRXcgOSyc1TW1OyY" Name="Bounds" Kind="InputPin" DefaultValue="-1920, 23, 1920, 1057" />
+            <Pin Id="PGGHsUpRXcgOSyc1TW1OyY" Name="Bounds" Kind="InputPin" DefaultValue="-3840, 23, 3840, 2137" />
             <Pin Id="FcFlRhinAHMN9YOiRYsN8N" Name="Input" Kind="InputPin" />
             <Pin Id="EwYDJKFUNgoMm5ft1JcDbJ" Name="Camera" Kind="InputPin" />
             <Pin Id="UTrJ8B26jPvOGnSRDvdgUw" Name="Enable Default Camera" Kind="InputPin" DefaultValue="False" />
@@ -1495,7 +1495,6 @@
         <Link Id="GvOKJfles07OZdAdaz75nQ" Ids="Pg8BZAqI6JTP5OQpDjByrm,VnDDlxjDMaOPtJuyNgiRho" />
         <Link Id="FqyP6wKl9w7PDJAxUuIk7o" Ids="Q9x9urUeeooQWtItDlEB5T,RAf5k5gkNogNCdN5LVKeXn" />
         <Link Id="GY9eD0YRCY9QQxnWjNqhDc" Ids="FNRMAWufPgeL0Tv6J4S6L7,Q3dQIz8PGBIL25hgKd7FKv" />
-        <Link Id="AitJYgSl5MGMofJIZdSqzH" Ids="ORWWkJx2mOEPBsD7mOOJBh,IdxJ2sWxSbjO3p1v9nJntg" />
         <Link Id="CDmnuUI82RzPr5MIFxRB6g" Ids="VnqQO2vTEAjN2na4BlbQJ7,EQ6prvnbYk7MN5cKRl8fJS" />
         <Link Id="QNEvbtPxSEHQSL1ddtTbXJ" Ids="FFJwdgns7pjL21GCLxhQ4H,IuxseWvDHCWOhfSR23IL74" />
         <Link Id="QH7pWznef4eNC9RXiPJzEC" Ids="PIqjJ3nbCX5NsNDQ0LfRco,B5c2qb5JqJONDAP1mTHnHJ" />
@@ -1563,12 +1562,12 @@
     </Node>
   </Patch>
   <NugetDependency Id="ChBmcgrifuHOxpd9Uqung2" Location="VL.IO.Websocket" Version="0.7.0-alpha" />
-  <NugetDependency Id="NtRhgjCfJDjOf28VR1C6Ab" Location="VL.Stride" Version="2023.5.0" />
-  <NugetDependency Id="A3BmXq1eTAVPse350hpKw8" Location="VL.Skia" Version="2023.5.0" />
+  <NugetDependency Id="NtRhgjCfJDjOf28VR1C6Ab" Location="VL.Stride" Version="2023.5.2" />
+  <NugetDependency Id="A3BmXq1eTAVPse350hpKw8" Location="VL.Skia" Version="2023.5.2" />
   <NugetDependency Id="BC4MKCvRbAtMzF2sRzVgpR" Location="VL.CEF" Version="0.5.1" />
   <NugetDependency Id="RkoXYeJvgD3PgJwnm379rf" Location="VL.CEF.Stride" Version="0.5.1" />
   <NugetDependency Id="JWYe7loCPnKO90FVfrQuCv" Location="VL.CEF.Skia" Version="0.5.1" />
-  <NugetDependency Id="IJFtBdnZpHqOGXmASwSQNx" Location="VL.ImGui.Skia" Version="2023.5.0" />
+  <NugetDependency Id="IJFtBdnZpHqOGXmASwSQNx" Location="VL.ImGui.Skia" Version="2023.5.2" />
   <PlatformDependency Id="HgWd6HF5JOdL52OkMnwNpi" Location="C:/Program Files/vvvv/vvvv_gamma_5.2/packs/VL.Stride.Runtime/src/bin/Debug/netstandard2.0/VL.Stride.Runtime.dll" />
   <PlatformDependency Id="UJPBysWVhKbLHcOh1LrUIS" Location="C:/Program Files/vvvv/vvvv_gamma_5.2/packs/VL.Stride.Runtime/src/bin/Debug/netstandard2.0/VL.Stride.Runtime.dll" />
   <PlatformDependency Id="FdIunroFWuXLHBasJ0pwjD" Location="C:/Program Files/vvvv/vvvv_gamma_5.2/packs/VL.Stride.Runtime/src/bin/Debug/netstandard2.0/VL.Stride.Runtime.dll" />

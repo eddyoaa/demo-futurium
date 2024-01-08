@@ -14,6 +14,7 @@ import LanguageButton from "./components/LanguageButton";
 import Menu from "./components/Menu";
 import MenuWrapper from "./components/MenuWrapper";
 import NavigationButton from "./components/NavigationButton";
+import SortByBar from "./components/SortByBar";
 import useGestureInterpreter from "./hooks/useGestureInterpreter";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
 
@@ -152,10 +153,9 @@ const App = () => {
     true,
     true,
   ]);
-  const [selectedSortBy, setSelectedSortBy] = useState(0);
+  const [selectedSortBy, setSelectedSortBy] = useState(1);
   const [selectedLatestAnswer, setSelectedLatestAnswer] = useState(0);
   const [questionMenu, setQuestionMenu] = useState(false);
-  const [sortByMenu, setSortByMenu] = useState(false);
   const [languageMenu, setLanguageMenu] = useState(false);
   const [topicsMenu, setTopicsMenu] = useState(false);
   const [latestAnswerMenu, setLatestAnswerMenu] = useState(false);
@@ -167,6 +167,8 @@ const App = () => {
   const [touchState, setTouchState] = useState("");
   const [touchTap, setTouchTap] = useState(0);
   const socketUrl = "ws://localhost:5002";
+
+  console.log(selectedSortBy);
 
   const { sendMessage, lastMessage } = useWebSocket(socketUrl, {});
   useWebSocket(socketUrl, {
@@ -252,10 +254,9 @@ const App = () => {
     setSelectedTopics(newSelectedTopics);
   };
 
-  const handleSortBySelected = (i) => {
+  const handleSortByClick = (i) => {
     setSelectedSortBy(i);
   };
-
   const handleLatestAnswerSelected = (i) => {
     setSelectedLatestAnswer(i);
   };
@@ -266,12 +267,7 @@ const App = () => {
 
   const toggleQuestionMenu = () => {
     setQuestionMenu((prev) => !prev);
-    if (
-      sortByMenu === true ||
-      latestAnswerMenu === true ||
-      topicsMenu === true
-    ) {
-      setSortByMenu(false);
+    if (latestAnswerMenu === true || topicsMenu === true) {
       setLatestAnswerMenu(false);
       setTopicsMenu(false);
     }
@@ -281,43 +277,23 @@ const App = () => {
     setLanguageMenu((prev) => !prev);
   };
 
-  const toggleSortByMenu = () => {
-    setSortByMenu((prev) => !prev);
-    if (
-      questionMenu === true ||
-      latestAnswerMenu === true ||
-      topicsMenu === true
-    ) {
-      setQuestionMenu(false);
-      setLatestAnswerMenu(false);
-      setTopicsMenu(false);
-    }
-  };
-
   const toggleLatestAnswerMenu = () => {
     setLatestAnswerMenu((prev) => !prev);
-    if (questionMenu === true || sortByMenu === true || topicsMenu === true) {
+    if (questionMenu === true || topicsMenu === true) {
       setQuestionMenu(false);
-      setSortByMenu(false);
       setTopicsMenu(false);
     }
   };
 
   const toggleTopicsMenu = () => {
     setTopicsMenu((prev) => !prev);
-    if (
-      questionMenu === true ||
-      sortByMenu === true ||
-      latestAnswerMenu === true
-    ) {
+    if (questionMenu === true || latestAnswerMenu === true) {
       setQuestionMenu(false);
-      setSortByMenu(false);
       setLatestAnswerMenu(false);
     }
   };
 
   const handleOutsideClick = () => {
-    setSortByMenu(false);
     setQuestionMenu(false);
     setLatestAnswerMenu(false);
     setLanguageMenu(false);
@@ -406,10 +382,6 @@ const App = () => {
             <p>{t("button.topic")}</p>
             <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
           </Button>
-          <Button onClick={toggleSortByMenu}>
-            <p>{t("button.sort")}</p>
-            <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
-          </Button>
           <Button onClick={toggleLatestAnswerMenu}>
             <p>{t("button.latest")}</p>
             <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
@@ -447,24 +419,6 @@ const App = () => {
           className={`${
             i18n.language === "de" ? "ml-[540px]" : "ml-[560px]"
           } -mt-4`}
-          _ref={sortByMenuRef}
-          showState={sortByMenu}
-        >
-          <Menu
-            type="radioButton"
-            state={selectedSortBy}
-            items={
-              i18n.language === "de"
-                ? ["Standard", "nach Fragen", "nach Themen"]
-                : ["Default", "Questions", "Topics"]
-            }
-            onClickFunction={handleSortBySelected}
-          />
-        </MenuWrapper>
-        <MenuWrapper
-          className={`${
-            i18n.language === "de" ? "ml-[830px]" : "ml-[830px]"
-          } -mt-4`}
           _ref={latestAnswerMenuRef}
           showState={latestAnswerMenu}
         >
@@ -479,6 +433,17 @@ const App = () => {
             onClickFunction={handleLatestAnswerSelected}
           />
         </MenuWrapper>
+      </div>
+      <div
+        ref={sortByMenuRef}
+        className="flex justify-center items-center absolute top-12 mx-auto gap-6 "
+      >
+        <SortByBar
+          state={selectedSortBy}
+          setState={setSelectedSortBy}
+          itemsAmount={3}
+          clickEvent={handleSortByClick}
+        />
       </div>
       <Transition
         appear={true}
@@ -513,14 +478,14 @@ const App = () => {
           </div>
         </div>
       </Transition>
-      {/* <div className="flex justify-center items-center gap-4 absolute bottom-1/2">
+      <div className="flex justify-center items-center gap-4 absolute bottom-1/2">
         <div
           onClick={handleCloseButton}
           className="flex bg-green-500 hover:bg-green-300"
         >
           Answer
         </div>
-      </div> */}
+      </div>
       <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-48">
         <div ref={needHelpRef}>
           <Button
