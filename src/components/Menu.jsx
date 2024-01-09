@@ -20,10 +20,10 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
     };
 
     return (
-      <div className="flex flex-col gap-2 2xl:rounded-2xl 2xl:gap-6 2xl:p-8 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
+      <div className="flex flex-col gap-2 2xl:rounded-xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
         <button
           onClick={toggleAllQuestions}
-          className={`opacity-100 flex justify-center 2xl:text-4xl items-center p-2 rounded-lg 2xl:rounded-2xl 2xl:p-6 active:bg-slate-200 bg-blue-200`}
+          className={`opacity-100 flex justify-center 2xl:text-2xl items-center p-2 rounded-lg 2xl:rounded-xl 2xl:p-3 active:bg-slate-200 bg-blue-200`}
         >
           <Trans
             i18nKey={
@@ -67,10 +67,10 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
     };
 
     return (
-      <div className="flex flex-col gap-2 2xl:rounded-2xl 2xl:gap-6 2xl:p-8 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
+      <div className="flex flex-col gap-2 2xl:rounded-2xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
         <button
           onClick={toggleAllTopics}
-          className={`opacity-100 flex justify-center 2xl:text-4xl items-center p-2 rounded-lg 2xl:rounded-2xl 2xl:p-6 active:bg-slate-200 bg-blue-200`}
+          className={`opacity-100 flex justify-center 2xl:text-2xl items-center p-2 rounded-lg 2xl:rounded-xl 2xl:p-3 active:bg-slate-200 bg-blue-200`}
         >
           <Trans
             i18nKey={
@@ -97,7 +97,7 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
     );
   } else if (type === "radioButton") {
     return (
-      <div className="flex flex-col gap-2 2xl:gap-8 bg-white drop-shadow-3xl rounded-lg p-4 2xl:p-8 2xl:rounded-2xl">
+      <div className="flex flex-col gap-2 2xl:gap-4 bg-white drop-shadow-3xl rounded-lg p-4 2xl:p-4 2xl:rounded-xl">
         {items.map((question, i) => (
           <div
             key={i}

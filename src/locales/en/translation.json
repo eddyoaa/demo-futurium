@@ -33,7 +33,7 @@
   },
   "menu": {
     "selectAll": "Select all",
-    "deSelectAll": "Deselect All"
+    "deSelectAll": "Deselect all"
   },
   "topics": {
     "env": "Environment",

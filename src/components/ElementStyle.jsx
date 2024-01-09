@@ -4,7 +4,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
       className={`
       ${
         elementType === "questionPicker" || elementType === "topicPicker"
-          ? "active:bg-slate-200 rounded-lg 2xl:text-4xl"
+          ? "active:bg-slate-200 rounded-lg 2xl:text-2xl"
           : ""
       } 
      ${
@@ -21,7 +21,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
      }  
      ${
        elementType === "radioButton"
-         ? " border-none text-lg 2xl:text-4xl 2xl:font-normal  font-medium"
+         ? " border-none text-lg 2xl:text-2xl 2xl:font-normal  font-medium"
          : ""
      }  
      ${
@@ -31,18 +31,18 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
        elementType === "topicPicker" ||
        elementType === "question" ||
        elementType === "answer"
-         ? "flex gap-4 h-full w-full text-base 2xl:text-3xl"
+         ? "flex gap-3 h-full w-full text-base 2xl:text-2xl"
          : ""
      } 
 
      ${
        elementType === "topicChildren"
-         ? "flex gap-4 h-full w-full text-base 2xl:text-2xl"
+         ? "flex gap-3 h-full w-full text-base 2xl:text-xl"
          : ""
      } 
      ${
        elementType === "answer"
-         ? "text-xl 2xl:text-4xl items-start"
+         ? "text-xl 2xl:text-3xl items-start"
          : "items-center"
      }
      `}
@@ -69,7 +69,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
       )}
       <p
         className={`w-full  ${
-          elementType === "answer" ? "leading-none tracking-normal" : ""
+          elementType === "answer" ? "leading-tight tracking-normal" : ""
         }`}
       >
         {props.children}

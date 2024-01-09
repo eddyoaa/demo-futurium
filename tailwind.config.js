@@ -40,7 +40,7 @@ module.exports = {
 
           /* Chrome, Edge, and Safari */
           "&::-webkit-scrollbar": {
-            width: "6px",
+            width: "4px",
           },
           "&::-webkit-scrollbar-track": {
             background: "transparent",

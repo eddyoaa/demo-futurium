@@ -354,15 +354,15 @@ const App = () => {
         >
           <Button onClick={toggleQuestionMenu}>
             <p>{t("button.question")}</p>
-            <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
+            <IoMdArrowDropdown className="w-6 h-6 2xl:w-8 2xl:h-8" />
           </Button>
           <Button onClick={toggleTopicsMenu}>
             <p>{t("button.topic")}</p>
-            <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
+            <IoMdArrowDropdown className="w-6 h-6 2xl:w-8 2xl:h-8" />
           </Button>
           <Button onClick={toggleLatestAnswerMenu}>
             <p>{t("button.latest")}</p>
-            <IoMdArrowDropdown className="w-6 h-6 2xl:w-12 2xl:h-12" />
+            <IoMdArrowDropdown className="w-6 h-6 2xl:w-8 2xl:h-8" />
           </Button>
         </div>
         <MenuWrapper
@@ -382,7 +382,7 @@ const App = () => {
           _ref={topicsMenuRef}
           showState={topicsMenu}
           className={`${
-            i18n.language === "de" ? "ml-[260px]" : "ml-[310px]"
+            i18n.language === "de" ? "ml-[200px]" : "ml-[240px]"
           } -mt-4`}
         >
           <Menu
@@ -395,7 +395,7 @@ const App = () => {
         </MenuWrapper>
         <MenuWrapper
           className={`${
-            i18n.language === "de" ? "ml-[540px]" : "ml-[560px]"
+            i18n.language === "de" ? "ml-[420px]" : "ml-[440px]"
           } -mt-4`}
           _ref={latestAnswerMenuRef}
           showState={latestAnswerMenu}
@@ -414,7 +414,7 @@ const App = () => {
       </div>
       <div
         ref={sortByMenuRef}
-        className="flex justify-center items-center absolute top-8 mx-auto gap-6 "
+        className="flex justify-center items-center absolute top-12 mx-auto"
       >
         <SortByBar
           state={selectedSortBy}
@@ -435,7 +435,7 @@ const App = () => {
         leaveTo="opacity-0 translate-x-12"
         afterLeave={handleContentSwitch}
       >
-        <div className="flex flex-col max-w-sm 2xl:max-w-4xl justify-center items-end gap-2">
+        <div className="flex flex-col max-w-sm 2xl:max-w-3xl justify-center items-end gap-2">
           {choosenElement && (
             <div onClick={handleCloseButton}>
               <CloseButton />
@@ -483,7 +483,7 @@ const App = () => {
           Answer
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-48">
+      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-40">
         <div ref={needHelpRef}>
           <Button
             onClick={() => {
@@ -494,7 +494,7 @@ const App = () => {
           </Button>
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-14 right-12">
+      <div className="flex flex-row justify-center items-center gap-4 absolute bottom-12 right-12">
         <div ref={languageRef}>
           <LanguageButton
             currentLanguage={i18n.language.toUpperCase()}
