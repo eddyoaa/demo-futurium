@@ -20,8 +20,10 @@ const InspectorFacts = ({ content }) => {
         </div>
         <div className="gap-4 h-full flex items-center w-full">
           <div className="flex h-full w-full gap-1 flex-col">
-            {content.properties.keywords.map((keyword) => (
-              <ElementStyle elementType={"facts"}>{keyword}</ElementStyle>
+            {content.keywords.map((keyword, i) => (
+              <ElementStyle key={i} elementType={"facts"}>
+                {keyword.label}
+              </ElementStyle>
             ))}
           </div>
         </div>
@@ -31,7 +33,9 @@ const InspectorFacts = ({ content }) => {
           <Trans i18nKey="inspector.title.facts.answer"></Trans>
         </h3>
         <div className="gap-4 h-full flex items-center w-full">
-          <ElementStyle elementType={"question"}>{content.properties.questions}</ElementStyle>
+          <ElementStyle elementType={"question"}>
+            {content.question}
+          </ElementStyle>
         </div>
       </div>
       <div className="w-full flex flex-col gap-2 2xl:gap-4">
@@ -41,8 +45,10 @@ const InspectorFacts = ({ content }) => {
         <div className="gap-4 h-full flex items-center w-full">
           <div className={`w-1 h-full rounded-xl bg-red-400`}></div>
           <div className="flex flex-col">
-            {content.properties.keywords.map((keyword) => (
-              <ElementStyle elementType={"topic"}>{keyword}</ElementStyle>
+            {content.keywords.map((keyword, i) => (
+              <ElementStyle key={i} elementType={"topic"}>
+                {keyword.label}
+              </ElementStyle>
             ))}
           </div>
         </div>

@@ -12,16 +12,16 @@ const useGestureInterpreter = (handleGesture, refs) => {
           refs.forEach((element) => {
             if (element.current && element.current.contains(e.target)) {
               interfaceClick = true;
-              console.log("INTERFACE DRAG");
+              //console.log("INTERFACE DRAG");
             }
           });
           if (!interfaceClick) {
             if (e.dragging) {
               handleGesture(e, "drag");
-              console.log("VVVV DRAG");
+              //console.log("VVVV DRAG");
             } else if (e.tap) {
               handleGesture(e, "tap");
-              console.log("VVVV TAP");
+              //console.log("VVVV TAP");
             }
           }
         }
@@ -31,12 +31,12 @@ const useGestureInterpreter = (handleGesture, refs) => {
         refs.forEach((element) => {
           if (element.current && element.current.contains(e.target)) {
             interfaceClick = true;
-            console.log("INTERFACE PINCH");
+            //console.log("INTERFACE PINCH");
           }
         });
         if (!interfaceClick) {
           handleGesture(e, "pinch");
-          console.log(e);
+          //console.log(e);
         }
       },
     },

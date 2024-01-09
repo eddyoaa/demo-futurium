@@ -7,7 +7,10 @@ const SortByBar = ({ state, itemsAmount, clickEvent, ...props }) => {
     <div className="drop-shadow-3xl flex rounded-lg 2xl:rounded-2xl bg-white px-2">
       {index.map((i) => (
         <SortByItem state={state} clickEvent={clickEvent} index={i} key={i}>
-          <p>{t("sortby." + i)}</p>
+          <div className="flex flex-col">
+            <p>{t("sortby." + i)}</p>
+            <p className="text-2xl">{t("sortby.view")}</p>
+          </div>
         </SortByItem>
       ))}
     </div>
@@ -28,7 +31,7 @@ const SortByItem = ({ clickEvent, state, index, children, ...props }) => {
       }
     >
       <div
-        className={`transition-all w-full duration-300 p-1 2xl:p-4 text-lg 2xl:text-4xl ${
+        className={`transition-all w-full duration-300 p-1 2xl:p-4 text-lg 2xl:text-4xl leading-none ${
           state === index
             ? "bg-black rounded-lg 2xl:rounded-2xl text-white "
             : "bg-black/0"

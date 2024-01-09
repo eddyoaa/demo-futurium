@@ -18,105 +18,42 @@ import SortByBar from "./components/SortByBar";
 import useGestureInterpreter from "./hooks/useGestureInterpreter";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
 
-const questions = [
-  "What would you want to use unused space in the city for?",
-  "What could your city do to promote a healthy lifestyle?",
-  "Which problems should the government solve in the next 10 years?",
-  "What are the biggest problems in your neighborhood?",
-  "What work do you do every day that you are not paid for?",
-  "Which jobs do you find important?",
-  "What would make you give up your car?",
-  "If you were free to create your perfect job, what would it be like?",
-];
-
-const topics = [
-  "Environment",
-  "Education",
-  "Labor",
-  "Healthcare",
-  "Urbanity",
-  "Social structures",
-  "Politics",
-  "Economy",
-  "Technology & Science",
-  "Global",
-  "Art and culture",
-  "Recreation",
-];
-
-let contentAnswer = {
-  n: {
-    id: 7670,
-    labels: ["Answer"],
-    properties: {
-      CTime: "15:30 Uhr",
-      CDate: "12.12.23",
-      SelfID: 0,
-      SessionID: "b50a074ba9e34a8fbca61126b62a3ddd",
-      VertexID: 15,
-      VertexType: 0,
-      categories: [11],
-      de: "Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zse lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen.se lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauenu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.",
-      en: "The government should solve the energy crisis issue. We should find a way to provide. Energy. Uh, in a more efficient way and without requiring to. Without requiring to dig coal.",
-      keywords: ["Energie", "Regierung", "Energiekrise", "Umwelt"],
-      lang: 1,
-      questions: [
-        "Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?",
-      ],
-    },
-    type: "node",
+let contentFacts = {
+  properties_en: {
+    CTime: "3:30 p.m",
+    CDate: "12.12.23",
+    answer:
+      "The government should solve the energy crisis issue. We should find a way to provide. Energy. Uh, in a more efficient way and without requiring to. Without requiring to dig coal.",
+    keywords: [
+      { label: "Energy", children: ["Power", "Cole"] },
+      { label: "Government", children: ["City", "Money", "Safety"] },
+      {
+        label: "Environment",
+        children: ["Nature", "Green", "Dirt"],
+      },
+    ],
+    question: "Which problems should be solved in the next 10 years?",
+  },
+  properties: {
+    CTime: "15:30 Uhr",
+    CDate: "12.12.23",
+    answer:
+      "Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zse lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen.se lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauenu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.",
+    keywords: [
+      { label: "Energie", children: ["Strom", "Kohle"] },
+      { label: "Regierung", children: ["Staat", "Geld", "Grundversorgung"] },
+      {
+        label: "Umwelt",
+        children: ["Natur", "Grünflächen", "Verschmutzung"],
+      },
+    ],
+    question:
+      "Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?",
   },
 };
-let contentArr = [
-  {
-    selected: {
-      element: "answer",
-      date: "12 July 2023",
-      time: "12:23",
-      text: ["I would love to have more art in the streets"],
-    },
-    associated: [
-      {
-        element: "question",
-        text: ["What do you think is the reason the sky is blue?"],
-      },
-      { element: "topic", text: ["City", "Future", "Art", "Streets"] },
-      {
-        element: "facts",
-        text: [
-          "75% of the topics answers belong to the question “What do you think is the reason the sky is blue?”",
-          "75% of the topics answers belong to the question “What do you think is the reason the sky is blue?”",
-        ],
-      },
-    ],
-  },
-  {
-    selected: {
-      element: "facts",
-      text: [
-        "75% of the topics answers belong to the question “What do you think is the reason the sky is blue?”",
-        "75% of the topics answers belong to the question “What do you think is the reason the sky is blue?”",
-      ],
-    },
-    associated: [
-      {
-        element: "question",
-        text: [
-          "What do you think is the reason the sky is blue?",
-          "What do you think is the reason the sky is blue?",
-          "What do you think is the reason the sky is blue?",
-          "What do you think is the reason the sky is blue?",
-          "What do you think is the reason the sky is blue?",
-          "What do you think is the reason the sky is blue?",
-          "What do you think is the reason the sky is blue?",
-        ],
-      },
-      { element: "topic", text: ["City", "Future", "Art", "Streets"] },
-    ],
-  },
-];
 
 const App = () => {
+  // translator setup
   const { t, i18n } = useTranslation();
   const handleLanguageChange = (e) => {
     if (i18n.language === "en") {
@@ -125,34 +62,43 @@ const App = () => {
       i18n.changeLanguage("en");
     }
   };
-  const [choosenElement, setChoosenElement] = useState("answer");
+
+  // static values setup
+  // const topics = [
+  //   t("topics.env"),
+  //   t("topics.ed"),
+  //   t("topics.work"),
+  //   t("topics.hel"),
+  //   t("topics.urb"),
+  //   t("topics.soc"),
+  //   t("topics.pol"),
+  //   t("topics.ec"),
+  //   t("topics.tec"),
+  //   t("topics.glo"),
+  //   t("topics.art"),
+  //   t("topics.le"),
+  // ];
+
+  // const questions = [
+  //   t("questions.0"),
+  //   t("questions.1"),
+  //   t("questions.2"),
+  //   t("questions.3"),
+  //   t("questions.4"),
+  //   t("questions.5"),
+  //   t("questions.6"),
+  //   t("questions.7"),
+  // ];
+
+  // states
+  const [choosenElement, setChoosenElement] = useState(false);
   const [showPanel, setShowPanel] = useState(true);
-  const [content, setContent] = useState(contentArr[1]);
+  const [contentAnswer, setContentAnswer] = useState("");
   const [navigationState, setNavigationState] = useState("move");
-  const [selectedQuestions, setSelectedQuestions] = useState([
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-  ]);
-  const [selectedTopics, setSelectedTopics] = useState([
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
-  ]);
+  const [questions, setQuestions] = useState({ en: [], de: [] });
+  const [selectedQuestions, setSelectedQuestions] = useState([]);
+  const [topics, setTopics] = useState({ en: [], de: [] });
+  const [selectedTopics, setSelectedTopics] = useState([]);
   const [selectedSortBy, setSelectedSortBy] = useState(1);
   const [selectedLatestAnswer, setSelectedLatestAnswer] = useState(0);
   const [questionMenu, setQuestionMenu] = useState(false);
@@ -160,16 +106,17 @@ const App = () => {
   const [topicsMenu, setTopicsMenu] = useState(false);
   const [latestAnswerMenu, setLatestAnswerMenu] = useState(false);
   const [helpButton, setHelpButton] = useState(0);
+  const [flyToButton, setFlyToButton] = useState(0);
   const [zoomMinusButton, setZoomMinusButton] = useState(0);
   const [zoomPlusButton, setZoomPlusButton] = useState(0);
   const [homeButton, setHomeButton] = useState(0);
   const [touchPosition, setTouchPosition] = useState([]);
   const [touchState, setTouchState] = useState("");
   const [touchTap, setTouchTap] = useState(0);
+  const [closePanel, setClosePanel] = useState(false);
   const socketUrl = "ws://localhost:5002";
 
-  console.log(selectedSortBy);
-
+  // setting up websocket connection
   const { sendMessage, lastMessage } = useWebSocket(socketUrl, {});
   useWebSocket(socketUrl, {
     onOpen: () => {
@@ -177,6 +124,7 @@ const App = () => {
     },
   });
 
+  // setting up refs for area detection
   const buttonRef = useRef(null);
   const sortByMenuRef = useRef(null);
   const latestAnswerMenuRef = useRef(null);
@@ -199,14 +147,7 @@ const App = () => {
     topicsMenuRef,
   ];
 
-  useEffect(() => {
-    if (choosenElement === "answer") {
-      setContent(contentArr[0]);
-    } else if (choosenElement === "none") {
-      setContent(contentArr[1]);
-    }
-  }, [choosenElement]);
-
+  // window resize event
   useEffect(() => {
     sendMessage(
       JSON.stringify({
@@ -214,22 +155,13 @@ const App = () => {
         windowHeight: window.screen.height,
       })
     );
-    console.log("WINDOW RESIZE");
+    //console.log("WINDOW RESIZE");
   }, [window.screen]);
 
+  // button handlers
   const handleCloseButton = () => {
     setShowPanel(false);
-  };
-
-  const handleContentSwitch = () => {
-    if (choosenElement === "answer") {
-      setChoosenElement("none");
-    } else if (choosenElement === "none") {
-      setChoosenElement("answer");
-    }
-    setTimeout(() => {
-      setShowPanel(true);
-    }, 200);
+    setClosePanel(true);
   };
 
   const handleQuestionSelected = (i) => {
@@ -257,6 +189,7 @@ const App = () => {
   const handleSortByClick = (i) => {
     setSelectedSortBy(i);
   };
+
   const handleLatestAnswerSelected = (i) => {
     setSelectedLatestAnswer(i);
   };
@@ -293,6 +226,21 @@ const App = () => {
     }
   };
 
+  // handling panel animation
+  const handleContentSwitch = () => {
+    if (JSON.parse(lastMessage.data).content === "" || closePanel) {
+      setChoosenElement(false);
+      setClosePanel(false);
+    } else {
+      setContentAnswer(JSON.parse(lastMessage.data).content);
+      setChoosenElement(true);
+    }
+    setTimeout(() => {
+      setShowPanel(true);
+    }, 150);
+  };
+
+  // handling menu closure
   const handleOutsideClick = () => {
     setQuestionMenu(false);
     setLatestAnswerMenu(false);
@@ -311,6 +259,7 @@ const App = () => {
     handleOutsideClick
   );
 
+  // handling touch inputs
   const handleGesture = (e, type) => {
     setTouchPosition(e.movement);
     setTouchState(type);
@@ -322,17 +271,45 @@ const App = () => {
 
   const bind = useGestureInterpreter(handleGesture, refs);
 
+  // handling received message via websocket
   useEffect(() => {
     let receivedValue;
     if (lastMessage !== null) {
       receivedValue = JSON.parse(lastMessage.data);
       console.log(receivedValue);
-      if (receivedValue.hasOwnProperty("hitRect")) {
-        handleCloseButton();
+      if (receivedValue.hasOwnProperty("content")) {
+        setShowPanel(false);
+      }
+      if (receivedValue.hasOwnProperty("questions")) {
+        const temp = {
+          en: Object.keys(receivedValue.questions).map(
+            (k) => receivedValue.questions[k].en
+          ),
+          de: Object.keys(receivedValue.questions).map(
+            (k) => receivedValue.questions[k].de
+          ),
+        };
+        setQuestions(temp);
+        setSelectedQuestions(
+          Object.keys(receivedValue.questions).map((k) => true)
+        );
+      }
+      if (receivedValue.hasOwnProperty("topics")) {
+        const temp = {
+          en: Object.keys(receivedValue.topics).map(
+            (k) => receivedValue.topics[k].en
+          ),
+          de: Object.keys(receivedValue.topics).map(
+            (k) => receivedValue.topics[k].de
+          ),
+        };
+        setTopics(temp);
+        setSelectedTopics(Object.keys(receivedValue.topics).map((k) => true));
       }
     }
   }, [lastMessage, sendMessage]);
 
+  // handling sending message via websocket on state change
   useEffect(() => {
     let message = JSON.stringify({
       navigationState: navigationState,
@@ -362,6 +339,7 @@ const App = () => {
     touchPosition,
     touchTap,
     touchState,
+    flyToButton,
   ]);
 
   return (
@@ -395,7 +373,7 @@ const App = () => {
           <Menu
             type="questionPicker"
             state={selectedQuestions}
-            items={questions}
+            items={i18n.language === "en" ? questions.en : questions.de}
             onClickFunction={handleQuestionSelected}
             setState={setSelectedQuestions}
           />
@@ -410,7 +388,7 @@ const App = () => {
           <Menu
             type="topicPicker"
             state={selectedTopics}
-            items={topics}
+            items={i18n.language === "en" ? topics.en : topics.de}
             onClickFunction={handleTopicSelect}
             setState={setSelectedTopics}
           />
@@ -436,7 +414,7 @@ const App = () => {
       </div>
       <div
         ref={sortByMenuRef}
-        className="flex justify-center items-center absolute top-12 mx-auto gap-6 "
+        className="flex justify-center items-center absolute top-8 mx-auto gap-6 "
       >
         <SortByBar
           state={selectedSortBy}
@@ -458,20 +436,39 @@ const App = () => {
         afterLeave={handleContentSwitch}
       >
         <div className="flex flex-col max-w-sm 2xl:max-w-4xl justify-center items-end gap-2">
-          {choosenElement !== "none" && (
+          {choosenElement && (
             <div onClick={handleCloseButton}>
               <CloseButton />
             </div>
           )}
           <div className="w-full flex" ref={inspectorRef}>
-            {choosenElement === "none" && (
-              <InspectorFacts content={contentAnswer.n} />
+            {!choosenElement && (
+              <InspectorFacts
+                content={
+                  i18n.language === "en"
+                    ? contentFacts.properties_en
+                    : contentFacts.properties
+                }
+              />
             )}
-            {choosenElement === "answer" && (
+            {choosenElement && (
               <div className="flex-col gap-4 flex">
-                <InspectorAnswer content={contentAnswer.n} />
+                <InspectorAnswer
+                  handleClickEvent={() => {
+                    setFlyToButton((prev) => prev + 1);
+                  }}
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                />
                 <InspectorTopics
-                  content={contentAnswer.n.properties.keywords}
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
                 />
               </div>
             )}

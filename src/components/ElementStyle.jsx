@@ -31,6 +31,12 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
        elementType === "topicPicker" ||
        elementType === "question" ||
        elementType === "answer"
+         ? "flex gap-4 h-full w-full text-base 2xl:text-3xl"
+         : ""
+     } 
+
+     ${
+       elementType === "topicChildren"
          ? "flex gap-4 h-full w-full text-base 2xl:text-2xl"
          : ""
      } 
@@ -57,6 +63,9 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
           ${elementType === "answer" ? "bg-green-400 h-full" : "h-[80%]"}
            `}
         ></div>
+      )}
+      {elementType === "topicChildren" && (
+        <div className="w-2 h-2 rounded-full bg-white"></div>
       )}
       <p
         className={`w-full  ${
