@@ -14,6 +14,7 @@ import LanguageButton from "./components/LanguageButton";
 import Menu from "./components/Menu";
 import MenuWrapper from "./components/MenuWrapper";
 import NavigationButton from "./components/NavigationButton";
+import SliderMenu from "./components/SliderMenu";
 import SortByBar from "./components/SortByBar";
 import useGestureInterpreter from "./hooks/useGestureInterpreter";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
@@ -63,33 +64,6 @@ const App = () => {
     }
   };
 
-  // static values setup
-  // const topics = [
-  //   t("topics.env"),
-  //   t("topics.ed"),
-  //   t("topics.work"),
-  //   t("topics.hel"),
-  //   t("topics.urb"),
-  //   t("topics.soc"),
-  //   t("topics.pol"),
-  //   t("topics.ec"),
-  //   t("topics.tec"),
-  //   t("topics.glo"),
-  //   t("topics.art"),
-  //   t("topics.le"),
-  // ];
-
-  // const questions = [
-  //   t("questions.0"),
-  //   t("questions.1"),
-  //   t("questions.2"),
-  //   t("questions.3"),
-  //   t("questions.4"),
-  //   t("questions.5"),
-  //   t("questions.6"),
-  //   t("questions.7"),
-  // ];
-
   // states
   const [choosenElement, setChoosenElement] = useState(false);
   const [showPanel, setShowPanel] = useState(true);
@@ -102,6 +76,7 @@ const App = () => {
   const [selectedSortBy, setSelectedSortBy] = useState(1);
   const [selectedLatestAnswer, setSelectedLatestAnswer] = useState(0);
   const [questionMenu, setQuestionMenu] = useState(false);
+  const [sliderMenu, setSliderMenu] = useState(false);
   const [languageMenu, setLanguageMenu] = useState(false);
   const [topicsMenu, setTopicsMenu] = useState(false);
   const [latestAnswerMenu, setLatestAnswerMenu] = useState(false);
@@ -114,6 +89,8 @@ const App = () => {
   const [touchState, setTouchState] = useState("");
   const [touchTap, setTouchTap] = useState(0);
   const [closePanel, setClosePanel] = useState(false);
+  const [sliderValues, setSliderValues] = useState({});
+  const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
   const socketUrl = "ws://localhost:5002";
 
   // setting up websocket connection
@@ -129,6 +106,7 @@ const App = () => {
   const sortByMenuRef = useRef(null);
   const latestAnswerMenuRef = useRef(null);
   const questionMenuRef = useRef(null);
+  const sliderMenuRef = useRef(null);
   const topicsMenuRef = useRef(null);
   const navigationRef = useRef(null);
   const needHelpRef = useRef(null);
@@ -145,6 +123,7 @@ const App = () => {
     latestAnswerMenuRef,
     questionMenuRef,
     topicsMenuRef,
+    sliderMenuRef,
   ];
 
   // window resize event
@@ -162,6 +141,13 @@ const App = () => {
   const handleCloseButton = () => {
     setShowPanel(false);
     setClosePanel(true);
+  };
+
+  const handleSliderChange = (e, slider) => {
+    setSliderValues({
+      ...sliderValues,
+      [slider]: e.target.value,
+    });
   };
 
   const handleQuestionSelected = (i) => {
@@ -188,6 +174,20 @@ const App = () => {
 
   const handleSortByClick = (i) => {
     setSelectedSortBy(i);
+    switch (i) {
+      case 0:
+        setSliderValues(sliderPresets[0]);
+        break;
+      case 1:
+        setSliderValues(sliderPresets[1]);
+        break;
+      case 2:
+        setSliderValues(sliderPresets[2]);
+        break;
+      default:
+        setSliderValues(sliderPresets[1]);
+        break;
+    }
   };
 
   const handleLatestAnswerSelected = (i) => {
@@ -200,9 +200,27 @@ const App = () => {
 
   const toggleQuestionMenu = () => {
     setQuestionMenu((prev) => !prev);
-    if (latestAnswerMenu === true || topicsMenu === true) {
+    if (
+      latestAnswerMenu === true ||
+      topicsMenu === true ||
+      sliderMenu === true
+    ) {
       setLatestAnswerMenu(false);
       setTopicsMenu(false);
+      setSliderMenu(false);
+    }
+  };
+
+  const toggleSliderMenu = () => {
+    setSliderMenu((prev) => !prev);
+    if (
+      questionMenu === true ||
+      topicsMenu === true ||
+      latestAnswerMenu === true
+    ) {
+      setQuestionMenu(false);
+      setTopicsMenu(false);
+      setLatestAnswerMenu(false);
     }
   };
 
@@ -212,17 +230,23 @@ const App = () => {
 
   const toggleLatestAnswerMenu = () => {
     setLatestAnswerMenu((prev) => !prev);
-    if (questionMenu === true || topicsMenu === true) {
+    if (questionMenu === true || topicsMenu === true || sliderMenu === true) {
       setQuestionMenu(false);
       setTopicsMenu(false);
+      setSliderMenu(false);
     }
   };
 
   const toggleTopicsMenu = () => {
     setTopicsMenu((prev) => !prev);
-    if (questionMenu === true || latestAnswerMenu === true) {
+    if (
+      questionMenu === true ||
+      latestAnswerMenu === true ||
+      sliderMenu === true
+    ) {
       setQuestionMenu(false);
       setLatestAnswerMenu(false);
+      setSliderMenu(false);
     }
   };
 
@@ -245,6 +269,7 @@ const App = () => {
     setQuestionMenu(false);
     setLatestAnswerMenu(false);
     setLanguageMenu(false);
+    setSliderMenu(false);
   };
 
   useOutsideClickMenu(
@@ -255,6 +280,7 @@ const App = () => {
       questionMenuRef,
       topicsMenuRef,
       languageRef,
+      sliderMenuRef,
     ],
     handleOutsideClick
   );
@@ -280,31 +306,25 @@ const App = () => {
       if (receivedValue.hasOwnProperty("content")) {
         setShowPanel(false);
       }
-      if (receivedValue.hasOwnProperty("questions")) {
+      if (receivedValue.hasOwnProperty("Questions")) {
         const temp = {
-          en: Object.keys(receivedValue.questions).map(
-            (k) => receivedValue.questions[k].en
-          ),
-          de: Object.keys(receivedValue.questions).map(
-            (k) => receivedValue.questions[k].de
-          ),
+          en: receivedValue.Questions.map((k) => k.en),
+          de: receivedValue.Questions.map((k) => k.de),
         };
         setQuestions(temp);
-        setSelectedQuestions(
-          Object.keys(receivedValue.questions).map((k) => true)
-        );
+        setSelectedQuestions(receivedValue.Questions.map((k) => true));
       }
-      if (receivedValue.hasOwnProperty("topics")) {
+      if (receivedValue.hasOwnProperty("Topics")) {
         const temp = {
-          en: Object.keys(receivedValue.topics).map(
-            (k) => receivedValue.topics[k].en
-          ),
-          de: Object.keys(receivedValue.topics).map(
-            (k) => receivedValue.topics[k].de
-          ),
+          en: receivedValue.Topics.map((k) => k.en),
+          de: receivedValue.Topics.map((k) => k.de),
         };
         setTopics(temp);
-        setSelectedTopics(Object.keys(receivedValue.topics).map((k) => true));
+        setSelectedTopics(receivedValue.Topics.map((k) => true));
+      }
+      if (receivedValue.hasOwnProperty("Forces")) {
+        setSliderPresets(receivedValue.Forces);
+        setSliderValues(receivedValue.Forces[1]);
       }
     }
   }, [lastMessage, sendMessage]);
@@ -313,7 +333,8 @@ const App = () => {
   useEffect(() => {
     let message = JSON.stringify({
       navigationState: navigationState,
-      selectedQuestions: selectedQuestions,
+      selectedQuestions: selectedQuestions.saved,
+      selectedTopics: selectedTopics.saved,
       selectedSortBy: selectedSortBy,
       selectedLatestAnswer: selectedLatestAnswer,
       language: i18n.language,
@@ -324,11 +345,15 @@ const App = () => {
       touchPosition: touchPosition,
       touchTap: touchTap,
       touchState: touchState,
+      flyToButton: flyToButton,
+      sliderValues: sliderValues,
     });
+    console.log(message);
     sendMessage(message);
   }, [
     navigationState,
     selectedQuestions,
+    selectedTopics,
     selectedSortBy,
     selectedLatestAnswer,
     i18n.language,
@@ -340,14 +365,15 @@ const App = () => {
     touchTap,
     touchState,
     flyToButton,
+    sliderValues,
   ]);
 
   return (
     <div
       {...bind()}
-      className="touch-none select-none font-futurium w-screen h-screen overflow-hidden flex justify-center items-end bg-opacity-20 p-12 relative"
+      className="touch-none noSelect select-none font-futurium w-screen h-screen overflow-hidden flex justify-center items-end bg-opacity-20 p-12 relative"
     >
-      <div className="absolute flex h-full top-12 gap-1 2xl:gap-4 left-12  flex-col justify-start items-start">
+      <div className="absolute flex h-full top-12 gap-1 2xl:gap-4 left-12 flex-col justify-start items-start">
         <div
           ref={buttonRef}
           className="flex justify-center 2xl:gap-8 items-start gap-4"
@@ -403,26 +429,39 @@ const App = () => {
           <Menu
             type="radioButton"
             state={selectedLatestAnswer}
-            items={
-              i18n.language === "de"
-                ? ["Alle", "Letzte 10", "Letzte 100", "Letzte 1000"]
-                : ["All", "Last 10", "Last 100", "Last 1000"]
-            }
+            items={["All", "Last10", "Last100", "Last1000"]}
             onClickFunction={handleLatestAnswerSelected}
           />
         </MenuWrapper>
       </div>
-      <div
-        ref={sortByMenuRef}
-        className="flex justify-center items-center absolute top-12 mx-auto"
-      >
+
+      <div ref={sortByMenuRef} className="flex absolute top-12 mx-auto">
         <SortByBar
           state={selectedSortBy}
           setState={setSelectedSortBy}
+          toggleEvent={toggleSliderMenu}
           itemsAmount={3}
           clickEvent={handleSortByClick}
         />
       </div>
+      <MenuWrapper
+        _ref={sliderMenuRef}
+        showState={sliderMenu}
+        className="flex absolute top-40 mx-auto"
+      >
+        <SliderMenu
+          state={sliderValues}
+          labels={[
+            ["sliderMenu.A", "sliderMenu.Q"],
+            ["sliderMenu.A", "sliderMenu.C"],
+            ["sliderMenu.A", "sliderMenu.K"],
+            ["sliderMenu.Q", "sliderMenu.C"],
+            ["sliderMenu.Q", "sliderMenu.K"],
+            ["sliderMenu.K", "sliderMenu.C"],
+          ]}
+          onChangeFunction={handleSliderChange}
+        />
+      </MenuWrapper>
       <Transition
         appear={true}
         show={showPanel}

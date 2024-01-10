@@ -11,7 +11,7 @@ const InspectorFacts = ({ content }) => {
     >
       <div className="w-full flex flex-col gap-2 2xl:gap-3">
         <div className=" flex items-center  gap-1 2xl:gap-2">
-          <h2 className="font-normal 2xl:text-2xl text-lg">
+          <h2 className="font-normal 2xl:text-3xl text-lg">
             <Trans i18nKey="inspector.title.facts.facts"></Trans>
           </h2>
           <h3 className="font-light text-sm 2xl:font-normal 2xl:text-lg">
@@ -29,7 +29,7 @@ const InspectorFacts = ({ content }) => {
         </div>
       </div>
       <div className="w-full flex flex-col gap-2 2xl:gap-3">
-        <h3 className="font-normal 2xl:text-2xl text-lg">
+        <h3 className="font-normal 2xl:text-3xl text-lg">
           <Trans i18nKey="inspector.title.facts.answer"></Trans>
         </h3>
         <div className="gap-4 h-full flex items-center w-full">
@@ -39,7 +39,7 @@ const InspectorFacts = ({ content }) => {
         </div>
       </div>
       <div className="w-full flex flex-col gap-2 2xl:gap-3">
-        <h3 className="font-normal 2xl:text-2xl text-lg">
+        <h3 className="font-normal 2xl:text-3xl text-lg">
           <Trans i18nKey="inspector.title.facts.topic"></Trans>
         </h3>
         <div className="gap-3 h-full flex items-center w-full">

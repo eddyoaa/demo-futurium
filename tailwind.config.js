@@ -21,6 +21,18 @@ module.exports = {
   plugins: [
     plugin(function ({ addUtilities }) {
       addUtilities({
+        ".noSelect": {
+          "-webkit-tap-highlight-color": "transparent",
+          "-webkit-touch-callout": "none",
+          "-webkit-user-select": "none",
+          "-khtml-user-select": "none",
+          "-moz-user-select": "none",
+          "-ms-user-select": "none",
+          "user-select": "none",
+        },
+        ".noSelect:focus": {
+          outline: "none !important",
+        },
         ".scrollbar-hide": {
           /* IE and Edge */
           "-ms-overflow-style": "none",

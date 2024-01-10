@@ -18,7 +18,6 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
       }
       setState(newSelectedQuestions);
     };
-
     return (
       <div className="flex flex-col gap-2 2xl:rounded-xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
         <button
@@ -65,7 +64,6 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
       }
       setState(newSelectedTopics);
     };
-
     return (
       <div className="flex flex-col gap-2 2xl:rounded-2xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
         <button
@@ -112,7 +110,7 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
               <div className="flex items-center gap-2">
                 {i === state && <ImRadioChecked2 />}
                 {i !== state && <ImRadioUnchecked />}
-                <Trans i18nKey={question}></Trans>
+                <Trans i18nKey={``}></Trans>
               </div>
             </ElementStyle>
           </div>

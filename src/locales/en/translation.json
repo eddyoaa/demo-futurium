@@ -35,28 +35,11 @@
     "selectAll": "Select all",
     "deSelectAll": "Deselect all"
   },
-  "topics": {
-    "env": "Environment",
-    "ed": "Education",
-    "work": "Work",
-    "hel": "Health",
-    "urb": "Urbanity",
-    "soc": "Society",
-    "pol": "Politics",
-    "ec": "Economy",
-    "tec": "Technology and science",
-    "glo": "Global affairs",
-    "art": "Art and culture",
-    "le": "Leisure"
-  },
-  "questions": {
-    "0": "What would you want to use unused space in the city for?",
-    "1": "What could your city do to promote a healthy lifestyle?",
-    "2": "Which problems should the government solve in the next 10 years?",
-    "3": "What are the biggest problems in your neighborhood?",
-    "4": "What work do you do every day that you are not paid for?",
-    "5": "Which jobs do you find important?",
-    "6": "What would make you give up your car?",
-    "7": "If you were free to create your perfect job, what would it be like?"
+  "sliderMenu": {
+    "A": "Answer",
+    "C": "Topic",
+    "K": "Tag",
+    "Q": "Question",
+    "choose": "Choose your view"
   }
 }
