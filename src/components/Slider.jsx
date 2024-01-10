@@ -14,14 +14,14 @@ const Slider = ({ labels, state, handleChange, sliderKey }) => {
           onChange={(e) => {
             handleChange(e, sliderKey);
           }}
-          className="w-full h-2 accent-black bg-gray-300 rounded-lg appearance-none"
+          className="w-full h-2 accent-black bg-gray-300 rounded-lg "
         />
         <span className="text-sm text-black">100</span>
       </div>
       <div className="flex justify-center gap-1 w-1/2">
-        <p className="w-1/2 text-end">{t(labels[0])}</p>
+        <p className="w-1/2 text-start">{t(labels[0])}</p>
         <p className="w-1/6 text-center">{"<>"}</p>
-        <p className="w-1/2 text-start">{t(labels[1])}</p>
+        <p className="w-1/2 text-end">{t(labels[1])}</p>
       </div>
     </div>
   );

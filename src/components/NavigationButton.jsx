@@ -29,7 +29,7 @@ const NavigationButton = ({
           <AiOutlineMinus size={iconSize} />
         ) : (
           <div
-            className={`transition-all duration-300 p-1 2xl:p-2 ${
+            className={`transition-all duration-200 p-1 2xl:p-2 ${
               navigationState === "move"
                 ? "bg-black text-white rounded-lg 2xl:rounded-lg"
                 : "bg-black/0"
