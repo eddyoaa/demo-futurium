@@ -19,39 +19,19 @@ import SortByBar from "./components/SortByBar";
 import useGestureInterpreter from "./hooks/useGestureInterpreter";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
 
-let contentFacts = {
-  properties_en: {
-    CTime: "3:30 p.m",
-    CDate: "12.12.23",
-    answer:
-      "The government should solve the energy crisis issue. We should find a way to provide. Energy. Uh, in a more efficient way and without requiring to. Without requiring to dig coal.",
-    keywords: [
-      { label: "Energy", children: ["Power", "Cole"] },
-      { label: "Government", children: ["City", "Money", "Safety"] },
-      {
-        label: "Environment",
-        children: ["Nature", "Green", "Dirt"],
-      },
-    ],
-    question: "Which problems should be solved in the next 10 years?",
-  },
-  properties: {
-    CTime: "15:30 Uhr",
-    CDate: "12.12.23",
-    answer:
-      "Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zse lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen.se lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauenu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.",
-    keywords: [
-      { label: "Energie", children: ["Strom", "Kohle"] },
-      { label: "Regierung", children: ["Staat", "Geld", "Grundversorgung"] },
-      {
-        label: "Umwelt",
-        children: ["Natur", "Grünflächen", "Verschmutzung"],
-      },
-    ],
-    question:
-      "Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?",
-  },
-};
+// let contentFacts = {
+//   properties_en: {
+//     facts: ["", "", ""],
+//     keywords: ["Energy", "Cole", "Environment"],
+//     question: "Which problems should be solved in the next 10 years?",
+//   },
+//   properties: {
+//     facts: ["", "", ""],
+//     keywords: ["Strom", "Kohle", "Umwelt"],
+//     question:
+//       "Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?",
+//   },
+// };
 
 const App = () => {
   // translator setup
@@ -91,6 +71,18 @@ const App = () => {
   const [closePanel, setClosePanel] = useState(false);
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
+  const [contentFacts, setContentFacts] = useState({
+    properties_en: {
+      facts: [],
+      keywords: [],
+      question: "",
+    },
+    properties: {
+      facts: [],
+      keywords: [],
+      question: "",
+    },
+  });
   const socketUrl = "ws://localhost:5002";
 
   // setting up websocket connection
@@ -144,9 +136,10 @@ const App = () => {
   };
 
   const handleSliderChange = (e, slider) => {
+    console.log(typeof +e.target.value);
     setSliderValues({
       ...sliderValues,
-      [slider]: e.target.value,
+      [slider]: +e.target.value,
     });
   };
 
@@ -326,6 +319,9 @@ const App = () => {
         setSliderPresets(receivedValue.Forces);
         setSliderValues(receivedValue.Forces[1]);
       }
+      if (receivedValue.hasOwnProperty("Facts")) {
+        setContentFacts(receivedValue.Facts);
+      }
     }
   }, [lastMessage, sendMessage]);
 
@@ -333,8 +329,8 @@ const App = () => {
   useEffect(() => {
     let message = JSON.stringify({
       navigationState: navigationState,
-      selectedQuestions: selectedQuestions.saved,
-      selectedTopics: selectedTopics.saved,
+      selectedQuestions: selectedQuestions,
+      selectedTopics: selectedTopics,
       selectedSortBy: selectedSortBy,
       selectedLatestAnswer: selectedLatestAnswer,
       language: i18n.language,

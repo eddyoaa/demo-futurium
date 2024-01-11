@@ -9,6 +9,7 @@ const Slider = ({ labels, state, handleChange, sliderKey }) => {
         <input
           type="range"
           min={0}
+          step={0.01}
           max={1}
           value={state}
           onChange={(e) => {

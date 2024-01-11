@@ -20,9 +20,9 @@ const InspectorFacts = ({ content }) => {
         </div>
         <div className="gap-4 h-full flex items-center w-full">
           <div className="flex h-full w-full gap-1 flex-col">
-            {content.keywords.map((keyword, i) => (
+            {content.facts.map((fact, i) => (
               <ElementStyle key={i} elementType={"facts"}>
-                {keyword.label}
+                {fact}
               </ElementStyle>
             ))}
           </div>
@@ -47,7 +47,7 @@ const InspectorFacts = ({ content }) => {
           <div className="flex flex-col">
             {content.keywords.map((keyword, i) => (
               <ElementStyle key={i} elementType={"topic"}>
-                {keyword.label}
+                {keyword}
               </ElementStyle>
             ))}
           </div>
