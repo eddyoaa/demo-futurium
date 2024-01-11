@@ -1425,15 +1425,6 @@
               <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="UbVHkvo8lOKLvaD6DY5eLP" Bounds="226,140,265,41" ShowValueBox="true" isIOBox="true" Value="Drawing Images">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
-              <Choice Kind="TypeFlag" Name="String" />
-            </p:TypeAnnotation>
-            <p:ValueBoxSettings>
-              <p:fontsize p:Type="Int32">20</p:fontsize>
-              <p:stringtype p:Assembly="VL.Core" p:Type="VL.Core.StringType">Comment</p:stringtype>
-            </p:ValueBoxSettings>
-          </Pad>
           <Pad Id="NvX4T9nB65CO76cBHbfJAm" Comment="Apply" Bounds="1814,809,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
@@ -1480,7 +1471,6 @@
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Overlay Id="MG1C0Qckf2VPm6RsHQyP7I" Name="" Bounds="0,0,80,80" />
           <Pad Id="J43zc5SgemcPKon8Ds3phR" Comment="New Value" Bounds="1846,647,64,23" ShowValueBox="true" isIOBox="true" Value="{&quot;properties&quot;:{&quot;CTime&quot;:&quot;3:30 p.m&quot;,&quot;CDate&quot;:&quot;12.12.23&quot;,&quot;answer&quot;:&quot;The government should solve the energy crisis issue. We should find a way to provide. Energy. Uh, in a more efficient way and without requiring to. Without requiring to dig coal.&quot;,&quot;keywords&quot;:[{&quot;label&quot;:&quot;Energy&quot;,&quot;children&quot;:[&quot;Power&quot;,&quot;Cole&quot;]},{&quot;label&quot;:&quot;Government&quot;,&quot;children&quot;:[&quot;City&quot;,&quot;Money&quot;,&quot;Safety&quot;]},{&quot;label&quot;:&quot;Environment&quot;,&quot;children&quot;:[&quot;Nature&quot;,&quot;Green&quot;,&quot;Dirt&quot;]}],&quot;question&quot;:&quot;Which problems should be solved in the next 10 years?&quot;},&quot;properties_en&quot;:{&quot;CTime&quot;:&quot;15:30 Uhr&quot;,&quot;CDate&quot;:&quot;12.12.23&quot;,&quot;answer&quot;:&quot;Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zse lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen.se lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauenu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.&quot;,&quot;keywords&quot;:[{&quot;label&quot;:&quot;Energie&quot;,&quot;children&quot;:[&quot;Strom&quot;,&quot;Kohle&quot;]},{&quot;label&quot;:&quot;Regierung&quot;,&quot;children&quot;:[&quot;Staat&quot;,&quot;Geld&quot;,&quot;Grundversorgung&quot;]},{&quot;label&quot;:&quot;Umwelt&quot;,&quot;children&quot;:[&quot;Natur&quot;,&quot;Grünflächen&quot;,&quot;Verschmutzung&quot;]}],&quot;question&quot;:&quot;Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?&quot;}}">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
@@ -1513,7 +1503,7 @@
               </Node>
             </Patch>
           </Node>
-          <Pad Id="AHZ5PQmCBXpLCuHxaIqFC5" Comment="Apply" Bounds="2211,835,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+          <Pad Id="AHZ5PQmCBXpLCuHxaIqFC5" Comment="Apply" Bounds="2194,839,35,35" ShowValueBox="true" isIOBox="true" Value="False">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
               <CategoryReference Kind="Category" Name="Primitive" />
@@ -1541,27 +1531,27 @@
             <Pin Id="KjP5CmcrhEmNmOdMd42ZXA" Name="Input 4" Kind="InputPin" />
             <Pin Id="HSKzLZr2re6LzV7s6EXhD6" Name="Input 5" Kind="InputPin" />
           </Node>
-          <Pad Id="B6oUurAhtewLsC1HEIfcVl" Comment="Index" Bounds="2233,593,35,15" ShowValueBox="true" isIOBox="true" Value="3">
+          <Pad Id="B6oUurAhtewLsC1HEIfcVl" Comment="Index" Bounds="2233,593,35,15" ShowValueBox="true" isIOBox="true" Value="0">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="Js4Ez3yKXVpLUIcP8ZrcRG" Comment="send Facts" Bounds="2353,401,55,17" ShowValueBox="true" isIOBox="true" Value="{&quot;Facts&quot;:&#xD;&#xA;{&quot;properties_en&quot;:{&quot;facts&quot;:[&quot;afa&quot;,&quot;afasf&quot;,&quot;afsaf&quot;],&quot;keywords&quot;:[&quot;Energy&quot;,&quot;Cole&quot;,&quot;Environment&quot;],&quot;question&quot;:&quot;Which problems should be solved in the next 10 years?&quot;},&quot;properties&quot;:{&quot;facts&quot;:[&quot;asf&quot;,&quot;asf&quot;,&quot;afsw&quot;],&quot;keywords&quot;:[&quot;Strom&quot;,&quot;Kohle&quot;,&quot;Umwelt&quot;],&quot;question&quot;:&quot;Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?&quot;}}&#xD;&#xA;}">
+          <Pad Id="Js4Ez3yKXVpLUIcP8ZrcRG" Comment="send Facts" Bounds="2347,402,55,17" ShowValueBox="true" isIOBox="true" Value="{&quot;Facts&quot;:&#xD;&#xA;{&quot;properties_en&quot;:{&quot;facts&quot;:[&quot;afa&quot;,&quot;afasf&quot;,&quot;afsaf&quot;],&quot;keywords&quot;:[&quot;Energy&quot;,&quot;Cole&quot;,&quot;Environment&quot;],&quot;question&quot;:&quot;Which problems should be solved in the next 10 years?&quot;},&quot;properties&quot;:{&quot;facts&quot;:[&quot;asf&quot;,&quot;asf&quot;,&quot;afsw&quot;],&quot;keywords&quot;:[&quot;Strom&quot;,&quot;Kohle&quot;,&quot;Umwelt&quot;],&quot;question&quot;:&quot;Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?&quot;}}&#xD;&#xA;}">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="D80fdkeI6nGOufHGZESf7C" Comment="send reset" Bounds="2373,433,27,16" ShowValueBox="true" isIOBox="true" Value="{&quot;Reset&quot;: 5}">
+          <Pad Id="D80fdkeI6nGOufHGZESf7C" Comment="send reset" Bounds="2223,921,60,16" ShowValueBox="true" isIOBox="true" Value="{&quot;Reset&quot;: NUMBER}">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="EnXPzvGmXq0MZ75U2e9hz9" Comment="send latestanswer" Bounds="2387,464,600,419" ShowValueBox="true" isIOBox="true" Value="{&#xD;&#xA;&quot;LatestAnswers&quot; : [{&quot;enabled&quot;: false,&quot;answer&quot;: {&quot;de&quot; : &quot;Ich Liebe meine Nachbarschaft, aber dieser Müll überall ist schrecklich!&quot;,&quot;en&quot;: &quot;heloo my name is eddy&quot;}, &quot;date&quot;: {&quot;de&quot;: &quot;12.12.23-15:30 Uhr&quot;,&quot;en&quot;: &quot;12.12.23 - 3.30 p.m&quot;}}, {&quot;answer&quot;: {&quot;de&quot; : &quot; Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zse lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen.se lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauenu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.&quot;, &quot;en&quot;: &quot;hello2&quot;},&quot;enabled&quot;:false, &quot;date&quot;: {&quot;de&quot;: &quot;12.12.23-15:30 Uhr&quot;,&quot;en&quot;: &quot;12.12.23 - 3.30 p.m&quot;}}]&#xD;&#xA;}&#xD;&#xA;">
+          <Pad Id="EnXPzvGmXq0MZ75U2e9hz9" Comment="send latestanswer" Bounds="2387,464,65,19" ShowValueBox="true" isIOBox="true" Value="{&#xD;&#xA;&quot;LatestAnswers&quot; : [{&quot;enabled&quot;: false,&quot;answer&quot;: {&quot;de&quot; : &quot;Ich Liebe meine Nachbarschaft, aber dieser Müll überall ist schrecklich!&quot;,&quot;en&quot;: &quot;heloo my name is eddy&quot;}, &quot;date&quot;: {&quot;de&quot;: &quot;12.12.23-15:30 Uhr&quot;,&quot;en&quot;: &quot;12.12.23 - 3.30 p.m&quot;}}, {&quot;answer&quot;: {&quot;de&quot; : &quot; Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zse lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen.se lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauense lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauenu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen. Die Regierung sollte das Problem der Energiekrise lösen. Wir sollten einen Weg finden, um zu versorgen. Energie. Äh, auf eine effizientere Art und Weise, ohne es zu erfordern. Ohne Kohle abbauen zu müssen.&quot;, &quot;en&quot;: &quot;hello2&quot;},&quot;enabled&quot;:true, &quot;date&quot;: {&quot;de&quot;: &quot;12.12.23-15:30 Uhr&quot;,&quot;en&quot;: &quot;12.12.23 - 3.30 p.m&quot;}}]&#xD;&#xA;}&#xD;&#xA;">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="IXRw8RbJG9nNz0jlX0DsX9" Comment="send empty content" Bounds="2407,522,227,175" ShowValueBox="true" isIOBox="true" Value="{&quot;content&quot;: &quot;&quot;}">
+          <Pad Id="IXRw8RbJG9nNz0jlX0DsX9" Comment="send empty content" Bounds="2370,434,77,22" ShowValueBox="true" isIOBox="true" Value="{&quot;content&quot;: &quot;&quot;}">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
@@ -1597,6 +1587,91 @@
             <Pin Id="FU1diHjxddEMkfsoOaWgOk" Name="Unchanged" Kind="OutputPin" />
           </Node>
           <Pad Id="OpWqCPPqKtBOzDPkeHpqGA" Comment="" Bounds="2096,481,35,35" ShowValueBox="true" isIOBox="true" />
+          <Node Bounds="2289,1022,85,19" Id="HYBHSHoSWUEM7cazOwvYQL">
+            <p:NodeReference LastCategoryFullName="Animation.FrameBased" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="Counter" />
+            </p:NodeReference>
+            <Pin Id="ULT6BSUBXbqOq20uF9fr0w" Name="Increment" Kind="InputPin" DefaultValue="-2" />
+            <Pin Id="NIJvFCK4h3ONVHCrAOT4yl" Name="Default" Kind="InputPin" />
+            <Pin Id="Q5aETCGDCSeO47kJUdB0DJ" Name="Up" Kind="ApplyPin" />
+            <Pin Id="EeM68hyRT31MWypOSBuB8c" Name="Down" Kind="ApplyPin" />
+            <Pin Id="VwgPfo6zAY3NQ0PtnHZCKj" Name="Reset" Kind="ApplyPin" DefaultValue="False" />
+            <Pin Id="EMXHUAKERIOLZCaDWc90hd" Name="Value" Kind="OutputPin" />
+          </Node>
+          <Pad Id="CR29vWCAshAQc8AAZtsdo4" Comment="RESET" Bounds="2421,961,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
+          <Node Bounds="2244,1092,51,26" Id="FTkkjGlh12aMglH5gXHDzk">
+            <p:NodeReference LastCategoryFullName="Primitive.String" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <CategoryReference Kind="StringType" Name="String" NeedsToBeDirectParent="true" />
+              <Choice Kind="OperationCallFlag" Name="Replace" />
+            </p:NodeReference>
+            <Pin Id="LB8MCX9IGpWL9GJSZaa1Ge" Name="Input" Kind="StateInputPin" />
+            <Pin Id="GytRZar3Y3gMxA0XjMqswI" Name="Old Value" Kind="InputPin" />
+            <Pin Id="LhcKhVvD45aOVG4q3XtkLH" Name="New Value" Kind="InputPin" />
+            <Pin Id="DlSa36vkd3tPhRny6oi7Nm" Name="Output" Kind="StateOutputPin" />
+          </Node>
+          <Node Bounds="2290,1054,55,19" Id="Djb5ThnBVivOKCGqLiqnXH">
+            <p:NodeReference LastCategoryFullName="System.Conversion" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="ToString" />
+            </p:NodeReference>
+            <Pin Id="D7xD38QwPcBOdn1n05sci5" Name="Input" Kind="InputPin" />
+            <Pin Id="GrYjDqMlYFbLTQHsyjMtP7" Name="Result" Kind="OutputPin" />
+          </Node>
+          <Pad Id="VBoZf6CgrOUQA2HthQ2B1W" Comment="Old Value" Bounds="2259,949,35,15" ShowValueBox="true" isIOBox="true" Value="NUMBER">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="TypeFlag" Name="String" />
+            </p:TypeAnnotation>
+          </Pad>
+          <Node Bounds="2072,1168,109,162" Id="Maa16ccOZx2OU1Vw95c5At">
+            <p:NodeReference LastCategoryFullName="Primitive" LastDependency="Builtin">
+              <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+              <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
+            </p:NodeReference>
+            <Pin Id="VNsQmFBJ0DQNjCHKz2YdXp" Name="Break" Kind="OutputPin" />
+            <ControlPoint Id="PcdlMR4EFe1OYfhiAC8QJ9" Bounds="2100,1174" Alignment="Top" />
+            <Patch Id="FyJoeIzXD23OW1bzUWeXuj" ManuallySortedPins="true">
+              <Patch Id="Kxh0K0I8XmWLnnETQ93q2c" Name="Create" ManuallySortedPins="true" />
+              <Patch Id="KK61VGcnI0NMLSAE7qeQej" Name="Update" ManuallySortedPins="true" />
+              <Patch Id="TbnDFrZw351Mrc5CdWx6Ha" Name="Dispose" ManuallySortedPins="true" />
+              <Node Bounds="2084,1284,85,26" Id="FPvSOZiDVKaQGXamSxonh4">
+                <p:NodeReference LastCategoryFullName="IO.WebSocket.WebSocketServer" LastDependency="VL.IO.WebSocket.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="ClassType" Name="WebSocketServer" NeedsToBeDirectParent="true" />
+                  <Choice Kind="OperationCallFlag" Name="SendString (Async)" />
+                </p:NodeReference>
+                <Pin Id="Bgw2G0XBN4gOSzLV9zp9DF" Name="Input" Kind="StateInputPin" />
+                <Pin Id="KK9AcQmzzbjOe9x9ShP0mU" Name="Client" Kind="InputPin" />
+                <Pin Id="CVDuPjzUsCyLGirwemuzZG" Name="Data" Kind="InputPin" />
+                <Pin Id="QfOLeU4Svx9LmdsWKLAk8k" Name="Encoding" Kind="InputPin" />
+                <Pin Id="MWcAfzzYyG9OSx3yY3VJeM" Name="Apply" Kind="InputPin" DefaultValue="False" />
+                <Pin Id="Kv52tuYLUqpPiwkmPA8EBP" Name="Output" Kind="StateOutputPin" />
+              </Node>
+            </Patch>
+          </Node>
+          <Pad Id="Qg2EEiqhbSuLwsUcTYGRi7" Comment="" Bounds="2318,1195,131,115" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="IObJdomqUZePQ5L3LmjwOO" Comment="" Bounds="2407,1089,68,38" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="Qmyg1blQJGEN5httZIG9eh" Comment="" Bounds="2447,658,58,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="Pufu8fZSfbkLPN2jl1ASMK" Comment="" Bounds="2418,1060,35,15" ShowValueBox="true" isIOBox="true" />
+          <Pad Id="T3IoydrQ2eVQcw0zCaKkxy" Comment="Reset" Bounds="2456,1023,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+            <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
+              <Choice Kind="ImmutableTypeFlag" Name="Boolean" />
+              <CategoryReference Kind="Category" Name="Primitive" />
+            </p:TypeAnnotation>
+            <p:ValueBoxSettings>
+              <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
+            </p:ValueBoxSettings>
+          </Pad>
         </Canvas>
         <ProcessDefinition Id="UKkDaI4oKktMxfbZ7nuoqe">
           <Fragment Id="Rq1es8Ga2aRNRscS4OftKn" Patch="PzztOUWeqsDM2ZNljoFV6R" Enabled="true" />
@@ -1704,15 +1779,29 @@
         <Link Id="DKe2MLn5crtP9cvWwK7OyH" Ids="Bx2UukEXcaALyvawPuqFxV,SmiyeHQueK4LYR7VKBBvse" />
         <Link Id="KOykvoVN8bkQRv1nAlbUGJ" Ids="B6oUurAhtewLsC1HEIfcVl,S3xmXT1z2ebOrPJXQ8c3E1" />
         <Link Id="CCpe0UcN4CWMNC6cetNR0e" Ids="Js4Ez3yKXVpLUIcP8ZrcRG,A3dtzzrwqzuOrVd0QKNQlB" />
-        <Link Id="GzKFYnURnqlLyN0pNzkGMw" Ids="D80fdkeI6nGOufHGZESf7C,VFY729VGHfiQb7ZYNG85Y1" />
         <Link Id="Se6rjISHYPbQRjC0KXiaq0" Ids="EnXPzvGmXq0MZ75U2e9hz9,KjP5CmcrhEmNmOdMd42ZXA" />
-        <Link Id="P723LgF1dceOTpJ1FQAV9c" Ids="IXRw8RbJG9nNz0jlX0DsX9,HSKzLZr2re6LzV7s6EXhD6" />
         <Link Id="FFCoxYN93qRLlMB3y5Tspq" Ids="IPmBAeXC9RWNXllqE1TZ1q,GpxCRyN6lXgPy3Dss4Oo6n" />
         <Link Id="Dce6oeyEKopOrAOMXeEGvu" Ids="DwucU1Fs52EQCJn5PLRAgv,FMkMMUrGG2gND2uGhQssN7" />
         <Link Id="FWnKBO7HbQHQKE89hwFzuX" Ids="PJviJaKApMdPBs8QngqlvG,PShnCzDbhHWNfPBh2woxbk" />
         <Link Id="C21ihgRkRw7OsIvIX1Www0" Ids="PJviJaKApMdPBs8QngqlvG,E1x7hOX4cuAPzTffAaJit9" />
         <Link Id="AOTMDkxGKEAONF8xipU2HC" Ids="PXBbl5pxXyjMBPcXwaGG7N,OpWqCPPqKtBOzDPkeHpqGA" />
-        <Link Id="MkM7PgrqlIfPO6P0mZFXql" Ids="AHZ5PQmCBXpLCuHxaIqFC5,Qvz32EB2j9QMTkNcQu9qKo" />
+        <Link Id="RtqIAT2qhptMoOZaYUjq6c" Ids="CR29vWCAshAQc8AAZtsdo4,Q5aETCGDCSeO47kJUdB0DJ" />
+        <Link Id="ChoMe8IpYsNMUINKg7ACE7" Ids="D80fdkeI6nGOufHGZESf7C,LB8MCX9IGpWL9GJSZaa1Ge" />
+        <Link Id="VEABWP2uMtkNm9OBCjKrgN" Ids="EMXHUAKERIOLZCaDWc90hd,D7xD38QwPcBOdn1n05sci5" />
+        <Link Id="A6oqDjo4TopPEosmeua0UE" Ids="GrYjDqMlYFbLTQHsyjMtP7,LhcKhVvD45aOVG4q3XtkLH" />
+        <Link Id="TqtBaeIt1yCM0rD7p7lg9i" Ids="VBoZf6CgrOUQA2HthQ2B1W,GytRZar3Y3gMxA0XjMqswI" />
+        <Link Id="O6uK0RHEvinMJXIbG7Npzi" Ids="PcdlMR4EFe1OYfhiAC8QJ9,KK9AcQmzzbjOe9x9ShP0mU" />
+        <Link Id="VeHNC6GudI2LajJNP4n83g" Ids="KfBl0A5u7PfMn6zKE8sMi3,PcdlMR4EFe1OYfhiAC8QJ9" />
+        <Link Id="NUtJPoqAHFbQUqJMzn5CsS" Ids="I3A7upwHwcUMHx9ASx7Wgb,Bgw2G0XBN4gOSzLV9zp9DF" />
+        <Link Id="Avy9EyVpmSKLNfF60NWLIC" Ids="DlSa36vkd3tPhRny6oi7Nm,CVDuPjzUsCyLGirwemuzZG" />
+        <Link Id="BqAWCScjKh9MDRQW79hhek" Ids="IXRw8RbJG9nNz0jlX0DsX9,VFY729VGHfiQb7ZYNG85Y1" />
+        <Link Id="HsNhhKBoVPEPnjV9W2PZN2" Ids="AHZ5PQmCBXpLCuHxaIqFC5,Qvz32EB2j9QMTkNcQu9qKo" />
+        <Link Id="RSMVh0RfhFuLVAxmQYdMkz" Ids="CR29vWCAshAQc8AAZtsdo4,MWcAfzzYyG9OSx3yY3VJeM" />
+        <Link Id="MPs3Fem7QzlMn3n5AaWmrR" Ids="DlSa36vkd3tPhRny6oi7Nm,Qg2EEiqhbSuLwsUcTYGRi7" />
+        <Link Id="BnOhdbt1oddOJq1tr0zIri" Ids="GrYjDqMlYFbLTQHsyjMtP7,IObJdomqUZePQ5L3LmjwOO" />
+        <Link Id="ICogPKXlkk0LsHpk0eKSAs" Ids="Bx2UukEXcaALyvawPuqFxV,Qmyg1blQJGEN5httZIG9eh" />
+        <Link Id="Rq3fAO233pUQdfMO7XgZpJ" Ids="EMXHUAKERIOLZCaDWc90hd,Pufu8fZSfbkLPN2jl1ASMK" />
+        <Link Id="IZ7rWXKiwgcPyMiRi1svXq" Ids="T3IoydrQ2eVQcw0zCaKkxy,VwgPfo6zAY3NQ0PtnHZCKj" />
       </Patch>
     </Node>
   </Patch>

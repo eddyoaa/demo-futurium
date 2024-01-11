@@ -240,7 +240,7 @@ const App = () => {
       setShowPanel(true);
     }, 150);
   };
-  console.log(selectedLatestAnswer);
+
   // handle Reset
   const handleReset = () => {
     let selectedValues = selectedQuestions.map((question) => {
@@ -298,6 +298,7 @@ const App = () => {
     let receivedValue;
     if (lastMessage !== null) {
       receivedValue = JSON.parse(lastMessage.data);
+      console.log(receivedValue);
       setReceivedValues(receivedValue);
       if (receivedValue.hasOwnProperty("content")) {
         setShowPanel(false);
@@ -357,6 +358,7 @@ const App = () => {
       sliderValues: sliderValues,
       closeButton: closeButton,
     });
+    console.log(message);
     sendMessage(message);
   }, [
     navigationState,
