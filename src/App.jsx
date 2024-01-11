@@ -437,7 +437,6 @@ const App = () => {
           />
         </MenuWrapper>
       </div>
-
       <div ref={sortByMenuRef} className="flex absolute top-12 mx-auto">
         <SortByBar
           state={selectedSortBy}
@@ -517,14 +516,6 @@ const App = () => {
           </div>
         </div>
       </Transition>
-      <div className="flex justify-center items-center gap-4 absolute bottom-1/2">
-        <div
-          onClick={handleCloseButton}
-          className="flex bg-green-500 hover:bg-green-300"
-        >
-          Answer
-        </div>
-      </div>
       <div className="flex flex-row justify-center items-center gap-4 absolute bottom-16 right-40">
         <div ref={needHelpRef}>
           <Button
