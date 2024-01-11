@@ -116,7 +116,7 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
     );
   } else if (type === "answerPicker") {
     return (
-      <div className="max-w-3xl flex flex-col gap-3 2xl:rounded-2xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
+      <div className="max-w-2xl flex flex-col gap-3 2xl:rounded-2xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
         {items.map((item, i) => (
           <div
             key={i}
@@ -125,10 +125,10 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
               onClickFunction(i);
             }}
           >
-            <ElementStyle elementType="questionPicker">
+            <ElementStyle elementType="questionLatestAnswer">
               {i18n.language === "en" ? item.question.en : item.question.de}
             </ElementStyle>
-            <ElementStyle elementType="answerPicker">
+            <ElementStyle elementType="answerLatestAnswer">
               {i18n.language === "en" ? item.answer.en : item.answer.de}
             </ElementStyle>
           </div>

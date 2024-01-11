@@ -418,7 +418,7 @@ const App = () => {
           _ref={topicsMenuRef}
           showState={topicsMenu}
           className={`${
-            i18n.language === "de" ? "ml-[180px]" : "ml-[220px]"
+            i18n.language === "de" ? "ml-[185px]" : "ml-[215px]"
           } -mt-4`}
         >
           <Menu
@@ -431,7 +431,7 @@ const App = () => {
         </MenuWrapper>
         <MenuWrapper
           className={`${
-            i18n.language === "de" ? "ml-[380px]" : "ml-[400px]"
+            i18n.language === "de" ? "ml-[385px]" : "ml-[395px]"
           } -mt-4`}
           _ref={latestAnswerMenuRef}
           showState={latestAnswerMenu}

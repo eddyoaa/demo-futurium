@@ -7,6 +7,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
           ? "active:bg-slate-200 rounded-lg 2xl:text-2xl"
           : ""
       } 
+      ${elementType === "questionLatestAnswer" ? "2xl:text-xl" : ""} 
      ${
        (elementType === "questionPicker" || elementType === "topicPicker") &&
        choosenElement === false
@@ -28,9 +29,10 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
        elementType === "facts" ||
        elementType === "topic" ||
        elementType === "questionPicker" ||
+       elementType === "questionLatestAnswer" ||
        elementType === "topicPicker" ||
        elementType === "question" ||
-       elementType === "answerPicker" ||
+       elementType === "answerLatestAnswer" ||
        elementType === "answer"
          ? "flex gap-3 h-full w-full text-base 2xl:text-2xl"
          : ""
@@ -42,28 +44,36 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
          : ""
      } 
      ${
-       elementType === "answerPicker" || elementType === "answer"
+       elementType === "answer"
          ? "text-xl 2xl:text-3xl items-start"
          : "items-center"
+     }
+     ${
+       elementType === "answerLatestAnswer"
+         ? "text-xl 2xl:text-2xl items-start"
+         : ""
      }
      `}
     >
       {(elementType === "facts" ||
         elementType === "questionPicker" ||
+        elementType === "questionLatestAnswer" ||
         elementType === "topicPicker" ||
         elementType === "question" ||
-        elementType === "answerPicker" ||
+        elementType === "answerLatestAnswer" ||
         elementType === "answer") && (
         <div
           className={`w-1 rounded-xl ${
-            elementType === "questionPicker" || elementType === "question"
+            elementType === "questionLatestAnswer" ||
+            elementType === "questionPicker" ||
+            elementType === "question"
               ? "bg-blue-400"
               : ""
           }
           ${elementType === "topicPicker" ? "bg-red-400" : ""}
           ${elementType === "facts" ? "bg-neutral-400" : ""}
           ${
-            elementType === "answer" || elementType === "answerPicker"
+            elementType === "answer" || elementType === "answerLatestAnswer"
               ? "bg-green-400 h-full"
               : "h-[80%]"
           }
@@ -75,11 +85,11 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
       )}
       <p
         className={`w-full  ${
-          elementType === "answerPicker" || elementType === "answer"
+          elementType === "answerLatestAnswer" || elementType === "answer"
             ? "leading-tight tracking-normal"
             : ""
         }
-        ${elementType === "answerPicker" ? "line-clamp-2" : ""}`}
+        ${elementType === "answerLatestAnswer" ? "line-clamp-2" : ""}`}
       >
         {props.children}
       </p>
