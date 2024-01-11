@@ -30,6 +30,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
        elementType === "questionPicker" ||
        elementType === "topicPicker" ||
        elementType === "question" ||
+       elementType === "answerPicker" ||
        elementType === "answer"
          ? "flex gap-3 h-full w-full text-base 2xl:text-2xl"
          : ""
@@ -41,7 +42,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
          : ""
      } 
      ${
-       elementType === "answer"
+       elementType === "answerPicker" || elementType === "answer"
          ? "text-xl 2xl:text-3xl items-start"
          : "items-center"
      }
@@ -51,6 +52,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
         elementType === "questionPicker" ||
         elementType === "topicPicker" ||
         elementType === "question" ||
+        elementType === "answerPicker" ||
         elementType === "answer") && (
         <div
           className={`w-1 rounded-xl ${
@@ -60,7 +62,11 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
           }
           ${elementType === "topicPicker" ? "bg-red-400" : ""}
           ${elementType === "facts" ? "bg-neutral-400" : ""}
-          ${elementType === "answer" ? "bg-green-400 h-full" : "h-[80%]"}
+          ${
+            elementType === "answer" || elementType === "answerPicker"
+              ? "bg-green-400 h-full"
+              : "h-[80%]"
+          }
            `}
         ></div>
       )}
@@ -69,8 +75,11 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
       )}
       <p
         className={`w-full  ${
-          elementType === "answer" ? "leading-tight tracking-normal" : ""
-        }`}
+          elementType === "answerPicker" || elementType === "answer"
+            ? "leading-tight tracking-normal"
+            : ""
+        }
+        ${elementType === "answerPicker" ? "line-clamp-2" : ""}`}
       >
         {props.children}
       </p>

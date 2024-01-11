@@ -3,7 +3,6 @@ import ElementStyle from "./ElementStyle";
 
 const InspectorFacts = ({ content }) => {
   const { i18n } = useTranslation();
-
   return (
     <div
       className="

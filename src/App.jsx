@@ -1,5 +1,4 @@
 import { Transition } from "@headlessui/react";
-import { useGesture } from "@use-gesture/react";
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -40,7 +39,8 @@ const App = () => {
   const [topics, setTopics] = useState({ en: [], de: [] });
   const [selectedTopics, setSelectedTopics] = useState([]);
   const [selectedSortBy, setSelectedSortBy] = useState(1);
-  const [selectedLatestAnswer, setSelectedLatestAnswer] = useState(0);
+  const [selectedLatestAnswer, setSelectedLatestAnswer] = useState(-1);
+  const [latestAnswers, setLatestAnswers] = useState([]);
   const [questionMenu, setQuestionMenu] = useState(false);
   const [sliderMenu, setSliderMenu] = useState(false);
   const [languageMenu, setLanguageMenu] = useState(false);
@@ -258,6 +258,7 @@ const App = () => {
     setNavigationState("move");
     i18n.changeLanguage("de");
     handleCloseButton();
+    handleOutsideClick();
   };
 
   // handling menu closure
@@ -330,8 +331,12 @@ const App = () => {
           handleReset();
         }
       }
+      if (receivedValue.hasOwnProperty("LatestAnswers")) {
+        setLatestAnswers(receivedValue.LatestAnswers);
+      }
     }
   }, [lastMessage, sendMessage]);
+  console.log(selectedLatestAnswer);
 
   // handling sending message via websocket on state change
   useEffect(() => {
@@ -411,7 +416,7 @@ const App = () => {
           _ref={topicsMenuRef}
           showState={topicsMenu}
           className={`${
-            i18n.language === "de" ? "ml-[200px]" : "ml-[240px]"
+            i18n.language === "de" ? "ml-[180px]" : "ml-[220px]"
           } -mt-4`}
         >
           <Menu
@@ -424,7 +429,7 @@ const App = () => {
         </MenuWrapper>
         <MenuWrapper
           className={`${
-            i18n.language === "de" ? "ml-[420px]" : "ml-[440px]"
+            i18n.language === "de" ? "ml-[380px]" : "ml-[400px]"
           } -mt-4`}
           _ref={latestAnswerMenuRef}
           showState={latestAnswerMenu}
@@ -432,7 +437,7 @@ const App = () => {
           <Menu
             type="answerPicker"
             state={selectedLatestAnswer}
-            items={["All", "Last10", "Last100", "Last1000"]}
+            items={latestAnswers}
             onClickFunction={handleLatestAnswerSelected}
           />
         </MenuWrapper>

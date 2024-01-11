@@ -103,10 +103,7 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
               onClickFunction(i);
             }}
           >
-            <ElementStyle
-              choosStyleenElement={i === state}
-              elementType="radioButton"
-            >
+            <ElementStyle elementType="radioButton">
               <div className="flex items-center gap-2">
                 {i === state && <ImRadioChecked2 />}
                 {i !== state && <ImRadioUnchecked />}
@@ -119,23 +116,20 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
     );
   } else if (type === "answerPicker") {
     return (
-      <div className="flex flex-col gap-2 2xl:gap-4 bg-white drop-shadow-3xl rounded-lg p-4 2xl:p-4 2xl:rounded-xl">
-        {items.map((question, i) => (
+      <div className="max-w-3xl flex flex-col gap-3 2xl:rounded-2xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
+        {items.map((item, i) => (
           <div
             key={i}
+            className=" active:bg-slate-200 rounded-2xl rounded-tl-sm rounded-bl-sm h-full w-full flex-col flex"
             onClick={() => {
               onClickFunction(i);
             }}
           >
-            <ElementStyle
-              choosStyleenElement={i === state}
-              elementType="radioButton"
-            >
-              <div className="flex items-center gap-2">
-                {i === state && <ImRadioChecked2 />}
-                {i !== state && <ImRadioUnchecked />}
-                <Trans i18nKey={``}></Trans>
-              </div>
+            <ElementStyle elementType="questionPicker">
+              {i18n.language === "en" ? item.question.en : item.question.de}
+            </ElementStyle>
+            <ElementStyle elementType="answerPicker">
+              {i18n.language === "en" ? item.answer.en : item.answer.de}
             </ElementStyle>
           </div>
         ))}
