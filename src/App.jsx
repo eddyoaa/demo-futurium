@@ -54,7 +54,7 @@ const App = () => {
   const [touchPosition, setTouchPosition] = useState([]);
   const [touchState, setTouchState] = useState("");
   const [touchTap, setTouchTap] = useState(0);
-  const [closePanel, setClosePanel] = useState(false);
+  const [closeButton, setCloseButton] = useState(0);
   const [resetValue, setResetValue] = useState(0);
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
@@ -80,6 +80,7 @@ const App = () => {
     },
   });
 
+  console.log(closeButton);
   // setting up refs for area detection
   const buttonRef = useRef(null);
   const sortByMenuRef = useRef(null);
@@ -118,8 +119,7 @@ const App = () => {
 
   // button handlers
   const handleCloseButton = () => {
-    setShowPanel(false);
-    setClosePanel(true);
+    setCloseButton((prev) => prev + 1);
   };
 
   const handleSliderChange = (e, slider) => {
@@ -231,9 +231,8 @@ const App = () => {
 
   // handling panel animation
   const handleContentSwitch = () => {
-    if (JSON.parse(lastMessage.data).content === "" || closePanel) {
+    if (JSON.parse(lastMessage.data).content === "") {
       setChoosenElement(false);
-      setClosePanel(false);
     } else {
       setContentAnswer(JSON.parse(lastMessage.data).content);
       setChoosenElement(true);
@@ -259,7 +258,6 @@ const App = () => {
     i18n.changeLanguage("de");
     handleCloseButton();
     handleOutsideClick();
-    setHomeButton((prev) => prev + 1);
   };
 
   // handling menu closure
@@ -338,7 +336,6 @@ const App = () => {
       }
     }
   }, [lastMessage, sendMessage]);
-  console.log(selectedLatestAnswer);
 
   // handling sending message via websocket on state change
   useEffect(() => {
@@ -358,6 +355,7 @@ const App = () => {
       touchState: touchState,
       flyToButton: flyToButton,
       sliderValues: sliderValues,
+      closeButton: closeButton,
     });
     sendMessage(message);
   }, [
@@ -376,6 +374,7 @@ const App = () => {
     touchState,
     flyToButton,
     sliderValues,
+    closeButton,
   ]);
 
   return (

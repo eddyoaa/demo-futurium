@@ -116,11 +116,11 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
     );
   } else if (type === "answerPicker") {
     return (
-      <div className="max-w-2xl flex flex-col gap-3 2xl:rounded-2xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
+      <div className="max-w-2xl flex flex-col gap-6 2xl:rounded-2xl 2xl:gap-8 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
         {items.map((item, i) => (
           <div
             key={i}
-            className=" active:bg-slate-200 rounded-2xl rounded-tl-sm rounded-bl-sm h-full w-full flex-col flex"
+            className=" active:bg-slate-200 rounded-2xl rounded-tl-sm rounded-bl-sm h-full w-full flex-col flex gap-1"
             onClick={() => {
               onClickFunction(i);
             }}
