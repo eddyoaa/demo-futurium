@@ -57,7 +57,7 @@ const App = () => {
   const [resetValue, setResetValue] = useState(0);
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
-  const [receivedValues, setReceivedValues] = useState({});
+  const [receivedContent, setReceivedContent] = useState({});
   const [contentFacts, setContentFacts] = useState({
     properties_en: {
       facts: [],
@@ -230,24 +230,22 @@ const App = () => {
 
   // handling panel animation
   const handleContentSwitch = () => {
-    if (receivedValues.content === "") {
+    if (receivedContent === "") {
       setChoosenElement(false);
     } else {
-      setContentAnswer(receivedValues.content);
+      setContentAnswer(receivedContent);
       setChoosenElement(true);
     }
     setTimeout(() => {
       setShowPanel(true);
     }, 150);
   };
-  console.log("sleectedQuesition: " + selectedQuestions);
+
   // handle Reset
   const handleReset = () => {
-    console.log(selectedQuestions);
     let selectedValues = selectedQuestions.map((question) => {
       return true;
     });
-    console.log(selectedQuestions);
     setSelectedQuestions(selectedValues);
 
     selectedValues = selectedTopics.map((topic) => {
@@ -300,10 +298,10 @@ const App = () => {
     let receivedValue;
     if (lastMessage !== null) {
       receivedValue = JSON.parse(lastMessage.data);
-      console.log(receivedValue);
-      setReceivedValues(receivedValue);
+      setReceivedContent(receivedValue);
       if (receivedValue.hasOwnProperty("content")) {
         setShowPanel(false);
+        setReceivedContent(receivedValue.content);
       }
       if (receivedValue.hasOwnProperty("Questions")) {
         const temp = {
@@ -360,7 +358,6 @@ const App = () => {
       sliderValues: sliderValues,
       closeButton: closeButton,
     });
-    console.log(message);
     sendMessage(message);
   }, [
     navigationState,
