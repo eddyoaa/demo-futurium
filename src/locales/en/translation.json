@@ -6,26 +6,22 @@
   },
   "sortby": {
     "0": "Questions",
-    "1": "Default",
-    "2": "Topics",
-    "view": "view"
+    "1": "Topics",
+    "2": "Keywords",
+    "view": "view",
+    "forces": "Forces"
   },
   "needHelpButton": "Need help?",
-  "legend": {
-    "answer": "Answer",
-    "question": "Question",
-    "topic": "Topic"
-  },
   "inspector": {
     "title": {
       "facts": {
         "facts": "Quick facts",
-        "topic": "The most popular topics:",
+        "topic": "The most popular keywords:",
         "answer": "The most answered question:",
         "general": "- general"
       },
       "answer": {
-        "topic": "Associated Topics",
+        "topic": "Associated keywords",
         "answer": "{{contentDate}}  -  {{contentTime}}"
       }
     },
@@ -36,10 +32,10 @@
     "deSelectAll": "Deselect all"
   },
   "sliderMenu": {
-    "A": "Answer",
-    "C": "Topic",
-    "K": "Tag",
-    "Q": "Question",
+    "A": "Answers",
+    "C": "Topics",
+    "K": "Keywords",
+    "Q": "Questions",
     "choose": "Choose your view"
   }
 }

@@ -20,7 +20,7 @@ const LanguageButton = ({
 
   return (
     <div
-      className={`flex flex-col rounded-full border-neutral-900 border-2 2xl:border-4 bg-slate-700/40 drop-shadow-3xl items-center transition-all pt-2 2xl:pt-2`}
+      className={`flex flex-col rounded-full border-neutral-900 border-2 2xl:border-4 bg-white drop-shadow-3xl items-center transition-all pt-2 2xl:pt-2`}
       onClick={toggleLanguageMenu}
     >
       <Transition
@@ -34,8 +34,10 @@ const LanguageButton = ({
         className={`duration-300 transform-0 items-center gap-2 2xl:px-2 justify-center px-2 rounded-full transition-all`}
       >
         <p
-          className={`text-base 2xl:text-2xl duration-300 flex justify-center transition-all w-10 h-10 2xl:w-16 2xl:h-16  font-normal text-neutral-100 items-center rounded-full ${
-            clicked ? "bg-neutral-900/100" : "bg-neutral-900/0"
+          className={`text-base 2xl:text-2xl duration-300 flex justify-center transition-all w-10 h-10 2xl:w-16 2xl:h-16 items-center rounded-full ${
+            clicked
+              ? "text-neutral-100 bg-neutral-900/100 font-normal"
+              : "text-neutral-900 bg-neutral-900/0 font-bold"
           }`}
         >
           {currentLanguage === "DE" ? "EN" : "DE"}
@@ -45,8 +47,10 @@ const LanguageButton = ({
         className={` flex w-max items-center z-10 gap-2 px-2 pb-2 2xl:pb-2 2xl:px-2 duration-500 justify-center rounded-full transition-all`}
       >
         <p
-          className={`text-base 2xl:text-2xl w-10 h-10 2xl:w-16 2xl:h-16 transition-all duration-300 flex justify-center font-normal text-neutral-100 items-center rounded-full ${
-            !clicked ? "bg-neutral-900/100" : "bg-neutral-900/0"
+          className={`text-base 2xl:text-2xl w-10 h-10 2xl:w-16 2xl:h-16 transition-all duration-300 flex justify-center items-center rounded-full ${
+            !clicked
+              ? "text-neutral-100 bg-neutral-900/100 font-normal"
+              : "text-neutral-900 bg-neutral-900/0 font-bold"
           }`}
         >
           {currentLanguage}

@@ -48,8 +48,8 @@ const App = () => {
   const [latestAnswerMenu, setLatestAnswerMenu] = useState(false);
   const [helpButton, setHelpButton] = useState(0);
   const [flyToButton, setFlyToButton] = useState(0);
-  const [zoomMinusButton, setZoomMinusButton] = useState(0);
-  const [zoomPlusButton, setZoomPlusButton] = useState(0);
+  const [zoomMinusButton, setZoomMinusButton] = useState(false);
+  const [zoomPlusButton, setZoomPlusButton] = useState(false);
   const [homeButton, setHomeButton] = useState(0);
   const [touchPosition, setTouchPosition] = useState([]);
   const [touchState, setTouchState] = useState("");
@@ -563,10 +563,16 @@ const App = () => {
         <NavigationButton
           type="zoom"
           onLeftClick={() => {
-            setZoomMinusButton((prev) => prev + 1);
+            setZoomMinusButton(true);
+          }}
+          onLeftRelease={() => {
+            setZoomMinusButton(false);
           }}
           onRightClick={() => {
-            setZoomPlusButton((prev) => prev + 1);
+            setZoomPlusButton(true);
+          }}
+          onRightRelease={() => {
+            setZoomPlusButton(false);
           }}
         />
       </div>

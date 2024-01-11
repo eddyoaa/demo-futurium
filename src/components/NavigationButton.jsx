@@ -9,6 +9,8 @@ const NavigationButton = ({
   type,
   onLeftClick,
   onRightClick,
+  onRightRelease,
+  onLeftRelease,
   navigationState,
   ...props
 }) => {
@@ -19,11 +21,14 @@ const NavigationButton = ({
   return (
     <div className="drop-shadow-3xl flex rounded-lg 2xl:rounded-xl bg-white">
       <button
-        onClick={onLeftClick}
+        onMouseDown={onLeftClick}
+        onTouchStart={onLeftClick}
+        onTouchEnd={type === "zoom" ? onLeftRelease : undefined}
+        onMouseUp={type === "zoom" ? onLeftRelease : undefined}
         {...props}
         className={`${
           type === "zoom" ? "p-3 2xl:p-4 active:bg-slate-200 " : "p-2 2xl:p-2"
-        }  rounded-lg 2xl:rounded-xl flex items-center gap-1`}
+        }  rounded-lg 2xl:rounded-2xl flex items-center gap-1`}
       >
         {type === "zoom" ? (
           <AiOutlineMinus size={iconSize} />
@@ -31,7 +36,7 @@ const NavigationButton = ({
           <div
             className={`transition-all duration-200 p-1 2xl:p-2 ${
               navigationState === "move"
-                ? "bg-black text-white rounded-lg 2xl:rounded-lg"
+                ? "bg-black text-white rounded-xl 2xl:rounded-2xl"
                 : "bg-black/0"
             }`}
           >
@@ -40,11 +45,14 @@ const NavigationButton = ({
         )}
       </button>
       <button
-        onClick={onRightClick}
+        onMouseDown={onRightClick}
+        onTouchStart={onRightClick}
+        onTouchEnd={type === "zoom" ? onRightRelease : undefined}
+        onMouseUp={type === "zoom" ? onRightRelease : undefined}
         {...props}
         className={`${
           type === "zoom" ? "p-3 2xl:p-4 active:bg-slate-200" : "p-2 2xl:p-2"
-        }  rounded-lg 2xl:rounded-xl flex items-center gap-2`}
+        }  rounded-lg 2xl:rounded-2xl flex items-center gap-2`}
       >
         {type === "zoom" ? (
           <AiOutlinePlus size={iconSize} />
@@ -52,7 +60,7 @@ const NavigationButton = ({
           <div
             className={`transition-all duration-300 p-1 2xl:p-2  ${
               navigationState === "rotate"
-                ? "bg-black rounded-lg 2xl:rounded-lg text-white "
+                ? "bg-black rounded-lg 2xl:rounded-2xl text-white"
                 : "bg-black/0"
             }`}
           >

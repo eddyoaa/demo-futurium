@@ -6,26 +6,22 @@
   },
   "sortby": {
     "0": "Fragen",
-    "1": "Standard",
-    "2": "Themen",
-    "view": "Ansicht"
+    "1": "Themen",
+    "2": "Schlagwörter",
+    "view": "Ansicht",
+    "forces": "Anziehungskräfte"
   },
   "needHelpButton": "Hilfe?",
-  "legend": {
-    "answer": "Antwort",
-    "question": "Frage",
-    "topic": "Thema"
-  },
   "inspector": {
     "title": {
       "facts": {
         "facts": "Quick facts",
-        "topic": "Die beliebtesten Themen:",
+        "topic": "Die beliebtesten Schlagwörter:",
         "answer": "Meist beantwortete Fragen:",
         "general": "- allgemein"
       },
       "answer": {
-        "topic": "Verknüpfte Themen",
+        "topic": "Verknüpfte Schlagwörter",
         "answer": "{{contentDate}}  -  {{contentTime}}"
       }
     },
@@ -36,10 +32,10 @@
     "deSelectAll": "Alle abwählen"
   },
   "sliderMenu": {
-    "A": "Antwort",
-    "C": "Thema",
-    "K": "Tag",
-    "Q": "Frage",
+    "A": "Antworten",
+    "C": "Themen",
+    "K": "Schlagwörter",
+    "Q": "Fragen",
     "choose": "Wähle eine Ansicht"
   },
   "Facts": {

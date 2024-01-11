@@ -43,11 +43,11 @@ const SortByItem = ({ clickEvent, state, index, children, ...props }) => {
       }}
       {...props}
       className={
-        "p-2 2xl:p-1 2xl:py-1 w-36  font-bold rounded-lg 2xl:rounded-xl justify-center flex items-center"
+        "p-2 2xl:p-1 2xl:py-1 w-44 font-bold rounded-lg 2xl:rounded-xl justify-center flex items-center"
       }
     >
       <div
-        className={`transition-all duration-200 p-1 2xl:p-2 2xl:px-4 text-lg 2xl:text-2xl leading-none ${
+        className={`transition-all duration-200 w-full p-1 2xl:p-2 2xl:px-4 text-lg 2xl:text-2xl leading-none ${
           state === index
             ? "bg-black rounded-lg font-normal 2xl:rounded-2xl text-white "
             : "bg-black/0"
