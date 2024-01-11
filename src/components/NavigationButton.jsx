@@ -36,7 +36,7 @@ const NavigationButton = ({
           <div
             className={`transition-all duration-200 p-1 2xl:p-2 ${
               navigationState === "move"
-                ? "bg-black text-white rounded-xl 2xl:rounded-2xl"
+                ? "bg-black text-white rounded-xl 2xl:rounded-xl"
                 : "bg-black/0"
             }`}
           >
@@ -60,7 +60,7 @@ const NavigationButton = ({
           <div
             className={`transition-all duration-300 p-1 2xl:p-2  ${
               navigationState === "rotate"
-                ? "bg-black rounded-lg 2xl:rounded-2xl text-white"
+                ? "bg-black rounded-lg 2xl:rounded-xl text-white"
                 : "bg-black/0"
             }`}
           >

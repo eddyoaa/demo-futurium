@@ -120,14 +120,16 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
         {items.map((item, i) => (
           <div
             key={i}
-            className=" active:bg-slate-200 rounded-2xl rounded-tl-sm rounded-bl-sm h-full w-full flex-col flex gap-1"
+            className={`rounded-2xl rounded-tl-sm rounded-bl-sm h-full w-full flex-col flex ${
+              item.enabled ? "active:bg-slate-200 opacity-100" : "opacity-30"
+            }`}
             onClick={() => {
-              onClickFunction(i);
+              item.enabled && onClickFunction(i);
             }}
           >
-            <ElementStyle elementType="questionLatestAnswer">
+            <p className="pl-4 font-normal flex text-xs 2xl:text-lg">
               {i18n.language === "en" ? item.date.en : item.date.de}
-            </ElementStyle>
+            </p>
             <ElementStyle elementType="answerLatestAnswer">
               {i18n.language === "en" ? item.answer.en : item.answer.de}
             </ElementStyle>

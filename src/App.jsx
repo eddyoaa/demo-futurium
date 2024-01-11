@@ -240,7 +240,7 @@ const App = () => {
       setShowPanel(true);
     }, 150);
   };
-
+  console.log(selectedLatestAnswer);
   // handle Reset
   const handleReset = () => {
     let selectedValues = selectedQuestions.map((question) => {

@@ -50,7 +50,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
      }
      ${
        elementType === "answerLatestAnswer"
-         ? "text-xl 2xl:text-2xl items-start"
+         ? "text-xl 2xl:text-2xl font-medium items-start"
          : ""
      }
      `}
