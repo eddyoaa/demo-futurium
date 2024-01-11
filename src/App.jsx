@@ -259,6 +259,7 @@ const App = () => {
     i18n.changeLanguage("de");
     handleCloseButton();
     handleOutsideClick();
+    setHomeButton((prev) => prev + 1);
   };
 
   // handling menu closure
