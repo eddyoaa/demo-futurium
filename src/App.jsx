@@ -19,20 +19,6 @@ import SortByBar from "./components/SortByBar";
 import useGestureInterpreter from "./hooks/useGestureInterpreter";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
 
-// let contentFacts = {
-//   properties_en: {
-//     facts: ["", "", ""],
-//     keywords: ["Energy", "Cole", "Environment"],
-//     question: "Which problems should be solved in the next 10 years?",
-//   },
-//   properties: {
-//     facts: ["", "", ""],
-//     keywords: ["Strom", "Kohle", "Umwelt"],
-//     question:
-//       "Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?",
-//   },
-// };
-
 const App = () => {
   // translator setup
   const { t, i18n } = useTranslation();
@@ -69,6 +55,7 @@ const App = () => {
   const [touchState, setTouchState] = useState("");
   const [touchTap, setTouchTap] = useState(0);
   const [closePanel, setClosePanel] = useState(false);
+  const [resetValue, setResetValue] = useState(0);
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
   const [contentFacts, setContentFacts] = useState({
@@ -136,7 +123,6 @@ const App = () => {
   };
 
   const handleSliderChange = (e, slider) => {
-    console.log(typeof +e.target.value);
     setSliderValues({
       ...sliderValues,
       [slider]: +e.target.value,
@@ -257,6 +243,23 @@ const App = () => {
     }, 150);
   };
 
+  // handle Reset
+  const handleReset = () => {
+    let selectedValues = selectedQuestions.map((question) => {
+      return true;
+    });
+    setSelectedQuestions(selectedValues);
+
+    selectedValues = selectedTopics.map((topic) => {
+      return true;
+    });
+    setSelectedTopics(selectedValues);
+    handleSortByClick(1);
+    setNavigationState("move");
+    i18n.changeLanguage("de");
+    handleCloseButton();
+  };
+
   // handling menu closure
   const handleOutsideClick = () => {
     setQuestionMenu(false);
@@ -295,7 +298,6 @@ const App = () => {
     let receivedValue;
     if (lastMessage !== null) {
       receivedValue = JSON.parse(lastMessage.data);
-      console.log(receivedValue);
       if (receivedValue.hasOwnProperty("content")) {
         setShowPanel(false);
       }
@@ -322,6 +324,12 @@ const App = () => {
       if (receivedValue.hasOwnProperty("Facts")) {
         setContentFacts(receivedValue.Facts);
       }
+      if (receivedValue.hasOwnProperty("Reset")) {
+        if (receivedValue.Reset > resetValue) {
+          setResetValue(receivedValue.Reset);
+          handleReset();
+        }
+      }
     }
   }, [lastMessage, sendMessage]);
 
@@ -344,7 +352,6 @@ const App = () => {
       flyToButton: flyToButton,
       sliderValues: sliderValues,
     });
-    console.log(message);
     sendMessage(message);
   }, [
     navigationState,
@@ -423,7 +430,7 @@ const App = () => {
           showState={latestAnswerMenu}
         >
           <Menu
-            type="radioButton"
+            type="answerPicker"
             state={selectedLatestAnswer}
             items={["All", "Last10", "Last100", "Last1000"]}
             onClickFunction={handleLatestAnswerSelected}

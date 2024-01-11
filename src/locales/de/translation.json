@@ -41,5 +41,17 @@
     "K": "Tag",
     "Q": "Frage",
     "choose": "Wähle eine Ansicht"
+  },
+  "Facts": {
+    "properties_en": {
+      "facts": ["afa", "afasf", "afsaf"],
+      "keywords": ["Energy", "Cole", "Environment"],
+      "question": "Which problems should be solved in the next 10 years?"
+    },
+    "properties": {
+      "facts": ["asf", "asf", "afsw"],
+      "keywords": ["Strom", "Kohle", "Umwelt"],
+      "question": "Welche Probleme sollte die Regierung in den nächsten 10 Jahren lösen?"
+    }
   }
 }

@@ -117,6 +117,30 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
         ))}
       </div>
     );
+  } else if (type === "answerPicker") {
+    return (
+      <div className="flex flex-col gap-2 2xl:gap-4 bg-white drop-shadow-3xl rounded-lg p-4 2xl:p-4 2xl:rounded-xl">
+        {items.map((question, i) => (
+          <div
+            key={i}
+            onClick={() => {
+              onClickFunction(i);
+            }}
+          >
+            <ElementStyle
+              choosStyleenElement={i === state}
+              elementType="radioButton"
+            >
+              <div className="flex items-center gap-2">
+                {i === state && <ImRadioChecked2 />}
+                {i !== state && <ImRadioUnchecked />}
+                <Trans i18nKey={``}></Trans>
+              </div>
+            </ElementStyle>
+          </div>
+        ))}
+      </div>
+    );
   }
 };
 
