@@ -240,7 +240,7 @@ const App = () => {
       setShowPanel(true);
     }, 150);
   };
-
+  console.log("sleectedQuesition: " + selectedQuestions);
   // handle Reset
   const handleReset = () => {
     console.log(selectedQuestions);
