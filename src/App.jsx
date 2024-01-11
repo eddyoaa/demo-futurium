@@ -243,9 +243,11 @@ const App = () => {
 
   // handle Reset
   const handleReset = () => {
+    console.log(selectedQuestions);
     let selectedValues = selectedQuestions.map((question) => {
       return true;
     });
+    console.log(selectedQuestions);
     setSelectedQuestions(selectedValues);
 
     selectedValues = selectedTopics.map((topic) => {
