@@ -126,7 +126,7 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
             }}
           >
             <ElementStyle elementType="questionLatestAnswer">
-              {i18n.language === "en" ? item.question.en : item.question.de}
+              {i18n.language === "en" ? item.date.en : item.date.de}
             </ElementStyle>
             <ElementStyle elementType="answerLatestAnswer">
               {i18n.language === "en" ? item.answer.en : item.answer.de}

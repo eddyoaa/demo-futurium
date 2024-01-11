@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import { IoMdArrowDropdown } from "react-icons/io";
 import useWebSocket from "react-use-websocket";
 import Button from "./components/Button";
-import CloseButton from "./components/CloseButton";
 import HomeButton from "./components/HomeButton";
 import InspectorAnswer from "./components/InspectorAnswer";
 import InspectorFacts from "./components/InspectorFacts";
@@ -58,6 +57,7 @@ const App = () => {
   const [resetValue, setResetValue] = useState(0);
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
+  const [receivedValues, setReceivedValues] = useState({});
   const [contentFacts, setContentFacts] = useState({
     properties_en: {
       facts: [],
@@ -80,7 +80,6 @@ const App = () => {
     },
   });
 
-  console.log(closeButton);
   // setting up refs for area detection
   const buttonRef = useRef(null);
   const sortByMenuRef = useRef(null);
@@ -231,10 +230,10 @@ const App = () => {
 
   // handling panel animation
   const handleContentSwitch = () => {
-    if (JSON.parse(lastMessage.data).content === "") {
+    if (receivedValues.content === "") {
       setChoosenElement(false);
     } else {
-      setContentAnswer(JSON.parse(lastMessage.data).content);
+      setContentAnswer(receivedValues.content);
       setChoosenElement(true);
     }
     setTimeout(() => {
@@ -299,6 +298,7 @@ const App = () => {
     let receivedValue;
     if (lastMessage !== null) {
       receivedValue = JSON.parse(lastMessage.data);
+      setReceivedValues(receivedValue);
       if (receivedValue.hasOwnProperty("content")) {
         setShowPanel(false);
       }
@@ -483,11 +483,6 @@ const App = () => {
         afterLeave={handleContentSwitch}
       >
         <div className="flex flex-col max-w-sm 2xl:max-w-3xl justify-center items-end gap-2">
-          {choosenElement && (
-            <div onClick={handleCloseButton}>
-              <CloseButton />
-            </div>
-          )}
           <div className="w-full flex" ref={inspectorRef}>
             {!choosenElement && (
               <InspectorFacts
@@ -504,6 +499,7 @@ const App = () => {
                   handleClickEvent={() => {
                     setFlyToButton((prev) => prev + 1);
                   }}
+                  handleCloseButton={handleCloseButton}
                   content={
                     i18n.language === "en"
                       ? contentAnswer.properties_en
