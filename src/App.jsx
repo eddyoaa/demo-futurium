@@ -298,7 +298,6 @@ const App = () => {
     let receivedValue;
     if (lastMessage !== null) {
       receivedValue = JSON.parse(lastMessage.data);
-      setReceivedContent(receivedValue);
       if (receivedValue.hasOwnProperty("content")) {
         setShowPanel(false);
         setReceivedContent(receivedValue.content);
