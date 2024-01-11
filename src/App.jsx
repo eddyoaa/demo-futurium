@@ -229,7 +229,8 @@ const App = () => {
       setSliderMenu(false);
     }
   };
-
+  console.log(closeButtonHit);
+  console.log(receivedContent);
   // handling panel animation
   const handleContentSwitch = () => {
     if (receivedContent === "" || closeButtonHit) {

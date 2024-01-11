@@ -6,7 +6,6 @@ const InspectorAnswer = ({ content, handleClickEvent, handleCloseButton }) => {
   const { t, i18n } = useTranslation();
   let contentTime = content.CTime;
   let contentDate = content.CDate;
-  console.log(content);
   return (
     <div
       className="
