@@ -54,6 +54,7 @@ const App = () => {
   const [touchState, setTouchState] = useState("");
   const [touchTap, setTouchTap] = useState(0);
   const [closeButton, setCloseButton] = useState(0);
+  const [closeButtonHit, setCloseButtonHit] = useState(false);
   const [resetValue, setResetValue] = useState(0);
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
@@ -118,6 +119,7 @@ const App = () => {
 
   // button handlers
   const handleCloseButton = () => {
+    setCloseButtonHit(true);
     setCloseButton((prev) => prev + 1);
   };
 
@@ -230,8 +232,9 @@ const App = () => {
 
   // handling panel animation
   const handleContentSwitch = () => {
-    if (receivedContent === "") {
+    if (receivedContent === "" || closeButtonHit) {
       setChoosenElement(false);
+      setCloseButtonHit(false);
     } else {
       setContentAnswer(receivedContent);
       setChoosenElement(true);
