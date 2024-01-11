@@ -264,6 +264,7 @@ const App = () => {
   // handling menu closure
   const handleOutsideClick = () => {
     setQuestionMenu(false);
+    setTopicsMenu(false);
     setLatestAnswerMenu(false);
     setLanguageMenu(false);
     setSliderMenu(false);
