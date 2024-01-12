@@ -116,25 +116,27 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
     );
   } else if (type === "answerPicker") {
     return (
-      <div className="max-w-2xl flex flex-col gap-6 2xl:rounded-2xl 2xl:gap-8 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
-        {items.map((item, i) => (
-          <div
-            key={i}
-            className={`rounded-2xl rounded-tl-sm rounded-bl-sm h-full w-full flex-col flex ${
-              item.enabled ? "active:bg-slate-200 opacity-100" : "opacity-30"
-            }`}
-            onClick={() => {
-              item.enabled && onClickFunction(i);
-            }}
-          >
-            <p className="pl-4 font-normal flex text-xs 2xl:text-lg">
-              {i18n.language === "en" ? item.date.en : item.date.de}
-            </p>
-            <ElementStyle elementType="answerLatestAnswer">
-              {i18n.language === "en" ? item.answer.en : item.answer.de}
-            </ElementStyle>
-          </div>
-        ))}
+      <div className="max-w-4xl scrollbar-custom overflow-auto 2xl:rounded-2xl 2xl:gap-8 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
+        <div className="scrollbar-custom-black overflow-auto flex flex-col gap-6 2xl:rounded-2xl 2xl:gap-8 2xl:py-8  h-full w-full">
+          {items.map((item, i) => (
+            <div
+              key={i}
+              className={`rounded-2xl  rounded-bl-sm h-full w-full flex-col flex ${
+                item.enabled ? "active:bg-slate-200 opacity-100" : "opacity-30"
+              }`}
+              onClick={() => {
+                item.enabled && onClickFunction(i);
+              }}
+            >
+              <p className="pl-4 font-normal flex text-xs 2xl:text-lg">
+                {i18n.language === "en" ? item.date.en : item.date.de}
+              </p>
+              <ElementStyle elementType="answerLatestAnswer">
+                {i18n.language === "en" ? item.answer.en : item.answer.de}
+              </ElementStyle>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }

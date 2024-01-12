@@ -89,7 +89,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
             ? "leading-tight tracking-normal"
             : ""
         }
-        ${elementType === "answerLatestAnswer" ? "line-clamp-2" : ""}`}
+        ${elementType === "answerLatestAnswer" ? "" : ""}`}
       >
         {props.children}
       </p>

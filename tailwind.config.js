@@ -71,6 +71,32 @@ module.exports = {
             background: "#5999ff",
           },
         },
+        ".scrollbar-custom-black": {
+          "scrollbar-width": "thin",
+          "scrollbar-color": "#000000 #85b4ff",
+          "z-index": "30",
+
+          /* Chrome, Edge, and Safari */
+          "&::-webkit-scrollbar": {
+            width: "4px",
+          },
+          "&::-webkit-scrollbar-track": {
+            background: "transparent",
+            "border-radius": "10px",
+          },
+
+          "&::-webkit-scrollbar-thumb": {
+            "background-color": "#000000",
+            "border-radius": "10px",
+            "border-style": "solid",
+            "border-width": "2px",
+            "border-color": "#000000",
+          },
+
+          "&::-webkit-scrollbar-thumb:hover": {
+            background: "#5999ff",
+          },
+        },
       });
     }),
   ],
