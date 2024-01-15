@@ -3,6 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IoMdArrowDropdown } from "react-icons/io";
 import useWebSocket from "react-use-websocket";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import Button from "./components/Button";
 import HomeButton from "./components/HomeButton";
 import InspectorAnswer from "./components/InspectorAnswer";
@@ -46,6 +48,8 @@ const App = () => {
   const [topicsMenu, setTopicsMenu] = useState(false);
   const [latestAnswerMenu, setLatestAnswerMenu] = useState(false);
   const [helpButton, setHelpButton] = useState(0);
+  const [needHelpContent, setNeedHelpContent] = useState([]);
+  const [needHelpMenu, setNeedHelpMenu] = useState(false);
   const [flyToButton, setFlyToButton] = useState(0);
   const [zoomMinusButton, setZoomMinusButton] = useState(false);
   const [zoomPlusButton, setZoomPlusButton] = useState(false);
@@ -87,6 +91,7 @@ const App = () => {
   const latestAnswerMenuRef = useRef(null);
   const questionMenuRef = useRef(null);
   const sliderMenuRef = useRef(null);
+  const needHelpMenuRef = useRef(null);
   const topicsMenuRef = useRef(null);
   const navigationRef = useRef(null);
   const needHelpRef = useRef(null);
@@ -104,6 +109,7 @@ const App = () => {
     questionMenuRef,
     topicsMenuRef,
     sliderMenuRef,
+    needHelpMenuRef,
   ];
 
   // window resize event
@@ -270,6 +276,7 @@ const App = () => {
     setLatestAnswerMenu(false);
     setLanguageMenu(false);
     setSliderMenu(false);
+    setNeedHelpMenu(false);
   };
 
   useOutsideClickMenu(
@@ -281,6 +288,8 @@ const App = () => {
       topicsMenuRef,
       languageRef,
       sliderMenuRef,
+      needHelpMenuRef,
+      needHelpRef,
     ],
     handleOutsideClick
   );
@@ -337,6 +346,9 @@ const App = () => {
       }
       if (receivedValue.hasOwnProperty("LatestAnswers")) {
         setLatestAnswers(receivedValue.LatestAnswers);
+      }
+      if (receivedValue.hasOwnProperty("NeedHelp")) {
+        setNeedHelpContent(receivedValue.NeedHelp);
       }
     }
   }, [lastMessage, sendMessage]);
@@ -526,13 +538,20 @@ const App = () => {
         <div ref={needHelpRef}>
           <Button
             onClick={() => {
-              setHelpButton((prev) => prev + 1);
+              setNeedHelpMenu((prev) => !prev);
             }}
           >
             <p>{t("needHelpButton")}</p>
           </Button>
         </div>
       </div>
+      <MenuWrapper
+        _ref={needHelpMenuRef}
+        showState={needHelpMenu}
+        className="flex absolute bottom-36 right-40"
+      >
+        <Menu type="needHelp" items={needHelpContent} />
+      </MenuWrapper>
       <div className="flex flex-row justify-center items-center gap-4 absolute bottom-12 right-12">
         <div ref={languageRef}>
           <LanguageButton
