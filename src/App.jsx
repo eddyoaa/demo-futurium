@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import Button from "./components/Button";
 import HomeButton from "./components/HomeButton";
 import InspectorAnswer from "./components/InspectorAnswer";
-import InspectorFacts from "./components/InspectorFacts";
+//import InspectorFacts from "./components/InspectorFacts";
 import InspectorTopics from "./components/InspectorTopics";
 import LanguageButton from "./components/LanguageButton";
 import Menu from "./components/Menu";
@@ -30,6 +30,23 @@ const App = () => {
     }
   };
 
+  const needHelpContent = [
+    {
+      question: { en: "What do i see here?", de: "Was sehe ich hier?" },
+      answer: {
+        en: "This is a datagraph, blablablablaThis is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraphblablablabla",
+        de: "Hier siehst du einen Datengraphern, der ist bunt und hat viele ELemente die viel aussagen",
+      },
+    },
+    {
+      question: { en: "What can i do here?", de: "Was kann ich hier machen?" },
+      answer: {
+        en: "This is a datagraph, blablablabla",
+        de: "Hier siehst du einen Datengraphern, der ist bunt und hat viele ELemente die viel aussagen",
+      },
+    },
+  ];
+
   // states
   const [choosenElement, setChoosenElement] = useState(false);
   const [showPanel, setShowPanel] = useState(true);
@@ -48,7 +65,6 @@ const App = () => {
   const [topicsMenu, setTopicsMenu] = useState(false);
   const [latestAnswerMenu, setLatestAnswerMenu] = useState(false);
   const [helpButton, setHelpButton] = useState(0);
-  const [needHelpContent, setNeedHelpContent] = useState([]);
   const [needHelpMenu, setNeedHelpMenu] = useState(false);
   const [flyToButton, setFlyToButton] = useState(0);
   const [zoomMinusButton, setZoomMinusButton] = useState(false);
@@ -63,18 +79,18 @@ const App = () => {
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
   const [receivedContent, setReceivedContent] = useState({});
-  const [contentFacts, setContentFacts] = useState({
-    properties_en: {
-      facts: [],
-      keywords: [],
-      question: "",
-    },
-    properties: {
-      facts: [],
-      keywords: [],
-      question: "",
-    },
-  });
+  // const [contentFacts, setContentFacts] = useState({
+  //   properties_en: {
+  //     facts: [],
+  //     keywords: [],
+  //     question: "",
+  //   },
+  //   properties: {
+  //     facts: [],
+  //     keywords: [],
+  //     question: "",
+  //   },
+  // });
   const socketUrl = "ws://localhost:5002";
 
   // setting up websocket connection
@@ -335,9 +351,9 @@ const App = () => {
         setSliderPresets(receivedValue.Forces);
         setSliderValues(receivedValue.Forces[1]);
       }
-      if (receivedValue.hasOwnProperty("Facts")) {
-        setContentFacts(receivedValue.Facts);
-      }
+      // if (receivedValue.hasOwnProperty("Facts")) {
+      //   setContentFacts(receivedValue.Facts);
+      // }
       if (receivedValue.hasOwnProperty("Reset")) {
         if (receivedValue.Reset > resetValue) {
           setResetValue(receivedValue.Reset);
@@ -346,9 +362,6 @@ const App = () => {
       }
       if (receivedValue.hasOwnProperty("LatestAnswers")) {
         setLatestAnswers(receivedValue.LatestAnswers);
-      }
-      if (receivedValue.hasOwnProperty("NeedHelp")) {
-        setNeedHelpContent(receivedValue.NeedHelp);
       }
     }
   }, [lastMessage, sendMessage]);
@@ -476,12 +489,12 @@ const App = () => {
         <SliderMenu
           state={sliderValues}
           labels={[
-            ["sliderMenu.A", "sliderMenu.Q"],
             ["sliderMenu.A", "sliderMenu.C"],
             ["sliderMenu.A", "sliderMenu.K"],
+            ["sliderMenu.A", "sliderMenu.Q"],
+            ["sliderMenu.K", "sliderMenu.C"],
             ["sliderMenu.Q", "sliderMenu.C"],
             ["sliderMenu.Q", "sliderMenu.K"],
-            ["sliderMenu.K", "sliderMenu.C"],
           ]}
           onChangeFunction={handleSliderChange}
         />
@@ -500,7 +513,7 @@ const App = () => {
       >
         <div className="flex flex-col max-w-sm 2xl:max-w-3xl justify-center items-end gap-2">
           <div className="w-full flex" ref={inspectorRef}>
-            {!choosenElement && (
+            {/* {!choosenElement && (
               <InspectorFacts
                 content={
                   i18n.language === "en"
@@ -508,7 +521,7 @@ const App = () => {
                     : contentFacts.properties
                 }
               />
-            )}
+            )} */}
             {choosenElement && (
               <div className="flex-col gap-4 flex">
                 <InspectorAnswer
