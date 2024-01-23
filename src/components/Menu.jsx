@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import ElementStyle from "./ElementStyle";
 import "./slick-carousel.css";
 
-const Menu = ({ items, onClickFunction, state, type, setState }) => {
+const Menu = ({ items, onClickFunction, state, type, setState, col }) => {
   const { i18n } = useTranslation();
 
   const sliderSettings = {
@@ -53,6 +53,7 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
             <ElementStyle
               choosenElement={state[i]}
               elementType="questionPicker"
+              col={col[i]}
             >
               {question}
             </ElementStyle>
@@ -96,7 +97,11 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
               onClickFunction(i);
             }}
           >
-            <ElementStyle choosenElement={state[i]} elementType="topicPicker">
+            <ElementStyle
+              choosenElement={state[i]}
+              elementType="topicPicker"
+              col={col[i]}
+            >
               {question}
             </ElementStyle>
           </div>
@@ -141,7 +146,10 @@ const Menu = ({ items, onClickFunction, state, type, setState }) => {
               <p className="pl-4 font-normal flex text-xs 2xl:text-lg">
                 {i18n.language === "en" ? item.date.en : item.date.de}
               </p>
-              <ElementStyle elementType="answerLatestAnswer">
+              <ElementStyle
+                elementType="answerLatestAnswer"
+                col={item.answer.col}
+              >
                 {i18n.language === "en" ? item.answer.en : item.answer.de}
               </ElementStyle>
             </div>

@@ -9,6 +9,7 @@ import Button from "./components/Button";
 import HomeButton from "./components/HomeButton";
 import InspectorAnswer from "./components/InspectorAnswer";
 //import InspectorFacts from "./components/InspectorFacts";
+import InspectorTags from "./components/InspectorTags";
 import InspectorTopics from "./components/InspectorTopics";
 import LanguageButton from "./components/LanguageButton";
 import Menu from "./components/Menu";
@@ -35,7 +36,7 @@ const App = () => {
       question: { en: "What do i see here?", de: "Was sehe ich hier?" },
       answer: {
         en: "This is a datagraph, blablablablaThis is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraphblablablabla",
-        de: "Hier siehst du einen Datengraphern, der ist bunt und hat viele ELemente die viel aussagen",
+        de: "This is a datagraph, blablablablaThis is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraphblablablabla",
       },
     },
     {
@@ -48,13 +49,28 @@ const App = () => {
   ];
 
   // states
-  const [choosenElement, setChoosenElement] = useState(false);
-  const [showPanel, setShowPanel] = useState(true);
-  const [contentAnswer, setContentAnswer] = useState("");
+  //const [choosenElement, setChoosenElement] = useState(false);
+  const [showPanel, setShowPanel] = useState(false);
+  const [contentAnswer, setContentAnswer] = useState({
+    properties: {
+      CTime: "",
+      CDate: "",
+      answer: "",
+      keywords: [{ label: "", children: ["", ""] }],
+      question: "",
+    },
+    properties_en: {
+      CTime: "",
+      CDate: "",
+      answer: "",
+      keywords: [{ label: "", children: ["", ""] }],
+      question: "",
+    },
+  });
   const [navigationState, setNavigationState] = useState("move");
-  const [questions, setQuestions] = useState({ en: [], de: [] });
+  const [questions, setQuestions] = useState({ en: [], de: [], col: [] });
   const [selectedQuestions, setSelectedQuestions] = useState([]);
-  const [topics, setTopics] = useState({ en: [], de: [] });
+  const [topics, setTopics] = useState({ en: [], de: [], col: [] });
   const [selectedTopics, setSelectedTopics] = useState([]);
   const [selectedSortBy, setSelectedSortBy] = useState(1);
   const [selectedLatestAnswer, setSelectedLatestAnswer] = useState(-1);
@@ -74,11 +90,9 @@ const App = () => {
   const [touchState, setTouchState] = useState("");
   const [touchTap, setTouchTap] = useState(0);
   const [closeButton, setCloseButton] = useState(0);
-  const [closeButtonHit, setCloseButtonHit] = useState(false);
   const [resetValue, setResetValue] = useState(0);
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
-  const [receivedContent, setReceivedContent] = useState({});
   // const [contentFacts, setContentFacts] = useState({
   //   properties_en: {
   //     facts: [],
@@ -141,7 +155,6 @@ const App = () => {
 
   // button handlers
   const handleCloseButton = () => {
-    setCloseButtonHit(true);
     setCloseButton((prev) => prev + 1);
   };
 
@@ -251,21 +264,6 @@ const App = () => {
       setSliderMenu(false);
     }
   };
-  console.log(closeButtonHit);
-  console.log(receivedContent);
-  // handling panel animation
-  const handleContentSwitch = () => {
-    if (receivedContent === "" || closeButtonHit) {
-      setChoosenElement(false);
-      setCloseButtonHit(false);
-    } else {
-      setContentAnswer(receivedContent);
-      setChoosenElement(true);
-    }
-    setTimeout(() => {
-      setShowPanel(true);
-    }, 150);
-  };
 
   // handle Reset
   const handleReset = () => {
@@ -328,13 +326,18 @@ const App = () => {
     if (lastMessage !== null) {
       receivedValue = JSON.parse(lastMessage.data);
       if (receivedValue.hasOwnProperty("content")) {
-        setShowPanel(false);
-        setReceivedContent(receivedValue.content);
+        if (receivedValue.content === "") {
+          setShowPanel(false);
+        } else {
+          setContentAnswer(receivedValue.content);
+          setShowPanel(true);
+        }
       }
       if (receivedValue.hasOwnProperty("Questions")) {
         const temp = {
           en: receivedValue.Questions.map((k) => k.en),
           de: receivedValue.Questions.map((k) => k.de),
+          col: receivedValue.Questions.map((k) => k.col),
         };
         setQuestions(temp);
         setSelectedQuestions(receivedValue.Questions.map((k) => true));
@@ -343,6 +346,7 @@ const App = () => {
         const temp = {
           en: receivedValue.Topics.map((k) => k.en),
           de: receivedValue.Topics.map((k) => k.de),
+          col: receivedValue.Topics.map((k) => k.col),
         };
         setTopics(temp);
         setSelectedTopics(receivedValue.Topics.map((k) => true));
@@ -438,6 +442,7 @@ const App = () => {
             type="questionPicker"
             state={selectedQuestions}
             items={i18n.language === "en" ? questions.en : questions.de}
+            col={questions.col}
             onClickFunction={handleQuestionSelected}
             setState={setSelectedQuestions}
           />
@@ -453,6 +458,7 @@ const App = () => {
             type="topicPicker"
             state={selectedTopics}
             items={i18n.language === "en" ? topics.en : topics.de}
+            col={topics.col}
             onClickFunction={handleTopicSelect}
             setState={setSelectedTopics}
           />
@@ -500,7 +506,6 @@ const App = () => {
         />
       </MenuWrapper>
       <Transition
-        appear={true}
         show={showPanel}
         className="drop-shadow-3xl flex absolute right-12 top-12"
         enter="transition ease duration-500 transform"
@@ -509,41 +514,39 @@ const App = () => {
         leave="transition ease duration-300 transform"
         leaveFrom="opacity-100 translate-x-0"
         leaveTo="opacity-0 translate-x-12"
-        afterLeave={handleContentSwitch}
       >
         <div className="flex flex-col max-w-sm 2xl:max-w-3xl justify-center items-end gap-2">
           <div className="w-full flex" ref={inspectorRef}>
-            {/* {!choosenElement && (
-              <InspectorFacts
+            <div className="flex-col gap-4 flex">
+              <InspectorAnswer
+                handleClickEvent={() => {
+                  setFlyToButton((prev) => prev + 1);
+                }}
+                handleCloseButton={handleCloseButton}
                 content={
                   i18n.language === "en"
-                    ? contentFacts.properties_en
-                    : contentFacts.properties
+                    ? contentAnswer.properties_en
+                    : contentAnswer.properties
                 }
+                mainColor={contentAnswer.colAnswer}
               />
-            )} */}
-            {choosenElement && (
-              <div className="flex-col gap-4 flex">
-                <InspectorAnswer
-                  handleClickEvent={() => {
-                    setFlyToButton((prev) => prev + 1);
-                  }}
-                  handleCloseButton={handleCloseButton}
-                  content={
-                    i18n.language === "en"
-                      ? contentAnswer.properties_en
-                      : contentAnswer.properties
-                  }
-                />
-                <InspectorTopics
-                  content={
-                    i18n.language === "en"
-                      ? contentAnswer.properties_en
-                      : contentAnswer.properties
-                  }
-                />
-              </div>
-            )}
+              <InspectorTopics
+                content={
+                  i18n.language === "en"
+                    ? contentAnswer.properties_en
+                    : contentAnswer.properties
+                }
+                mainColor={contentAnswer.colTopics}
+              />
+              <InspectorTags
+                content={
+                  i18n.language === "en"
+                    ? contentAnswer.properties_en
+                    : contentAnswer.properties
+                }
+                mainColor={contentAnswer.colTopics}
+              />
+            </div>
           </div>
         </div>
       </Transition>

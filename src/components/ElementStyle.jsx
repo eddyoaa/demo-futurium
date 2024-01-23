@@ -37,7 +37,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
          ? "flex gap-3 h-full w-full text-base 2xl:text-2xl"
          : ""
      } 
-
+     ${elementType === "tags" ? " flex gap-3 h-8 text-base 2xl:text-2xl" : ""} 
      ${
        elementType === "topicChildren"
          ? "flex gap-3 h-full w-full text-base 2xl:text-xl"
@@ -55,7 +55,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
      }
      `}
     >
-      {(elementType === "facts" ||
+      {/* {(elementType === "facts" ||
         elementType === "questionPicker" ||
         elementType === "questionLatestAnswer" ||
         elementType === "topicPicker" ||
@@ -78,6 +78,24 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
               : "h-[80%]"
           }
            `}
+        ></div>
+      )} */}
+      {(elementType === "questionPicker" ||
+        elementType === "topicPicker" ||
+        elementType === "question" ||
+        elementType === "answerLatestAnswer" ||
+        elementType === "tags" ||
+        elementType === "answer") && (
+        <div
+          className={`w-1 rounded-xl ${
+            elementType === "answer" || elementType === "answerLatestAnswer"
+              ? "h-full"
+              : "h-[80%]"
+          }
+           `}
+          style={{
+            background: `#${props.col}`,
+          }}
         ></div>
       )}
       {elementType === "topicChildren" && (

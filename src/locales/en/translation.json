@@ -22,7 +22,8 @@
       },
       "answer": {
         "topic": "Associated keywords",
-        "answer": "{{contentDate}}  -  {{contentTime}}"
+        "answer": "{{contentDate}}  -  {{contentTime}}",
+        "tags": "Associated tags"
       }
     },
     "button": { "flyTo": "fly to" }

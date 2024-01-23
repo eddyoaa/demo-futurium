@@ -21,8 +21,9 @@
         "general": "- allgemein"
       },
       "answer": {
-        "topic": "Verknüpfte Schlagwörter",
-        "answer": "{{contentDate}}  -  {{contentTime}}"
+        "topic": "Verknüpfte Themen",
+        "answer": "{{contentDate}}  -  {{contentTime}}",
+        "tags": "Verknüpfte Schlagwörter"
       }
     },
     "button": { "flyTo": "hinfliegen" }
