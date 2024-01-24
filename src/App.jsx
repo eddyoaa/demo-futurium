@@ -19,6 +19,7 @@ import SliderMenu from "./components/SliderMenu";
 import SortByBar from "./components/SortByBar";
 import useGestureInterpreter from "./hooks/useGestureInterpreter";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
+import needHelpContent from "./locales/needHelp";
 
 const App = () => {
   // translator setup
@@ -31,42 +32,10 @@ const App = () => {
     }
   };
 
-  const needHelpContent = [
-    {
-      question: { en: "What do i see here?", de: "Was sehe ich hier?" },
-      answer: {
-        en: "This is a datagraph, blablablablaThis is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraphblablablabla",
-        de: "This is a datagraph, blablablablaThis is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraph blablablabla This is a datagraph, blablablabla This is a datagraph, blablablabla This is a datagraphblablablabla",
-      },
-    },
-    {
-      question: { en: "What can i do here?", de: "Was kann ich hier machen?" },
-      answer: {
-        en: "This is a datagraph, blablablabla",
-        de: "Hier siehst du einen Datengraphern, der ist bunt und hat viele ELemente die viel aussagen",
-      },
-    },
-  ];
-
   // states
   //const [choosenElement, setChoosenElement] = useState(false);
   const [showPanel, setShowPanel] = useState(false);
-  const [contentAnswer, setContentAnswer] = useState({
-    properties: {
-      CTime: "",
-      CDate: "",
-      answer: "",
-      keywords: [{ label: "", children: ["", ""] }],
-      question: "",
-    },
-    properties_en: {
-      CTime: "",
-      CDate: "",
-      answer: "",
-      keywords: [{ label: "", children: ["", ""] }],
-      question: "",
-    },
-  });
+  const [contentAnswer, setContentAnswer] = useState({});
   const [navigationState, setNavigationState] = useState("move");
   const [questions, setQuestions] = useState({ en: [], de: [], col: [] });
   const [selectedQuestions, setSelectedQuestions] = useState([]);
@@ -515,9 +484,9 @@ const App = () => {
         leaveFrom="opacity-100 translate-x-0"
         leaveTo="opacity-0 translate-x-12"
       >
-        <div className="flex flex-col max-w-sm 2xl:max-w-3xl justify-center items-end gap-2">
+        <div className="flex flex-col max-w-sm 2xl:max-w-3xl w-[768px] justify-center items-end gap-2">
           <div className="w-full flex" ref={inspectorRef}>
-            <div className="flex-col gap-4 flex">
+            <div className="flex-col gap-4 flex w-full">
               <InspectorAnswer
                 handleClickEvent={() => {
                   setFlyToButton((prev) => prev + 1);
@@ -544,7 +513,7 @@ const App = () => {
                     ? contentAnswer.properties_en
                     : contentAnswer.properties
                 }
-                mainColor={contentAnswer.colTopics}
+                mainColor={contentAnswer.colTags}
               />
             </div>
           </div>

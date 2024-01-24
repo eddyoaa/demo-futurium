@@ -166,7 +166,7 @@ const Menu = ({ items, onClickFunction, state, type, setState, col }) => {
               <p className="pl-4 font-bold flex 2xl:text-xl">
                 {i18n.language === "en" ? item.question.en : item.question.de}
               </p>
-              <p className="pl-4 max-h-52 font-normal flex 2xl:text-lg overflow-auto scrollbar-custom-black">
+              <p className="pl-4  flex-col max-h-52 font-normal flex 2xl:text-lg overflow-auto scrollbar-custom-black">
                 {i18n.language === "en" ? item.answer.en : item.answer.de}
               </p>
             </div>

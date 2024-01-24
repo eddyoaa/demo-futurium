@@ -15,7 +15,7 @@ const InspectorAnswer = ({
   return (
     <div
       className={`
-      transition-all justify-start text-white items-start flex-col gap-4 2xl:gap-6 max-h-[450px] 2xl:max-h-[1000px] flex drop-shadow-none 2xl:rounded-2xl 2xl:p-6 rounded-xl p-4`}
+      transition-all w-full justify-start text-white items-start flex-col gap-4 2xl:gap-6 max-h-[450px] 2xl:max-h-[1000px] flex drop-shadow-none 2xl:rounded-2xl 2xl:p-6 rounded-xl p-4`}
       style={{
         background: `linear-gradient(to right, #475569cc, #${mainColor.slice(
           0,
