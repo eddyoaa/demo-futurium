@@ -159,14 +159,14 @@ const Menu = ({ items, onClickFunction, state, type, setState, col }) => {
     );
   } else if (type === "needHelp") {
     return (
-      <div className="max-w-[655px] max-h-80 2xl:rounded-2xl 2xl:gap-8 2xl:p-8 2xl:px-12 bg-white drop-shadow-3xl rounded-lg p-4  w-full">
+      <div className="max-w-[655px] 2xl:rounded-2xl 2xl:gap-8 2xl:p-8 2xl:px-12 bg-white drop-shadow-3xl rounded-lg p-4 w-full">
         <Slider {...sliderSettings}>
           {items.map((item, i) => (
             <div key={i} className={`flex-col flex `}>
-              <p className="pl-4 font-bold flex 2xl:text-xl">
+              <p className="pl-4 font-bold flex 2xl:text-2xl">
                 {i18n.language === "en" ? item.question.en : item.question.de}
               </p>
-              <p className="pl-4  flex-col max-h-52 font-normal flex 2xl:text-lg overflow-auto scrollbar-custom-black">
+              <p className="pl-4 mt-4 flex-col max-h-72 font-normal flex 2xl:text-2xl overflow-auto scrollbar-custom-black">
                 {i18n.language === "en" ? item.answer.en : item.answer.de}
               </p>
             </div>
