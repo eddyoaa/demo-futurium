@@ -62,6 +62,7 @@ const App = () => {
   const [resetValue, setResetValue] = useState(0);
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
+  const [needHelpPage, setNeedHelpPage] = useState(0);
   // const [contentFacts, setContentFacts] = useState({
   //   properties_en: {
   //     facts: [],
@@ -250,6 +251,7 @@ const App = () => {
     i18n.changeLanguage("de");
     handleCloseButton();
     handleOutsideClick();
+    setNeedHelpPage(0);
   };
 
   // handling menu closure
@@ -535,7 +537,12 @@ const App = () => {
         showState={needHelpMenu}
         className="flex absolute bottom-36 right-40"
       >
-        <Menu type="needHelp" items={needHelpContent} />
+        <Menu
+          type="needHelp"
+          slidePage={needHelpPage}
+          setSlidePage={setNeedHelpPage}
+          items={needHelpContent}
+        />
       </MenuWrapper>
       <div className="flex flex-row justify-center items-center gap-4 absolute bottom-12 right-12">
         <div ref={languageRef}>

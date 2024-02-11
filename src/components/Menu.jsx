@@ -1,18 +1,21 @@
+import { useRef } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { ImRadioChecked2, ImRadioUnchecked } from "react-icons/im";
 import Slider from "react-slick";
 import ElementStyle from "./ElementStyle";
 import "./slick-carousel.css";
 
-const Menu = ({ items, onClickFunction, state, type, setState, col }) => {
+const Menu = ({
+  items,
+  onClickFunction,
+  state,
+  type,
+  setState,
+  col,
+  ...props
+}) => {
   const { i18n } = useTranslation();
-
-  const sliderSettings = {
-    dots: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  const sliderRef = useRef();
 
   if (type === "questionPicker") {
     const toggleAllQuestions = () => {
@@ -158,9 +161,21 @@ const Menu = ({ items, onClickFunction, state, type, setState, col }) => {
       </div>
     );
   } else if (type === "needHelp") {
+    const sliderSettings = {
+      dots: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      initialSlide: props.slidePage,
+    };
+
     return (
       <div className="max-w-[655px] 2xl:rounded-2xl 2xl:gap-8 2xl:p-8 2xl:px-12 bg-white drop-shadow-3xl rounded-lg p-4 w-full">
-        <Slider {...sliderSettings}>
+        <Slider
+          ref={sliderRef}
+          afterChange={(current) => props.setSlidePage(current)}
+          {...sliderSettings}
+        >
           {items.map((item, i) => (
             <div key={i} className={`flex-col flex `}>
               <p className="pl-4 font-bold flex 2xl:text-2xl">
