@@ -29,7 +29,7 @@
     "button": { "flyTo": "fly to" }
   },
   "menu": {
-    "selectAll": "Select all",
+    "selectAll": "Reset",
     "deSelectAll": "Deselect all"
   },
   "sliderMenu": {

@@ -1,6 +1,9 @@
 const ElementStyle = ({ choosenElement, elementType, ...props }) => {
   return (
     <div
+      style={{
+        borderColor: `${choosenElement ? `#${props.col}` : "white"}`,
+      }}
       className={`
       ${
         elementType === "questionPicker" || elementType === "topicPicker"
@@ -11,13 +14,13 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
      ${
        (elementType === "questionPicker" || elementType === "topicPicker") &&
        choosenElement === false
-         ? "opacity-30"
+         ? "pl-1 border-4 "
          : " "
      }  
      ${
        (elementType === "questionPicker" || elementType === "topicPicker") &&
        choosenElement === true
-         ? "opacity-100"
+         ? "pl-1 border-4 "
          : " "
      }  
      ${

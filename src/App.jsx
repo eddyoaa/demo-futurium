@@ -147,7 +147,13 @@ const App = () => {
   };
 
   const handleTopicSelect = (i) => {
-    const newSelectedTopics = selectedTopics.map((topic, index) => {
+    let newSelectedTopics = selectedTopics;
+    if (selectedTopics.every((v) => v === true)) {
+      newSelectedTopics = newSelectedTopics.map((topic, index) => {
+        return false;
+      });
+    }
+    newSelectedTopics = newSelectedTopics.map((topic, index) => {
       if (i === index) {
         return !topic;
       } else {

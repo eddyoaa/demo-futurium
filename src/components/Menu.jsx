@@ -82,15 +82,14 @@ const Menu = ({
       <div className="flex flex-col gap-2 2xl:rounded-2xl 2xl:gap-4 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
         <button
           onClick={toggleAllTopics}
-          className={`opacity-100 flex justify-center 2xl:text-2xl items-center p-2 rounded-lg 2xl:rounded-xl 2xl:p-3 active:bg-slate-200 bg-blue-200`}
+          disabled={state.every((v) => v === true)}
+          className={`${
+            state.every((v) => v === true)
+              ? "opacity-40"
+              : " active:bg-slate-200 opacity-100"
+          } flex justify-center 2xl:text-2xl items-center p-2 rounded-lg 2xl:rounded-xl 2xl:p-3 bg-blue-200`}
         >
-          <Trans
-            i18nKey={
-              state.every((v) => v === true)
-                ? "menu.deSelectAll"
-                : "menu.selectAll"
-            }
-          ></Trans>
+          <Trans i18nKey={"menu.selectAll"}></Trans>
         </button>
         {items.map((question, i) => (
           <div
@@ -101,7 +100,7 @@ const Menu = ({
             }}
           >
             <ElementStyle
-              choosenElement={state[i]}
+              choosenElement={state.every((v) => v === true) ? false : state[i]}
               elementType="topicPicker"
               col={col[i]}
             >

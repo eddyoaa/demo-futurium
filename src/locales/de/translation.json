@@ -29,7 +29,7 @@
     "button": { "flyTo": "hinfliegen" }
   },
   "menu": {
-    "selectAll": "Alle auswählen",
+    "selectAll": "Zurücksetzen",
     "deSelectAll": "Alle abwählen"
   },
   "sliderMenu": {
