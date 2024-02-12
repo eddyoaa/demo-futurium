@@ -55,7 +55,7 @@ const InspectorTags = ({ content, mainColor, choosen, handleCloseButton }) => {
         <h2 className="font-normal text-lg 2xl:text-3xl">
           <Trans i18nKey="inspector.title.answer.tags"></Trans>
         </h2>
-        <div className="max-h-32 pr-4 overflow-y-auto scrollbar-custom w-full flex flex-row flex-wrap gap-x-12 gap-y-4 content items-start">
+        <div className="max-h-40 pr-4 overflow-y-auto scrollbar-custom w-full flex flex-row flex-wrap gap-x-12 gap-y-4 content items-start">
           {tagsItems}
         </div>
       </div>

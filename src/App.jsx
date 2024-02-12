@@ -279,11 +279,8 @@ const App = () => {
     setNavigationState("move");
     i18n.changeLanguage("de");
     handleCloseButton();
-    setQuestionMenu(false);
-    setTopicsMenu(false);
-    setLatestAnswerMenu(false);
-    setLanguageMenu(false);
-    setSliderMenu(false);
+    handleOutsideClick();
+    setNeedHelpPage(0);
   };
 
   // handling menu closure
