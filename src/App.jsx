@@ -150,6 +150,11 @@ const App = () => {
         return question;
       }
     });
+    if (newSelectedQuestions.every((v) => v === false)) {
+      newSelectedQuestions = newSelectedQuestions.map((question, index) => {
+        return true;
+      });
+    }
     setSelectedQuestions(newSelectedQuestions);
   };
 
@@ -167,6 +172,11 @@ const App = () => {
         return topic;
       }
     });
+    if (newSelectedTopics.every((v) => v === false)) {
+      newSelectedTopics = newSelectedTopics.map((question, index) => {
+        return true;
+      });
+    }
     setSelectedTopics(newSelectedTopics);
   };
 
@@ -561,14 +571,6 @@ const App = () => {
                   }
                   mainColor={contentAnswer.colAnswer}
                 />
-                <InspectorTags
-                  content={
-                    i18n.language === "en"
-                      ? contentAnswer.properties_en
-                      : contentAnswer.properties
-                  }
-                  mainColor={contentAnswer.colTags}
-                />
                 <InspectorQuestions
                   content={
                     i18n.language === "en"
@@ -576,6 +578,14 @@ const App = () => {
                       : contentAnswer.properties
                   }
                   mainColor={contentAnswer.colQuestion}
+                />
+                <InspectorTags
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTags}
                 />
               </div>
             )}
@@ -599,14 +609,6 @@ const App = () => {
                   }
                   mainColor={contentAnswer.colAnswer}
                 />
-                <InspectorTopics
-                  content={
-                    i18n.language === "en"
-                      ? contentAnswer.properties_en
-                      : contentAnswer.properties
-                  }
-                  mainColor={contentAnswer.colTopics}
-                />
                 <InspectorQuestions
                   content={
                     i18n.language === "en"
@@ -614,6 +616,14 @@ const App = () => {
                       : contentAnswer.properties
                   }
                   mainColor={contentAnswer.colQuestion}
+                />
+                <InspectorTopics
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTopics}
                 />
               </div>
             )}
@@ -628,14 +638,6 @@ const App = () => {
                   choosen={true}
                   handleCloseButton={handleCloseButton}
                   mainColor={contentAnswer.colQuestion}
-                />
-                <InspectorTags
-                  content={
-                    i18n.language === "en"
-                      ? contentAnswer.properties_en
-                      : contentAnswer.properties
-                  }
-                  mainColor={contentAnswer.colTags}
                 />
                 <InspectorAnswer
                   content={
@@ -652,6 +654,14 @@ const App = () => {
                       : contentAnswer.properties
                   }
                   mainColor={contentAnswer.colTopics}
+                />
+                <InspectorTags
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTags}
                 />
               </div>
             )}

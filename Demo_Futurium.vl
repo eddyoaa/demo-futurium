@@ -1448,7 +1448,7 @@
               <Choice Kind="TypeFlag" Name="String" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="LFND9UKwzt0MtHR6BeO2cE" Comment="Index" Bounds="1802,532,35,15" ShowValueBox="true" isIOBox="true" Value="4">
+          <Pad Id="LFND9UKwzt0MtHR6BeO2cE" Comment="Index" Bounds="1802,532,35,15" ShowValueBox="true" isIOBox="true" Value="1">
             <p:TypeAnnotation LastCategoryFullName="Primitive" LastDependency="VL.CoreLib.vl">
               <Choice Kind="TypeFlag" Name="Integer32" />
             </p:TypeAnnotation>
