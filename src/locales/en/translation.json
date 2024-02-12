@@ -21,12 +21,12 @@
         "general": "- general"
       },
       "answer": {
-        "topic": "Associated topic",
+        "topic": "Associated topics",
         "tags": "Associated keywords",
         "question": "Associated questions",
         "answer": "Associated answers"
       },
-      "topic": { "topic": "Choosen Topic" },
+      "topic": { "topic": "Choosen topic" },
       "tags": { "tags": "Choosen keyword" },
       "question": { "question": "Choosen question" }
     },

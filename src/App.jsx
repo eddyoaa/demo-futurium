@@ -332,6 +332,13 @@ const App = () => {
         } else {
           setContentAnswer(receivedValue.content);
           setShowPanel(true);
+          if (
+            selectedLatestAnswer !== -1 &&
+            receivedValue.content.properties.answers[0].answer !==
+              latestAnswers[selectedLatestAnswer].answer.de
+          ) {
+            setSelectedLatestAnswer(-1);
+          }
         }
       }
       if (receivedValue.hasOwnProperty("Questions")) {
