@@ -14,13 +14,13 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
      ${
        (elementType === "questionPicker" || elementType === "topicPicker") &&
        choosenElement === false
-         ? "pl-1 border-4 "
+         ? "p-1 border-4 "
          : " "
      }  
      ${
        (elementType === "questionPicker" || elementType === "topicPicker") &&
        choosenElement === true
-         ? "pl-1 border-4 "
+         ? "p-1 border-4 "
          : " "
      }  
      ${

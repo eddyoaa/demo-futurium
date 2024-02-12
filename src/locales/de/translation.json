@@ -24,6 +24,10 @@
         "topic": "Verknüpfte Themen",
         "answer": "{{contentDate}}  -  {{contentTime}}",
         "tags": "Verknüpfte Schlagwörter"
+      },
+      "topic": {
+        "topic": "Ausgewähltes Thema",
+        "tags": "Verknüpfte Schlagwörter"
       }
     },
     "button": { "flyTo": "hinfliegen" }

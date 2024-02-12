@@ -33,7 +33,7 @@ const App = () => {
   };
 
   // states
-  //const [choosenElement, setChoosenElement] = useState(false);
+  // const [choosenElement, setChoosenElement] = useState("");
   const [showPanel, setShowPanel] = useState(false);
   const [contentAnswer, setContentAnswer] = useState({});
   const [navigationState, setNavigationState] = useState("move");
@@ -136,7 +136,13 @@ const App = () => {
   };
 
   const handleQuestionSelected = (i) => {
-    const newSelectedQuestions = selectedQuestions.map((question, index) => {
+    let newSelectedQuestions = selectedQuestions;
+    if (selectedQuestions.every((v) => v === true)) {
+      newSelectedQuestions = newSelectedQuestions.map((question, index) => {
+        return false;
+      });
+    }
+    newSelectedQuestions = newSelectedQuestions.map((question, index) => {
       if (i === index) {
         return !question;
       } else {
@@ -256,8 +262,11 @@ const App = () => {
     setNavigationState("move");
     i18n.changeLanguage("de");
     handleCloseButton();
-    handleOutsideClick();
-    setNeedHelpPage(0);
+    setQuestionMenu(false);
+    setTopicsMenu(false);
+    setLatestAnswerMenu(false);
+    setLanguageMenu(false);
+    setSliderMenu(false);
   };
 
   // handling menu closure
@@ -344,6 +353,9 @@ const App = () => {
       if (receivedValue.hasOwnProperty("LatestAnswers")) {
         setLatestAnswers(receivedValue.LatestAnswers);
       }
+      // if (receivedValue.hasOwnProperty("ChoosenElement")) {
+      //   setChoosenElement(receivedValue.ChoosenElement);
+      // }
     }
   }, [lastMessage, sendMessage]);
 
@@ -494,6 +506,7 @@ const App = () => {
       >
         <div className="flex flex-col max-w-sm 2xl:max-w-3xl w-[768px] justify-center items-end gap-2">
           <div className="w-full flex" ref={inspectorRef}>
+            {/* {choosenElement === "answer" && ( */}
             <div className="flex-col gap-4 flex w-full">
               <InspectorAnswer
                 handleClickEvent={() => {
@@ -506,6 +519,7 @@ const App = () => {
                     : contentAnswer.properties
                 }
                 mainColor={contentAnswer.colAnswer}
+                choosen={true}
               />
               <InspectorTopics
                 content={
@@ -524,6 +538,73 @@ const App = () => {
                 mainColor={contentAnswer.colTags}
               />
             </div>
+            {/* )} */}
+            {/* {choosenElement === "topic" && (
+              <div className="flex-col gap-4 flex w-full">
+                <InspectorTopics
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTopics}
+                  choosen={true}
+                />
+                <InspectorAnswer
+                  handleClickEvent={() => {
+                    setFlyToButton((prev) => prev + 1);
+                  }}
+                  handleCloseButton={handleCloseButton}
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colAnswer}
+                />
+                <InspectorTags
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTags}
+                />
+              </div>
+            )}
+            {choosenElement === "tag" && (
+              <div className="flex-col gap-4 flex w-full">
+                <InspectorTags
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTags}
+                  choosen={true}
+                />
+                <InspectorAnswer
+                  handleClickEvent={() => {
+                    setFlyToButton((prev) => prev + 1);
+                  }}
+                  handleCloseButton={handleCloseButton}
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colAnswer}
+                />
+                <InspectorTopics
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTopics}
+                />
+              </div>
+            )} */}
           </div>
         </div>
       </Transition>

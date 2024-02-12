@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+/GPUCache
+/Zwischenstand
 
 # misc
 .DS_Store

@@ -47,7 +47,7 @@ module.exports = {
         },
         ".scrollbar-custom": {
           "scrollbar-width": "thin",
-          "scrollbar-color": "#FFFFFF #85b4ff",
+          "scrollbar-color": "#FFFFFF transparent",
           "z-index": "30",
 
           /* Chrome, Edge, and Safari */
@@ -56,7 +56,7 @@ module.exports = {
           },
           "&::-webkit-scrollbar-track": {
             background: "transparent",
-            "border-radius": "10px",
+            borderRadius: "10px",
           },
 
           "&::-webkit-scrollbar-thumb": {
@@ -73,7 +73,7 @@ module.exports = {
         },
         ".scrollbar-custom-black": {
           "scrollbar-width": "thin",
-          "scrollbar-color": "#000000 #85b4ff",
+          "scrollbar-color": "#000000 transparent",
           "z-index": "30",
 
           /* Chrome, Edge, and Safari */
