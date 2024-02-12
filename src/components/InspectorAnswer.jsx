@@ -9,8 +9,8 @@ const InspectorAnswer = ({
   mainColor,
 }) => {
   const { t, i18n } = useTranslation();
-  let contentTime = content.CTime;
-  let contentDate = content.CDate;
+  let contentTime = content.answers[0].CTime;
+  let contentDate = content.answers[0].CDate;
   console.log(mainColor);
   return (
     <div
@@ -33,10 +33,10 @@ const InspectorAnswer = ({
       </div>
       <div className="flex flex-col w-full items-start scrollbar-custom h-full pr-4 2xl:pr-6 gap-6 2xl:gap-8 overflow-y-auto">
         <ElementStyle elementType={"question"} col={mainColor}>
-          {content.question}
+          {content.questions[0].question}
         </ElementStyle>
         <ElementStyle elementType={"answer"} col={mainColor}>
-          "{content.answer}"
+          "{content.answers[0].answer}"
         </ElementStyle>
       </div>
       <div className="w-full flex justify-end">

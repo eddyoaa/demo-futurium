@@ -353,9 +353,6 @@ const App = () => {
       if (receivedValue.hasOwnProperty("LatestAnswers")) {
         setLatestAnswers(receivedValue.LatestAnswers);
       }
-      // if (receivedValue.hasOwnProperty("ChoosenElement")) {
-      //   setChoosenElement(receivedValue.ChoosenElement);
-      // }
     }
   }, [lastMessage, sendMessage]);
 
@@ -506,39 +503,39 @@ const App = () => {
       >
         <div className="flex flex-col max-w-sm 2xl:max-w-3xl w-[768px] justify-center items-end gap-2">
           <div className="w-full flex" ref={inspectorRef}>
-            {/* {choosenElement === "answer" && ( */}
-            <div className="flex-col gap-4 flex w-full">
-              <InspectorAnswer
-                handleClickEvent={() => {
-                  setFlyToButton((prev) => prev + 1);
-                }}
-                handleCloseButton={handleCloseButton}
-                content={
-                  i18n.language === "en"
-                    ? contentAnswer.properties_en
-                    : contentAnswer.properties
-                }
-                mainColor={contentAnswer.colAnswer}
-                choosen={true}
-              />
-              <InspectorTopics
-                content={
-                  i18n.language === "en"
-                    ? contentAnswer.properties_en
-                    : contentAnswer.properties
-                }
-                mainColor={contentAnswer.colTopics}
-              />
-              <InspectorTags
-                content={
-                  i18n.language === "en"
-                    ? contentAnswer.properties_en
-                    : contentAnswer.properties
-                }
-                mainColor={contentAnswer.colTags}
-              />
-            </div>
-            {/* )} */}
+            {contentAnswer.ChoosenElement === "answer" && (
+              <div className="flex-col gap-4 flex w-full">
+                <InspectorAnswer
+                  handleClickEvent={() => {
+                    setFlyToButton((prev) => prev + 1);
+                  }}
+                  handleCloseButton={handleCloseButton}
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colAnswer}
+                  choosen={true}
+                />
+                <InspectorTopics
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTopics}
+                />
+                <InspectorTags
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTags}
+                />
+              </div>
+            )}
             {/* {choosenElement === "topic" && (
               <div className="flex-col gap-4 flex w-full">
                 <InspectorTopics
