@@ -59,8 +59,8 @@ const InspectorTopics = ({
         <h2 className="font-normal text-lg 2xl:text-3xl">
           <Trans i18nKey="inspector.title.answer.topic"></Trans>
         </h2>
-        <div className="max-h-32 overflow-y-auto scrollbar-custom w-full gap-3 flex items-center ">
-          <div className="flex 2xl:gap-1 h-full flex-col">{topicItems}</div>
+        <div className="max-h-48 overflow-y-auto scrollbar-custom w-full gap-3 flex items-center ">
+          <div className="flex 2xl:gap-2 h-full flex-col">{topicItems}</div>
         </div>
       </div>
     );

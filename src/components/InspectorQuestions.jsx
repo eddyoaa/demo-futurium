@@ -59,8 +59,8 @@ const InspectorQuestions = ({
         <h2 className="font-normal text-lg 2xl:text-3xl">
           <Trans i18nKey="inspector.title.answer.question"></Trans>
         </h2>
-        <div className="gap-4 flex items-center max-h-48 overflow-y-auto scrollbar-custom pr-4">
-          <div className="flex h-full 2xl:gap-1 flex-col">{questionItems}</div>
+        <div className="gap-3 flex items-center max-h-48 overflow-y-auto scrollbar-custom pr-4">
+          <div className="flex h-full 2xl:gap-4 flex-col">{questionItems}</div>
         </div>
       </div>
     );

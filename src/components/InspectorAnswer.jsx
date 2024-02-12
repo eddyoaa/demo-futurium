@@ -62,7 +62,7 @@ const InspectorAnswer = ({
         <h2 className="font-normal text-lg 2xl:text-3xl">
           <Trans i18nKey="inspector.title.answer.answer"></Trans>
         </h2>
-        <div className="gap-4 flex h-full flex-col w-full items-center max-h-[550px] overflow-y-auto scrollbar-custom scrollBarSupport:scrollbar-custom-support pr-4">
+        <div className="gap-6 flex h-full flex-col w-full items-center max-h-[550px] overflow-y-auto scrollbar-custom scrollBarSupport:scrollbar-custom-support pr-4">
           {content.answers.map((item, i) => (
             <div key={i} className="flex gap-4 justify-start w-full">
               <div
