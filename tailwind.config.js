@@ -19,6 +19,12 @@ module.exports = {
     },
   },
   plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant(
+        "scrollBarSupport",
+        "@supports not selector(::-webkit-scrollbar)"
+      );
+    }),
     plugin(function ({ addUtilities }) {
       addUtilities({
         ".noSelect": {
@@ -45,11 +51,12 @@ module.exports = {
             display: "none",
           },
         },
-        ".scrollbar-custom": {
+        ".scrollbar-custom-support": {
           "scrollbar-width": "thin",
           "scrollbar-color": "#FFFFFF transparent",
           "z-index": "30",
-
+        },
+        ".scrollbar-custom": {
           /* Chrome, Edge, and Safari */
           "&::-webkit-scrollbar": {
             width: "4px",
@@ -71,11 +78,12 @@ module.exports = {
             background: "#5999ff",
           },
         },
-        ".scrollbar-custom-black": {
+        ".scrollbar-custom-black-support": {
           "scrollbar-width": "thin",
           "scrollbar-color": "#000000 transparent",
           "z-index": "30",
-
+        },
+        ".scrollbar-custom-black": {
           /* Chrome, Edge, and Safari */
           "&::-webkit-scrollbar": {
             width: "4px",

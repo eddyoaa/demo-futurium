@@ -22,13 +22,13 @@
       },
       "answer": {
         "topic": "Verknüpfte Themen",
-        "answer": "{{contentDate}}  -  {{contentTime}}",
-        "tags": "Verknüpfte Schlagwörter"
+        "tags": "Verknüpfte Schlagwörter",
+        "question": "Verknüpfte Fragen",
+        "answer": "Verknüpfte Antworten"
       },
-      "topic": {
-        "topic": "Ausgewähltes Thema",
-        "tags": "Verknüpfte Schlagwörter"
-      }
+      "topic": { "topic": "Ausgewähltes Thema" },
+      "tags": { "tags": "Ausgewähltes Schlagwort" },
+      "question": { "question": "Ausgewählte Frage" }
     },
     "button": { "flyTo": "hinfliegen" }
   },

@@ -1,7 +1,13 @@
 import { Trans, useTranslation } from "react-i18next";
+import CloseButton from "./CloseButton";
 import ElementStyle from "./ElementStyle";
 
-const InspectorTopics = ({ content, mainColor, choosen }) => {
+const InspectorTopics = ({
+  content,
+  mainColor,
+  handleCloseButton,
+  choosen,
+}) => {
   const { i18n } = useTranslation();
 
   if (choosen) {
@@ -16,17 +22,16 @@ const InspectorTopics = ({ content, mainColor, choosen }) => {
           )}99)`,
         }}
       >
-        <h2 className="font-normal text-lg 2xl:text-3xl">
-          <Trans i18nKey="inspector.title.topic.topic"></Trans>
-        </h2>
-        <div className="gap-3 flex items-center ">
-          <div
-            className={`w-1 h-full rounded-xl`}
-            style={{
-              background: `#${mainColor}`,
-            }}
-          ></div>
-          <div className="flex 2xl:gap-1 flex-col">{content.topic}</div>
+        <div className="flex justify-between items-center w-full">
+          <h2 className="font-normal text-lg 2xl:text-3xl">
+            <Trans i18nKey="inspector.title.topic.topic"></Trans>
+          </h2>
+          <CloseButton clickEvent={handleCloseButton} />
+        </div>
+        <div className="flex 2xl:gap-1 flex-col">
+          <ElementStyle elementType={"topic"} col={mainColor}>
+            {content.keywords[0].label}
+          </ElementStyle>
         </div>
       </div>
     );
@@ -34,11 +39,9 @@ const InspectorTopics = ({ content, mainColor, choosen }) => {
     let topicItems = [];
     if (content !== undefined) {
       topicItems = content.keywords.map((keyword, i) => (
-        <>
-          <ElementStyle key={i} elementType={"topic"}>
-            {keyword.label}
-          </ElementStyle>
-        </>
+        <ElementStyle key={i} elementType={"topic"} col={mainColor}>
+          {keyword.label}
+        </ElementStyle>
       ));
     }
 
@@ -56,14 +59,8 @@ const InspectorTopics = ({ content, mainColor, choosen }) => {
         <h2 className="font-normal text-lg 2xl:text-3xl">
           <Trans i18nKey="inspector.title.answer.topic"></Trans>
         </h2>
-        <div className="gap-3 flex items-center ">
-          <div
-            className={`w-1 h-full rounded-xl`}
-            style={{
-              background: `#${mainColor}`,
-            }}
-          ></div>
-          <div className="flex 2xl:gap-1 flex-col">{topicItems}</div>
+        <div className="max-h-32 overflow-y-auto scrollbar-custom w-full gap-3 flex items-center ">
+          <div className="flex 2xl:gap-1 h-full flex-col">{topicItems}</div>
         </div>
       </div>
     );

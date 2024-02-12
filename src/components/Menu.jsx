@@ -133,29 +133,42 @@ const Menu = ({
   } else if (type === "answerPicker") {
     return (
       <div className="max-w-4xl scrollbar-custom overflow-auto 2xl:rounded-2xl 2xl:gap-8 2xl:p-4 bg-white drop-shadow-3xl rounded-lg p-4 h-full w-full">
-        <div className="scrollbar-custom-black overflow-auto flex flex-col gap-1 2xl:rounded-2xl 2xl:gap-2 2xl:py-8 pr-4 h-full w-full">
+        <div className="scrollbar-custom-black overflow-auto flex flex-col gap-1 2xl:rounded-2xl 2xl:gap-2 2xl:py-2 pr-4 h-full w-full">
           {items.map((item, i) => (
             <div
               key={i}
               style={{
                 borderColor: `${i === state ? `#${item.answer.col}` : "white"}`,
+                backgroundColor: `${
+                  i === state
+                    ? `#${item.answer.col.slice(0, 6)}10`
+                    : "transparent"
+                }`,
               }}
-              className={`rounded-2xl h-full  w-full flex-col flex border-4 p-2 ${
+              className={`rounded-2xl h-full items-center gap-4 w-full flex border-4 p-2 ${
                 item.enabled ? "active:bg-slate-200 opacity-100" : "opacity-30"
               }`}
               onClick={() => {
                 item.enabled && onClickFunction(i);
               }}
             >
-              <p className="pl-4 font-normal flex text-xs 2xl:text-lg">
-                {i18n.language === "en" ? item.date.en : item.date.de}
-              </p>
-              <ElementStyle
-                elementType="answerLatestAnswer"
-                col={item.answer.col}
-              >
-                {i18n.language === "en" ? item.answer.en : item.answer.de}
-              </ElementStyle>
+              <div
+                style={{
+                  background: `#${item.answer.col}`,
+                }}
+                className="w-1 rounded-xl h-[90%]"
+              ></div>
+              <div className={`rounded-2xl h-full w-full flex-col flex`}>
+                <p className="font-normal flex text-xs 2xl:text-lg">
+                  {i18n.language === "en" ? item.date.en : item.date.de}
+                </p>
+                <ElementStyle
+                  elementType="answerLatestAnswer"
+                  col={item.answer.col}
+                >
+                  {i18n.language === "en" ? item.answer.en : item.answer.de}
+                </ElementStyle>
+              </div>
             </div>
           ))}
         </div>

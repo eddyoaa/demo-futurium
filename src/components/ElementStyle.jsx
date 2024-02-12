@@ -3,6 +3,9 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
     <div
       style={{
         borderColor: `${choosenElement ? `#${props.col}` : "white"}`,
+        backgroundColor: `${
+          choosenElement ? `#${props.col.slice(0, 6)}10` : "transparent"
+        }`,
       }}
       className={`
       ${
@@ -20,7 +23,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
      ${
        (elementType === "questionPicker" || elementType === "topicPicker") &&
        choosenElement === true
-         ? "p-1 border-4 "
+         ? "p-1 border-4"
          : " "
      }  
      ${
@@ -86,8 +89,8 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
       {(elementType === "questionPicker" ||
         elementType === "topicPicker" ||
         elementType === "question" ||
-        elementType === "answerLatestAnswer" ||
         elementType === "tags" ||
+        elementType === "topic" ||
         elementType === "answer") && (
         <div
           className={`w-1 rounded-xl ${
@@ -109,8 +112,7 @@ const ElementStyle = ({ choosenElement, elementType, ...props }) => {
           elementType === "answerLatestAnswer" || elementType === "answer"
             ? "leading-tight tracking-normal"
             : ""
-        }
-        ${elementType === "answerLatestAnswer" ? "" : ""}`}
+        }`}
       >
         {props.children}
       </p>

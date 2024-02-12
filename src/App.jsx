@@ -9,6 +9,7 @@ import Button from "./components/Button";
 import HomeButton from "./components/HomeButton";
 import InspectorAnswer from "./components/InspectorAnswer";
 //import InspectorFacts from "./components/InspectorFacts";
+import InspectorQuestions from "./components/InspectorQuestions";
 import InspectorTags from "./components/InspectorTags";
 import InspectorTopics from "./components/InspectorTopics";
 import LanguageButton from "./components/LanguageButton";
@@ -188,7 +189,11 @@ const App = () => {
   };
 
   const handleLatestAnswerSelected = (i) => {
-    setSelectedLatestAnswer(i);
+    if (i === selectedLatestAnswer) {
+      setSelectedLatestAnswer(-1);
+    } else {
+      setSelectedLatestAnswer(i);
+    }
   };
 
   const handleNavigationSwitch = (element) => {
@@ -536,7 +541,7 @@ const App = () => {
                 />
               </div>
             )}
-            {/* {choosenElement === "topic" && (
+            {contentAnswer.ChoosenElement === "topic" && (
               <div className="flex-col gap-4 flex w-full">
                 <InspectorTopics
                   content={
@@ -546,12 +551,9 @@ const App = () => {
                   }
                   mainColor={contentAnswer.colTopics}
                   choosen={true}
+                  handleCloseButton={handleCloseButton}
                 />
                 <InspectorAnswer
-                  handleClickEvent={() => {
-                    setFlyToButton((prev) => prev + 1);
-                  }}
-                  handleCloseButton={handleCloseButton}
                   content={
                     i18n.language === "en"
                       ? contentAnswer.properties_en
@@ -566,10 +568,18 @@ const App = () => {
                       : contentAnswer.properties
                   }
                   mainColor={contentAnswer.colTags}
+                />
+                <InspectorQuestions
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colQuestion}
                 />
               </div>
             )}
-            {choosenElement === "tag" && (
+            {contentAnswer.ChoosenElement === "keyword" && (
               <div className="flex-col gap-4 flex w-full">
                 <InspectorTags
                   content={
@@ -579,12 +589,55 @@ const App = () => {
                   }
                   mainColor={contentAnswer.colTags}
                   choosen={true}
+                  handleCloseButton={handleCloseButton}
                 />
                 <InspectorAnswer
-                  handleClickEvent={() => {
-                    setFlyToButton((prev) => prev + 1);
-                  }}
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colAnswer}
+                />
+                <InspectorTopics
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTopics}
+                />
+                <InspectorQuestions
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colQuestion}
+                />
+              </div>
+            )}
+            {contentAnswer.ChoosenElement === "question" && (
+              <div className="flex-col gap-4 flex w-full">
+                <InspectorQuestions
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  choosen={true}
                   handleCloseButton={handleCloseButton}
+                  mainColor={contentAnswer.colQuestion}
+                />
+                <InspectorTags
+                  content={
+                    i18n.language === "en"
+                      ? contentAnswer.properties_en
+                      : contentAnswer.properties
+                  }
+                  mainColor={contentAnswer.colTags}
+                />
+                <InspectorAnswer
                   content={
                     i18n.language === "en"
                       ? contentAnswer.properties_en
@@ -601,7 +654,7 @@ const App = () => {
                   mainColor={contentAnswer.colTopics}
                 />
               </div>
-            )} */}
+            )}
           </div>
         </div>
       </Transition>

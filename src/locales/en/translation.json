@@ -21,10 +21,14 @@
         "general": "- general"
       },
       "answer": {
-        "topic": "Associated keywords",
-        "answer": "{{contentDate}}  -  {{contentTime}}",
-        "tags": "Associated tags"
-      }
+        "topic": "Associated topic",
+        "tags": "Associated keywords",
+        "question": "Associated questions",
+        "answer": "Associated answers"
+      },
+      "topic": { "topic": "Choosen Topic" },
+      "tags": { "tags": "Choosen keyword" },
+      "question": { "question": "Choosen question" }
     },
     "button": { "flyTo": "fly to" }
   },
