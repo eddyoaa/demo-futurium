@@ -19,6 +19,7 @@ import NavigationButton from "./components/NavigationButton";
 import SliderMenu from "./components/SliderMenu";
 import SortByBar from "./components/SortByBar";
 import useGestureInterpreter from "./hooks/useGestureInterpreter";
+import useInterfaceClick from "./hooks/useInterfaceClick";
 import useOutsideClickMenu from "./hooks/useOutsideClickMenu";
 import needHelpContent from "./locales/needHelp";
 
@@ -64,6 +65,7 @@ const App = () => {
   const [sliderValues, setSliderValues] = useState({});
   const [sliderPresets, setSliderPresets] = useState([{}, {}, {}]);
   const [needHelpPage, setNeedHelpPage] = useState(0);
+  const [interfaceClick, setInterfaceClick] = useState(0);
   // const [contentFacts, setContentFacts] = useState({
   //   properties_en: {
   //     facts: [],
@@ -309,6 +311,27 @@ const App = () => {
     handleOutsideClick
   );
 
+  //handle Interface Click
+  const handleInterfaceClick = () => {
+    setInterfaceClick((prev) => prev + 1);
+  };
+
+  useInterfaceClick(
+    [
+      inspectorRef,
+      languageRef,
+      needHelpRef,
+      buttonRef,
+      sortByMenuRef,
+      latestAnswerMenuRef,
+      questionMenuRef,
+      topicsMenuRef,
+      sliderMenuRef,
+      needHelpMenuRef,
+    ],
+    handleInterfaceClick
+  );
+
   // handling touch inputs
   const handleGesture = (e, type) => {
     setTouchPosition(e.movement);
@@ -329,6 +352,7 @@ const App = () => {
       if (receivedValue.hasOwnProperty("content")) {
         if (receivedValue.content === "") {
           setShowPanel(false);
+          setSelectedLatestAnswer(-1);
         } else {
           setContentAnswer(receivedValue.content);
           setShowPanel(true);
@@ -397,6 +421,7 @@ const App = () => {
       flyToButton: flyToButton,
       sliderValues: sliderValues,
       closeButton: closeButton,
+      interfaceClick: interfaceClick,
     });
     sendMessage(message);
   }, [
@@ -416,6 +441,7 @@ const App = () => {
     flyToButton,
     sliderValues,
     closeButton,
+    interfaceClick,
   ]);
 
   return (

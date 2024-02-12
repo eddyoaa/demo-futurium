@@ -34,9 +34,7 @@ const InspectorTags = ({ content, mainColor, choosen, handleCloseButton }) => {
     let tags = [];
     if (content !== undefined) {
       tags = content.keywords.map((keywords) => keywords.children);
-      console.log(tags);
       tags = tags.flat(1);
-      console.log(tags);
       tagsItems = tags.map((keyword, i) => (
         <ElementStyle key={i} elementType={"tags"} col={mainColor}>
           {keyword}

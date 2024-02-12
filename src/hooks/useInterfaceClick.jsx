@@ -6,23 +6,23 @@ function useInterfaceClick(refs, handleMouseMove) {
     refs.forEach((element) => {
       if (element.current && element.current.contains(event.target)) {
         interfaceClick = true;
+        handleMouseMove();
         //console.log("INTERFACE");
       }
     });
     if (!interfaceClick) {
-      handleMouseMove(event);
       //console.log("NOT INTERFACE");
     }
   }
 
   useEffect(() => {
-    document.addEventListener("mousemove", handleMove);
+    document.addEventListener("click", handleMove);
     document.addEventListener("touchmove", handleMove);
     document.addEventListener("touchend", handleMove);
     document.addEventListener("touchstart", handleMove);
     document.addEventListener("touchcancel", handleMove);
     return () => {
-      document.removeEventListener("mousemove", handleMove);
+      document.removeEventListener("click", handleMove);
       document.removeEventListener("touchmove", handleMove);
       document.removeEventListener("touchend", handleMove);
       document.removeEventListener("touchstart", handleMove);
